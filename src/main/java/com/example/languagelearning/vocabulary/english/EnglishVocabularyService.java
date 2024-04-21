@@ -63,8 +63,7 @@ public class EnglishVocabularyService implements VocabularyService {
             }
         }
 
-        List<VocabularyTopic> result = extractValuesFromCompletableFutures(topicsCompletableFutures);
-        return result;
+        return extractValuesFromCompletableFutures(topicsCompletableFutures);
     }
 
     @Async
