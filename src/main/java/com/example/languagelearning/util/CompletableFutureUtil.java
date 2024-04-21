@@ -9,7 +9,7 @@ import java.util.concurrent.ExecutionException;
 
 public final class CompletableFutureUtil {
 
-    public static  <T> T tryToExtractSingleCompletedFutureElement(CompletableFuture<T> completableFuture) {
+    public static <T> T tryToExtractSingleCompletedFutureElement(CompletableFuture<T> completableFuture) {
         try {
             return completableFuture.get();
         } catch (ExecutionException e) {
@@ -21,7 +21,7 @@ public final class CompletableFutureUtil {
         }
     }
 
-    public static  <T> List<T> extractValuesFromCompletableFutures(List<CompletableFuture<T>> topicsCompletableFutures) {
+    public static <T> List<T> extractValuesFromCompletableFutures(List<CompletableFuture<T>> topicsCompletableFutures) {
         CompletableFuture.allOf(topicsCompletableFutures.toArray(new CompletableFuture[0]))
                 .exceptionally(ex -> null)
                 .join();

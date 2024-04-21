@@ -9,13 +9,13 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value = {ApplicationException.class })
+    @ExceptionHandler(value = {ApplicationException.class})
     public ResponseEntity<ErrorDto> onApplicationException(ApplicationException ex) {
         ErrorDto errorDto = new ErrorDto(ex.getMessage());
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorDto);
     }
 
-    @ExceptionHandler(value = {ClientException.class })
+    @ExceptionHandler(value = {ClientException.class})
     public ResponseEntity<ErrorDto> onClientException(ClientException ex) {
         ErrorDto errorDto = new ErrorDto(ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorDto);

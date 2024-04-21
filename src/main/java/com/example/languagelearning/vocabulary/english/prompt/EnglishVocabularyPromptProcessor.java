@@ -4,14 +4,14 @@ public final class EnglishVocabularyPromptProcessor {
     public static String getPromptForSubtopic1LevelNames(String keyword) {
         return "Break the word " + keyword + " into vocabulary subtopics with one level of nesting in  only JSON format. " +
                 """
-     The output follows this json structure:
-   {
-        "entries": [{"subtopic0LevelName": "", "subtopic1LevelNames": []}]
-   }
+                          The output follows this json structure:
+                        {
+                             "entries": [{"subtopic0LevelName": "", "subtopic1LevelNames": []}]
+                        }
 
-    Note, that the size of entries array is up to 6, the size of subtopic1LevelNames is up to 4,
-     that contains strings
-                        """;
+                         Note, that the size of entries array is up to 6, the size of subtopic1LevelNames is up to 4,
+                          that contains strings
+                                             """;
     }
 
     public static String getPromptForSubtopic1LevelVerbs(EnglishVocabularyPromptParameters promptParameters) {
@@ -29,7 +29,7 @@ public final class EnglishVocabularyPromptProcessor {
                         -englishWord
                         """ +
                 "\n-wordTranslation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
-                        """
+                """
                         -presentPerfectForm
                         -pastSimpleForm
                         -englishDefinition
@@ -55,11 +55,11 @@ public final class EnglishVocabularyPromptProcessor {
                         """ +
                 "\n-wordTranslation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
                 """
-                -englishDefinition
-                -preposition (if it has)
-                -englishExampleSentence
-                -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
-                """;
+                        -englishDefinition
+                        -preposition (if it has)
+                        -englishExampleSentence
+                        -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
+                        """;
     }
 
     public static String getPromptForSubtopic1LevelAdjectives(EnglishVocabularyPromptParameters promptParameters) {
@@ -78,11 +78,11 @@ public final class EnglishVocabularyPromptProcessor {
                         """ +
                 "\n-wordTranslation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
                 """
-                -englishDefinition
-                -preposition (if it has)
-                -englishExampleSentence
-                -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
-                """;
+                        -englishDefinition
+                        -preposition (if it has)
+                        -englishExampleSentence
+                        -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
+                        """;
     }
 
     public static String getPromptForSubtopic1LevelIdioms(EnglishVocabularyPromptParameters promptParameters) {
@@ -101,9 +101,9 @@ public final class EnglishVocabularyPromptProcessor {
                         """ +
                 "\n-idiomTranslation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
                 """
-                -englishDefinition
-                -englishExampleSentence
-                """;
+                        -englishDefinition
+                        -englishExampleSentence
+                        """;
     }
 
     public static String getPromptForSubtopic1LevelCollocations(EnglishVocabularyPromptParameters promptParameters) {
@@ -122,9 +122,9 @@ public final class EnglishVocabularyPromptProcessor {
                         """ +
                 "\n-collocationTranslation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
                 """
-                -englishDefinition
-                -englishExampleSentence
-                """;
+                        -englishDefinition
+                        -englishExampleSentence
+                        """;
     }
 
     public static String getPromptForSubtopic1LevelPrepositionalVerbs(EnglishVocabularyPromptParameters promptParameters) {
@@ -143,11 +143,11 @@ public final class EnglishVocabularyPromptProcessor {
                         """ +
                 "\n-translation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
                 """
-                -preposition
-                -englishDefinition
-                -englishExampleSentence
-                -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
-                """;
+                        -preposition
+                        -englishDefinition
+                        -englishExampleSentence
+                        -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
+                        """;
     }
 
     public static String getPromptForSubtopic1LevelPhrasalVerbs(EnglishVocabularyPromptParameters promptParameters) {
@@ -166,8 +166,8 @@ public final class EnglishVocabularyPromptProcessor {
                         """ +
                 "\n-translation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
                 """
-                -englishDefinition
-                -englishExampleSentence
-                """;
+                        -englishDefinition
+                        -englishExampleSentence
+                        """;
     }
 }

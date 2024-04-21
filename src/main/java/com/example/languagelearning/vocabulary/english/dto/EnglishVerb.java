@@ -9,5 +9,5 @@ public record EnglishVerb(
         String preposition,
         String englishExampleSentence,
         boolean isFormal
-        ) {
+) {
 }

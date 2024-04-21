@@ -6,6 +6,15 @@ import java.util.List;
 
 public class EnglishVocabularyTopic extends VocabularyTopic {
 
+    private List<EnglishVerb> verbs;
+    private List<EnglishNoun> nouns;
+    private List<EnglishAdjective> adjectives;
+    private List<EnglishCollocation> collocations;
+    private List<EnglishIdioms> idioms;
+    private List<EnglishPrepositionalVerb> prepositionalVerbs;
+    private List<EnglishPhrasalVerb> phrasalVerbs;
+    private String vocabularyName;
+
     public EnglishVocabularyTopic(List<EnglishVerb> verbs, List<EnglishNoun> nouns,
                                   List<EnglishAdjective> adjectives, List<EnglishCollocation> collocations,
                                   List<EnglishIdioms> idioms, List<EnglishPrepositionalVerb> prepositionalVerbs,
@@ -75,20 +84,6 @@ public class EnglishVocabularyTopic extends VocabularyTopic {
     public void setPhrasalVerbs(List<EnglishPhrasalVerb> phrasalVerbs) {
         this.phrasalVerbs = phrasalVerbs;
     }
-
-    private List<EnglishVerb>verbs;
-    private List<EnglishNoun>nouns;
-    private List<EnglishAdjective>adjectives;
-
-    private List<EnglishCollocation>collocations;
-
-    private List<EnglishIdioms>idioms;
-
-    private List<EnglishPrepositionalVerb>prepositionalVerbs;
-
-    private List<EnglishPhrasalVerb>phrasalVerbs;
-
-    private String vocabularyName;
 
     public String getVocabularyName() {
         return vocabularyName;

@@ -19,6 +19,7 @@ public class VocabularyController {
 
         this.vocabularyManager = vocabularyManager;
     }
+
     @GetMapping
     public List<VocabularyTopic> getVocabularyByKeyword(@RequestParam String keyword, @RequestParam Locale targetLanguage,
                                                         @RequestParam Locale translationLanguage) {

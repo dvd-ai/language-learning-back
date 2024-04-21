@@ -12,26 +12,9 @@ public class EnglishVocabularyTopicEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
     private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb")
     private EnglishVocabularyTopic englishVocabularyTopic;
-
-    public EnglishVocabularyTopic getEnglishVocabularyTopic() {
-        return englishVocabularyTopic;
-    }
-
-    public void setEnglishVocabularyTopic(EnglishVocabularyTopic englishVocabularyTopic) {
-        this.englishVocabularyTopic = englishVocabularyTopic;
-    }
 
     public EnglishVocabularyTopicEntity() {
     }
@@ -42,6 +25,22 @@ public class EnglishVocabularyTopicEntity {
 
     public EnglishVocabularyTopicEntity(Long id, EnglishVocabularyTopic englishVocabularyTopic) {
         this.id = id;
+        this.englishVocabularyTopic = englishVocabularyTopic;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public EnglishVocabularyTopic getEnglishVocabularyTopic() {
+        return englishVocabularyTopic;
+    }
+
+    public void setEnglishVocabularyTopic(EnglishVocabularyTopic englishVocabularyTopic) {
         this.englishVocabularyTopic = englishVocabularyTopic;
     }
 }

@@ -1,6 +1,6 @@
 package com.example.languagelearning.vocabulary.english.dto;
 
-public record EnglishPhrasalVerb (
+public record EnglishPhrasalVerb(
         String englishPhrasalVerb,
         String translation,
         String englishDefinition,

@@ -5,14 +5,13 @@ import com.example.languagelearning.openai.OpenAiService;
 import com.example.languagelearning.vocabulary.common.VocabularyService;
 import com.example.languagelearning.vocabulary.common.dto.Subtopic1NestingLevelBlockContainer;
 import com.example.languagelearning.vocabulary.common.dto.VocabularyTopic;
-import com.example.languagelearning.vocabulary.english.dto.*;
+import com.example.languagelearning.vocabulary.english.dto.EnglishVocabularyTopic;
 import com.example.languagelearning.vocabulary.english.dto.container.*;
 import com.example.languagelearning.vocabulary.english.entity.EnglishVocabularyTopicEntity;
 import com.example.languagelearning.vocabulary.english.prompt.EnglishVocabularyPromptParameters;
 import com.example.languagelearning.vocabulary.english.repo.EnglishVocabularyRepo;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.springframework.ai.openai.OpenAiChatOptions;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -33,7 +32,6 @@ public class EnglishVocabularyService implements VocabularyService {
     private final EnglishVocabularyRepo vocabularyRepo;
 
 
-
     public EnglishVocabularyService(ObjectMapper objectMapper, EnglishVocabularyRepo vocabularyRepo) {
         this.objectMapper = objectMapper;
         this.vocabularyRepo = vocabularyRepo;
@@ -52,7 +50,7 @@ public class EnglishVocabularyService implements VocabularyService {
                         OpenAiChatOptions.builder()
                                 .withModel("gpt-4-turbo-2024-04-09")
                                 .build()
-                        ),
+                ),
                 Subtopic1NestingLevelBlockContainer.class
         );
 

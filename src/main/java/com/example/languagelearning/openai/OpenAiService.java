@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.prompt.ChatOptions;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.openai.OpenAiChatClient;
-import org.springframework.ai.openai.OpenAiChatOptions;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -29,13 +28,13 @@ public class OpenAiService {
     }
 
     public String defaultCall(String prompt) {
-        String res  = chatClient.call(prompt);
+        String res = chatClient.call(prompt);
         logger.info("Sync chat completion output: \n" + res);
         return res;
     }
 
     public String customCall(String prompt, ChatOptions openAiChatOptions) {
-        String res  = chatClient.call(new Prompt(prompt, openAiChatOptions))
+        String res = chatClient.call(new Prompt(prompt, openAiChatOptions))
                 .getResult()
                 .getOutput()
                 .getContent();
