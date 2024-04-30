@@ -102,7 +102,7 @@ public class EnglishVocabularyService implements VocabularyService {
                     objectMapper.readValue(extractedNouns, EnglishNounsContainer.class).englishNounsContainer(),
                     objectMapper.readValue(extractedAdjectives, EnglishAdjectivesContainer.class).englishAdjectivesContainer(),
                     objectMapper.readValue(extractedCollocations, EnglishCollocationsContainer.class).englishCollocationsContainer(),
-                    objectMapper.readValue(extractedIdioms, EnglishIdiomsContainer.class).englishIdiomsContainer(),
+                    objectMapper.readValue(extractedIdioms, EnglishIdiomsContainer.class).englishIdiomContainer(),
                     objectMapper.readValue(extractedPrepositionalVerbs, EnglishPrepositionalVerbsContainer.class).englishPrepositionalVerbsContainer(),
                     objectMapper.readValue(extractedPhrasalVerbs, EnglishPhrasalVerbsContainer.class).englishPhrasalVerbsContainer(),
                     topicParameters
