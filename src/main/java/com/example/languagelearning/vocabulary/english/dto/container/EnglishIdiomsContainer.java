@@ -4,5 +4,5 @@ import com.example.languagelearning.vocabulary.english.dto.EnglishIdiom;
 
 import java.util.List;
 
-public record EnglishIdiomsContainer(List<EnglishIdiom> englishIdiomContainer) {
+public record EnglishIdiomsContainer(List<EnglishIdiom> englishIdiomsContainer) {
 }
