@@ -33,7 +33,7 @@ public final class EnglishVocabularyPromptProcessor {
                         -presentPerfectForm
                         -pastSimpleForm
                         -englishDefinition
-                        -preposition (if it has)
+                        -preposition (if it usually comes after the verb (or used together), if not then place "")
                         -englishExampleSentence
                         -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
                         """;
@@ -56,7 +56,7 @@ public final class EnglishVocabularyPromptProcessor {
                 "\n-wordTranslation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
                 """
                         -englishDefinition
-                        -preposition (if it has)
+                        -preposition (if it usually comes after the noun usually (or used together), if not then place "")
                         -englishExampleSentence
                         -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
                         """;
@@ -79,7 +79,7 @@ public final class EnglishVocabularyPromptProcessor {
                 "\n-wordTranslation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
                 """
                         -englishDefinition
-                        -preposition (if it has)
+                        -preposition (if it usually comes after the adjective (or used together), if not then place "")
                         -englishExampleSentence
                         -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
                         """;
@@ -143,7 +143,6 @@ public final class EnglishVocabularyPromptProcessor {
                         """ +
                 "\n-translation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
                 """
-                        -preposition
                         -englishDefinition
                         -englishExampleSentence
                         -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
@@ -167,6 +166,8 @@ public final class EnglishVocabularyPromptProcessor {
                 "\n-translation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
                 """
                         -englishDefinition
+                        -preposition (if it usually comes after the verb (or used together,
+                         like in the phrasal verb 'to run away from', 'from' in this case is the preposition), if not then place "")
                         -englishExampleSentence
                         """;
     }
