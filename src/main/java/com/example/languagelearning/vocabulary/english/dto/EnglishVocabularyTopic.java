@@ -10,14 +10,14 @@ public class EnglishVocabularyTopic extends VocabularyTopic {
     private List<EnglishNoun> nouns;
     private List<EnglishAdjective> adjectives;
     private List<EnglishCollocation> collocations;
-    private List<EnglishIdioms> idioms;
+    private List<EnglishIdiom> idioms;
     private List<EnglishPrepositionalVerb> prepositionalVerbs;
     private List<EnglishPhrasalVerb> phrasalVerbs;
     private String vocabularyName;
 
     public EnglishVocabularyTopic(List<EnglishVerb> verbs, List<EnglishNoun> nouns,
                                   List<EnglishAdjective> adjectives, List<EnglishCollocation> collocations,
-                                  List<EnglishIdioms> idioms, List<EnglishPrepositionalVerb> prepositionalVerbs,
+                                  List<EnglishIdiom> idioms, List<EnglishPrepositionalVerb> prepositionalVerbs,
                                   List<EnglishPhrasalVerb> phrasalVerbs, String vocabularyName) {
         this.verbs = verbs;
         this.nouns = nouns;
@@ -61,11 +61,11 @@ public class EnglishVocabularyTopic extends VocabularyTopic {
         this.collocations = collocations;
     }
 
-    public List<EnglishIdioms> getIdioms() {
+    public List<EnglishIdiom> getIdioms() {
         return idioms;
     }
 
-    public void setIdioms(List<EnglishIdioms> idioms) {
+    public void setIdioms(List<EnglishIdiom> idioms) {
         this.idioms = idioms;
     }
 
