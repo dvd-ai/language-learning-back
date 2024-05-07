@@ -21,6 +21,7 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation ("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.ai:spring-ai-openai-spring-boot-starter")
 	implementation("org.flywaydb:flyway-core:9.0.1")
 	implementation("io.hypersistence:hypersistence-utils-hibernate-60:3.7.2")
