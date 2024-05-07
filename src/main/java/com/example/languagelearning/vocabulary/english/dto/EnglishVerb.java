@@ -8,6 +8,6 @@ public record EnglishVerb(
         String englishDefinition,
         String preposition,
         String englishExampleSentence,
-        boolean isFormal
+        boolean isColloquial
 ) {
 }
