@@ -35,7 +35,7 @@ public final class EnglishVocabularyPromptProcessor {
                         -englishDefinition
                         -preposition (if it usually comes after the verb (or used together), if not then place "")
                         -englishExampleSentence
-                        -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
+                        -isColloquial (whether the word is used in only a colloquial language. The value is boolean)
                         """;
     }
 
@@ -58,7 +58,7 @@ public final class EnglishVocabularyPromptProcessor {
                         -englishDefinition
                         -preposition (if it usually comes after the noun usually (or used together), if not then place "")
                         -englishExampleSentence
-                        -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
+                        -isColloquial (whether the word is used in only a colloquial language. The value is boolean)
                         """;
     }
 
@@ -81,7 +81,7 @@ public final class EnglishVocabularyPromptProcessor {
                         -englishDefinition
                         -preposition (if it usually comes after the adjective (or used together), if not then place "")
                         -englishExampleSentence
-                        -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
+                        -isColloquial (whether the word is used in only a colloquial language. The value is boolean)
                         """;
     }
 
@@ -145,7 +145,7 @@ public final class EnglishVocabularyPromptProcessor {
                 """
                         -englishDefinition
                         -englishExampleSentence
-                        -isFormal (whether the word is used in a formal language. The value is true if it's formal, false - if not)
+                        -isColloquial (whether the word is used in only a colloquial language. The value is boolean
                         """;
     }
 

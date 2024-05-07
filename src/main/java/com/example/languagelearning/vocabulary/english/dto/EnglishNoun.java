@@ -2,6 +2,6 @@ package com.example.languagelearning.vocabulary.english.dto;
 
 public record EnglishNoun(
         String englishWord, String wordTranslation, String preposition,
-        String englishExampleSentence, String englishDefinition, boolean isFormal
+        String englishExampleSentence, String englishDefinition, boolean isColloquial
 ) {
 }
