@@ -1,4 +1,4 @@
-package com.example.languagelearning.config;
+package com.example.languagelearning.config.async;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

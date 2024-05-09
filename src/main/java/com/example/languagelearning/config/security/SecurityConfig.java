@@ -1,4 +1,4 @@
-package com.example.languagelearning.config;
+package com.example.languagelearning.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
