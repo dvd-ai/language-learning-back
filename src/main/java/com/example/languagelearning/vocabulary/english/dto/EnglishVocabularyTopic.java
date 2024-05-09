@@ -6,6 +6,7 @@ import java.util.List;
 
 public class EnglishVocabularyTopic extends VocabularyTopic {
 
+    private String vocabularyName;
     private List<EnglishVerb> verbs;
     private List<EnglishNoun> nouns;
     private List<EnglishAdjective> adjectives;
@@ -13,7 +14,7 @@ public class EnglishVocabularyTopic extends VocabularyTopic {
     private List<EnglishIdiom> idioms;
     private List<EnglishPrepositionalVerb> prepositionalVerbs;
     private List<EnglishPhrasalVerb> phrasalVerbs;
-    private String vocabularyName;
+
 
     public EnglishVocabularyTopic(List<EnglishVerb> verbs, List<EnglishNoun> nouns,
                                   List<EnglishAdjective> adjectives, List<EnglishCollocation> collocations,
