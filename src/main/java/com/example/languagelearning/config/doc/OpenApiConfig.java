@@ -1,8 +1,9 @@
 package com.example.languagelearning.config.doc;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.ClassPathResource;
 import java.io.IOException;
-import java.nio.file.Files;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,13 +20,14 @@ public class OpenApiConfig {
         return new OpenAPI()
                 .components(new Components()
                         .addExamples("EnglishVocabularyTopicExample", new Example().value(readFile("openapi/components/examples/EnglishVocabularyTopic.json")))
-                        .addExamples("GermanVocabularyTopicExample", new Example().value(readFile("openapi/components/examples/GermanVocabularyTopic.json"))))
+                )
                 .info(new Info().title("Learning Language API Documentation").version("v1"));
     }
 
     private String readFile(String path) throws IOException {
         ClassPathResource classPathResource = new ClassPathResource(path);
-        byte[] binaryData = Files.readAllBytes(classPathResource.getFile().toPath());
-        return new String(binaryData, StandardCharsets.UTF_8);
+        try (InputStream inputStream = classPathResource.getInputStream()) {
+            return IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+        }
     }
 }
