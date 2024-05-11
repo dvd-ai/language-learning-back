@@ -28,6 +28,8 @@ dependencies {
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
 	implementation("io.hypersistence:hypersistence-utils-hibernate-60:3.7.2")
 	implementation ("commons-io:commons-io:2.11.0")
+	implementation("org.modelmapper:modelmapper:3.1.0")
+
 
 	runtimeOnly("org.postgresql:postgresql")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
