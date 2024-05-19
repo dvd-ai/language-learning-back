@@ -41,7 +41,7 @@ public class VocabularyController {
 
 
     @GetMapping
-    public List<VocabularyTopic> getVocabularyByKeyword(@RequestParam String keyword, @RequestParam Locale targetLanguage,
+    public List<? extends VocabularyTopic> getVocabularyByKeyword(@RequestParam String keyword, @RequestParam Locale targetLanguage,
                                                         @RequestParam Locale translationLanguage) {
         return vocabularyManager.getSeveralVocabularyByKeyword(keyword, targetLanguage, translationLanguage);
     }
