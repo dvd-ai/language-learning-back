@@ -1,7 +1,7 @@
 package com.example.languagelearning.vocabulary.common;
 
 import com.example.languagelearning.openai.OpenAiService;
-import com.example.languagelearning.vocabulary.common.dto.VocabularyTopic;
+import com.example.languagelearning.vocabulary.common.keyword.dto.VocabularyTopic;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;

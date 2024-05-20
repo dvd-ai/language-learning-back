@@ -1,4 +1,4 @@
-package com.example.languagelearning.vocabulary.common.dto;
+package com.example.languagelearning.vocabulary.common.keyword.dto;
 
 import java.util.List;
 

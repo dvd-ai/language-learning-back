@@ -1,6 +1,6 @@
 package com.example.languagelearning.vocabulary.common;
 
-import com.example.languagelearning.vocabulary.common.dto.VocabularyTopic;
+import com.example.languagelearning.vocabulary.common.keyword.dto.VocabularyTopic;
 import com.example.languagelearning.vocabulary.english.dto.EnglishVocabularyTopic;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.*;
