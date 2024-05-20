@@ -14,7 +14,7 @@ public final class EnglishVocabularyPromptProcessor {
                                              """;
     }
 
-    public static String getPromptForSubtopic1LevelVerbs(EnglishVocabularyPromptParameters promptParameters) {
+    public static String getPromptForSubtopic1LevelVerbs(VocabularyKeywordPromptParameters promptParameters) {
 
         return "Give me up to 12 verbs from the topic '" + promptParameters.keyword() + "." + promptParameters.subtopic0Level() + "." + promptParameters.subtopic1Level() + "' that are commonly used in English." +
                 """
@@ -39,7 +39,7 @@ public final class EnglishVocabularyPromptProcessor {
                         """;
     }
 
-    public static String getPromptForSubtopic1LevelNouns(EnglishVocabularyPromptParameters promptParameters) {
+    public static String getPromptForSubtopic1LevelNouns(VocabularyKeywordPromptParameters promptParameters) {
 
         return "Give me up to 12 nouns from the topic '" + promptParameters.keyword() + "." + promptParameters.subtopic0Level() + "." + promptParameters.subtopic1Level() + "' that are commonly used in English." +
                 """
@@ -62,7 +62,7 @@ public final class EnglishVocabularyPromptProcessor {
                         """;
     }
 
-    public static String getPromptForSubtopic1LevelAdjectives(EnglishVocabularyPromptParameters promptParameters) {
+    public static String getPromptForSubtopic1LevelAdjectives(VocabularyKeywordPromptParameters promptParameters) {
 
         return "Give me up to 12 adjectives from the topic '" + promptParameters.keyword() + "." + promptParameters.subtopic0Level() + "." + promptParameters.subtopic1Level() + "' that are commonly used in English." +
                 """
@@ -85,7 +85,7 @@ public final class EnglishVocabularyPromptProcessor {
                         """;
     }
 
-    public static String getPromptForSubtopic1LevelIdioms(EnglishVocabularyPromptParameters promptParameters) {
+    public static String getPromptForSubtopic1LevelIdioms(VocabularyKeywordPromptParameters promptParameters) {
 
         return "Give me up to 5 idioms from the topic '" + promptParameters.keyword() + "." + promptParameters.subtopic0Level() + "." + promptParameters.subtopic1Level() + "' that are commonly used in English." +
                 """
@@ -106,7 +106,7 @@ public final class EnglishVocabularyPromptProcessor {
                         """;
     }
 
-    public static String getPromptForSubtopic1LevelCollocations(EnglishVocabularyPromptParameters promptParameters) {
+    public static String getPromptForSubtopic1LevelCollocations(VocabularyKeywordPromptParameters promptParameters) {
 
         return "Give me up to 10 collocations from the topic '" + promptParameters.keyword() + "." + promptParameters.subtopic0Level() + "." + promptParameters.subtopic1Level() + "' that are commonly used in English." +
                 """
@@ -127,7 +127,7 @@ public final class EnglishVocabularyPromptProcessor {
                         """;
     }
 
-    public static String getPromptForSubtopic1LevelPrepositionalVerbs(EnglishVocabularyPromptParameters promptParameters) {
+    public static String getPromptForSubtopic1LevelPrepositionalVerbs(VocabularyKeywordPromptParameters promptParameters) {
 
         return "Give me up to 10 prepositional verbs from the topic '" + promptParameters.keyword() + "." + promptParameters.subtopic0Level() + "." + promptParameters.subtopic1Level() + "' that are commonly used in English." +
                 """
@@ -149,7 +149,7 @@ public final class EnglishVocabularyPromptProcessor {
                         """;
     }
 
-    public static String getPromptForSubtopic1LevelPhrasalVerbs(EnglishVocabularyPromptParameters promptParameters) {
+    public static String getPromptForSubtopic1LevelPhrasalVerbs(VocabularyKeywordPromptParameters promptParameters) {
 
         return "Give me up to 10 phrasal verbs from the topic '" + promptParameters.keyword() + "." + promptParameters.subtopic0Level() + "." + promptParameters.subtopic1Level() + "' that are commonly used in English." +
                 """
