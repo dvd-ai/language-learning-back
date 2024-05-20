@@ -26,7 +26,7 @@ public class VocabularyKeywordManager {
     public List<? extends VocabularyTopic> getSeveralVocabularyByKeyword(String keyword, Locale targetLanguage, Locale translationLanguage) {
         try {
             for (VocabularyKeywordService vocabularyKeywordService : vocabularyServices.values()) {
-                if (targetLanguage.equals(vocabularyKeywordService.getVocabularyLanguage()))
+                if (targetLanguage.equals(vocabularyKeywordService.getLanguage()))
                     return vocabularyKeywordService.processByKeyword(keyword, openAiService, translationLanguage);
             }
         } catch (Exception e) {

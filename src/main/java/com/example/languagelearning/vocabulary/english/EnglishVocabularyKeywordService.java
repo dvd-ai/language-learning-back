@@ -39,7 +39,7 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
     }
 
     @Override
-    public Locale getVocabularyLanguage() {
+    public Locale getLanguage() {
         return Locale.ENGLISH;
     }
 
