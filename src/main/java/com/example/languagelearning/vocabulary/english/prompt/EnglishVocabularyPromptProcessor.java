@@ -1,5 +1,7 @@
 package com.example.languagelearning.vocabulary.english.prompt;
 
+import com.example.languagelearning.vocabulary.common.keyword.prompt.VocabularyKeywordPromptParameters;
+
 public final class EnglishVocabularyPromptProcessor {
     public static String getPromptForSubtopic1LevelNames(String keyword) {
         return "Break the word " + keyword + " into vocabulary subtopics with one level of nesting in  only JSON format. " +

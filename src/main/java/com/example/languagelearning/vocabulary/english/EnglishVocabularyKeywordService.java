@@ -8,7 +8,7 @@ import com.example.languagelearning.vocabulary.common.keyword.dto.VocabularyTopi
 import com.example.languagelearning.vocabulary.english.dto.EnglishVocabularyTopic;
 import com.example.languagelearning.vocabulary.english.dto.container.*;
 import com.example.languagelearning.vocabulary.english.entity.EnglishVocabularyTopicEntity;
-import com.example.languagelearning.vocabulary.english.prompt.VocabularyKeywordPromptParameters;
+import com.example.languagelearning.vocabulary.common.keyword.prompt.VocabularyKeywordPromptParameters;
 import com.example.languagelearning.vocabulary.english.repo.EnglishVocabularyTopicEntityService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

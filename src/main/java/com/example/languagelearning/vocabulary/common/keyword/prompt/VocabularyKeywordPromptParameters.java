@@ -1,4 +1,4 @@
-package com.example.languagelearning.vocabulary.english.prompt;
+package com.example.languagelearning.vocabulary.common.keyword.prompt;
 
 import java.util.Locale;
 
