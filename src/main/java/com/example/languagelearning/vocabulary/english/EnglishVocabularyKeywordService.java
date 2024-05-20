@@ -5,6 +5,7 @@ import com.example.languagelearning.openai.OpenAiService;
 import com.example.languagelearning.vocabulary.common.keyword.VocabularyKeywordService;
 import com.example.languagelearning.vocabulary.common.keyword.dto.Subtopic1NestingLevelBlockContainer;
 import com.example.languagelearning.vocabulary.common.keyword.dto.VocabularyTopic;
+import com.example.languagelearning.vocabulary.common.keyword.prompt.VocabularySubtopic1LevelPromptProcessor;
 import com.example.languagelearning.vocabulary.english.dto.EnglishVocabularyTopic;
 import com.example.languagelearning.vocabulary.english.dto.container.*;
 import com.example.languagelearning.vocabulary.english.entity.EnglishVocabularyTopicEntity;
@@ -32,10 +33,11 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
     private final ObjectMapper objectMapper;
     private final EnglishVocabularyTopicEntityService vocabularyTopicEntityService;
 
-
-    public EnglishVocabularyKeywordService(ObjectMapper objectMapper, EnglishVocabularyTopicEntityService vocabularyTopicEntityService) {
+    private final VocabularySubtopic1LevelPromptProcessor subtopic1LevelPromptProcessor;
+    public EnglishVocabularyKeywordService(ObjectMapper objectMapper, EnglishVocabularyTopicEntityService vocabularyTopicEntityService, VocabularySubtopic1LevelPromptProcessor subtopic1LevelPromptProcessor) {
         this.objectMapper = objectMapper;
         this.vocabularyTopicEntityService = vocabularyTopicEntityService;
+        this.subtopic1LevelPromptProcessor = subtopic1LevelPromptProcessor;
     }
 
     @Override
@@ -49,7 +51,7 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
         if (vocabularyTopicsOptional.isPresent())
             return vocabularyTopicsOptional.get();
 
-        var subtopicBlockEntries = getSubtopic1NestingLevelBlockContainer(keyword, openAiService);
+        var subtopicBlockEntries = getSubtopic1NestingLevelBlockContainer(keyword, getLanguage(), openAiService);
 
         List<CompletableFuture<EnglishVocabularyTopic>> topicsCompletableFutures = new ArrayList<>();
 
@@ -63,11 +65,11 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
         return extractValuesFromCompletableFutures(topicsCompletableFutures);
     }
 
-    private Subtopic1NestingLevelBlockContainer getSubtopic1NestingLevelBlockContainer(String keyword, OpenAiService openAiService) throws JsonProcessingException {
+    private Subtopic1NestingLevelBlockContainer getSubtopic1NestingLevelBlockContainer(String keyword, Locale targetLanguage, OpenAiService openAiService) throws JsonProcessingException {
         return objectMapper.readValue(
-                openAiService.customCall(getPromptForSubtopic1LevelNames(keyword),
+                openAiService.customCall(subtopic1LevelPromptProcessor.getSubtopic1LevelNames(keyword, targetLanguage),
                         OpenAiChatOptions.builder()
-                                .withModel("gpt-4-turbo-2024-04-09")
+                                .withModel("gpt-4o")
                                 .build()
                 ),
                 Subtopic1NestingLevelBlockContainer.class

@@ -3,19 +3,6 @@ package com.example.languagelearning.vocabulary.english.prompt;
 import com.example.languagelearning.vocabulary.common.keyword.prompt.VocabularyKeywordPromptParameters;
 
 public final class EnglishVocabularyPromptProcessor {
-    public static String getPromptForSubtopic1LevelNames(String keyword) {
-        return "Break the word " + keyword + " into vocabulary subtopics with one level of nesting in  only JSON format. " +
-                """
-                          The output follows this json structure:
-                        {
-                             "entries": [{"subtopic0LevelName": "", "subtopic1LevelNames": []}]
-                        }
-
-                         Note, that the size of entries array is up to 6, the size of subtopic1LevelNames is up to 4,
-                          that contains strings
-                                             """;
-    }
-
     public static String getPromptForSubtopic1LevelVerbs(VocabularyKeywordPromptParameters promptParameters) {
 
         return "Give me up to 12 verbs from the topic '" + promptParameters.keyword() + "." + promptParameters.subtopic0Level() + "." + promptParameters.subtopic1Level() + "' that are commonly used in English." +
