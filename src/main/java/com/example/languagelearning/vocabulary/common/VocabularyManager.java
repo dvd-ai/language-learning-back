@@ -23,7 +23,7 @@ public class VocabularyManager {
         this.vocabularyServices = applicationContext.getBeansOfType(VocabularyService.class);
     }
 
-    public List<VocabularyTopic> getSeveralVocabularyByKeyword(String keyword, Locale targetLanguage, Locale translationLanguage) {
+    public List<? extends VocabularyTopic> getSeveralVocabularyByKeyword(String keyword, Locale targetLanguage, Locale translationLanguage) {
         try {
             for (VocabularyService vocabularyService : vocabularyServices.values()) {
                 if (targetLanguage.equals(vocabularyService.getVocabularyLanguage()))

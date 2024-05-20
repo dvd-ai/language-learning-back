@@ -10,5 +10,5 @@ import java.util.Locale;
 public interface VocabularyService {
     Locale getVocabularyLanguage();
 
-    List<VocabularyTopic> processByKeyword(String keyword, OpenAiService openAiService, Locale translationLanguage) throws JsonProcessingException;
+    List<? extends VocabularyTopic> processByKeyword(String keyword, OpenAiService openAiService, Locale translationLanguage) throws JsonProcessingException;
 }

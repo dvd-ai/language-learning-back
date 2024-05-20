@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+import java.util.Locale;
+
 @Entity
 public class EnglishVocabularyTopicEntity {
     @Id
@@ -16,16 +18,20 @@ public class EnglishVocabularyTopicEntity {
     @Column(columnDefinition = "jsonb")
     private EnglishVocabularyTopic englishVocabularyTopic;
 
+    private Locale translationLanguage;
+
     public EnglishVocabularyTopicEntity() {
     }
 
-    public EnglishVocabularyTopicEntity(EnglishVocabularyTopic englishVocabularyTopic) {
+    public EnglishVocabularyTopicEntity(EnglishVocabularyTopic englishVocabularyTopic, Locale translationLanguage) {
         this.englishVocabularyTopic = englishVocabularyTopic;
+        this.translationLanguage = translationLanguage;
     }
 
-    public EnglishVocabularyTopicEntity(Long id, EnglishVocabularyTopic englishVocabularyTopic) {
+    public EnglishVocabularyTopicEntity(Long id, EnglishVocabularyTopic englishVocabularyTopic, Locale translationLanguage) {
         this.id = id;
         this.englishVocabularyTopic = englishVocabularyTopic;
+        this.translationLanguage = translationLanguage;
     }
 
     public Long getId() {
@@ -42,5 +48,13 @@ public class EnglishVocabularyTopicEntity {
 
     public void setEnglishVocabularyTopic(EnglishVocabularyTopic englishVocabularyTopic) {
         this.englishVocabularyTopic = englishVocabularyTopic;
+    }
+
+    public Locale getTranslationLanguage() {
+        return translationLanguage;
+    }
+
+    public void setTranslationLanguage(Locale translationLanguage) {
+        this.translationLanguage = translationLanguage;
     }
 }
