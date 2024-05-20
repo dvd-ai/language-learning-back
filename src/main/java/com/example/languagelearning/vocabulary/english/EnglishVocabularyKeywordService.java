@@ -2,7 +2,7 @@ package com.example.languagelearning.vocabulary.english;
 
 import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.openai.OpenAiService;
-import com.example.languagelearning.vocabulary.common.VocabularyService;
+import com.example.languagelearning.vocabulary.common.keyword.VocabularyKeywordService;
 import com.example.languagelearning.vocabulary.common.keyword.dto.Subtopic1NestingLevelBlockContainer;
 import com.example.languagelearning.vocabulary.common.keyword.dto.VocabularyTopic;
 import com.example.languagelearning.vocabulary.english.dto.EnglishVocabularyTopic;
@@ -27,13 +27,13 @@ import static com.example.languagelearning.util.CompletableFutureUtil.tryToExtra
 import static com.example.languagelearning.vocabulary.english.prompt.EnglishVocabularyPromptProcessor.*;
 
 @Service
-public class EnglishVocabularyService implements VocabularyService {
+public class EnglishVocabularyKeywordService implements VocabularyKeywordService {
 
     private final ObjectMapper objectMapper;
     private final EnglishVocabularyTopicEntityService vocabularyTopicEntityService;
 
 
-    public EnglishVocabularyService(ObjectMapper objectMapper, EnglishVocabularyTopicEntityService vocabularyTopicEntityService) {
+    public EnglishVocabularyKeywordService(ObjectMapper objectMapper, EnglishVocabularyTopicEntityService vocabularyTopicEntityService) {
         this.objectMapper = objectMapper;
         this.vocabularyTopicEntityService = vocabularyTopicEntityService;
     }

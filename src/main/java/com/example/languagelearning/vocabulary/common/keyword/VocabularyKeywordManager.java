@@ -1,4 +1,4 @@
-package com.example.languagelearning.vocabulary.common;
+package com.example.languagelearning.vocabulary.common.keyword;
 
 import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.error.ClientException;
@@ -12,22 +12,22 @@ import java.util.Locale;
 import java.util.Map;
 
 @Service
-public class VocabularyManager {
+public class VocabularyKeywordManager {
 
     private final OpenAiService openAiService;
 
-    private final Map<String, VocabularyService> vocabularyServices;
+    private final Map<String, VocabularyKeywordService> vocabularyServices;
 
-    public VocabularyManager(OpenAiService openAiService, ApplicationContext applicationContext) {
+    public VocabularyKeywordManager(OpenAiService openAiService, ApplicationContext applicationContext) {
         this.openAiService = openAiService;
-        this.vocabularyServices = applicationContext.getBeansOfType(VocabularyService.class);
+        this.vocabularyServices = applicationContext.getBeansOfType(VocabularyKeywordService.class);
     }
 
     public List<? extends VocabularyTopic> getSeveralVocabularyByKeyword(String keyword, Locale targetLanguage, Locale translationLanguage) {
         try {
-            for (VocabularyService vocabularyService : vocabularyServices.values()) {
-                if (targetLanguage.equals(vocabularyService.getVocabularyLanguage()))
-                    return vocabularyService.processByKeyword(keyword, openAiService, translationLanguage);
+            for (VocabularyKeywordService vocabularyKeywordService : vocabularyServices.values()) {
+                if (targetLanguage.equals(vocabularyKeywordService.getVocabularyLanguage()))
+                    return vocabularyKeywordService.processByKeyword(keyword, openAiService, translationLanguage);
             }
         } catch (Exception e) {
             throw new ApplicationException(e.getMessage());
