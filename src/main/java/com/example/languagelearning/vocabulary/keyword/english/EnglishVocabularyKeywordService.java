@@ -10,6 +10,7 @@ import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabu
 import com.example.languagelearning.vocabulary.keyword.english.dto.container.*;
 import com.example.languagelearning.vocabulary.keyword.english.entity.EnglishVocabularyTopicEntity;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
+import com.example.languagelearning.vocabulary.keyword.english.prompt.EnglishVocabularyPromptProcessor;
 import com.example.languagelearning.vocabulary.keyword.english.repo.EnglishVocabularyTopicEntityService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,7 +26,7 @@ import java.util.concurrent.CompletableFuture;
 
 import static com.example.languagelearning.util.CompletableFutureUtil.extractValuesFromCompletableFutures;
 import static com.example.languagelearning.util.CompletableFutureUtil.tryToExtractSingleCompletedFutureElement;
-import static com.example.languagelearning.vocabulary.keyword.english.prompt.EnglishVocabularyPromptProcessor.*;
+import static com.example.languagelearning.vocabulary.keyword.common.util.VocabularyKeywordUtil.getSpeechPartJson;
 
 @Service
 public class EnglishVocabularyKeywordService implements VocabularyKeywordService {
@@ -94,13 +95,13 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
 
     @Async
     private CompletableFuture<EnglishVocabularyTopic> getCompleteTopicCompletableFuture(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters) {
-        CompletableFuture<String> verbs = getVerbs(openAiService, promptParameters);
-        CompletableFuture<String> nouns = getNouns(openAiService, promptParameters);
-        CompletableFuture<String> adjectives = getAdjectives(openAiService, promptParameters);
-        CompletableFuture<String> collocations = getCollocations(openAiService, promptParameters);
-        CompletableFuture<String> idioms = getIdioms(openAiService, promptParameters);
-        CompletableFuture<String> prepositionalVerbs = getPrepositionalVerbs(openAiService, promptParameters);
-        CompletableFuture<String> phrasalVerbs = getPhrasalVerbs(openAiService, promptParameters);
+        CompletableFuture<String> verbs = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyPromptProcessor::getPromptForSubtopic1LevelVerbs);
+        CompletableFuture<String> nouns = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyPromptProcessor::getPromptForSubtopic1LevelNouns);
+        CompletableFuture<String> adjectives = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyPromptProcessor::getPromptForSubtopic1LevelAdjectives);
+        CompletableFuture<String> collocations = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyPromptProcessor::getPromptForSubtopic1LevelCollocations);
+        CompletableFuture<String> idioms = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyPromptProcessor::getPromptForSubtopic1LevelIdioms);
+        CompletableFuture<String> prepositionalVerbs = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyPromptProcessor::getPromptForSubtopic1LevelPrepositionalVerbs);
+        CompletableFuture<String> phrasalVerbs = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyPromptProcessor::getPromptForSubtopic1LevelPhrasalVerbs);
 
         return CompletableFuture.allOf(verbs, nouns, adjectives, collocations, idioms, prepositionalVerbs, phrasalVerbs)
                 .thenApply(parts -> createAndSaveTopicFromParts(
@@ -144,40 +145,5 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
             throw new ApplicationException(e.getMessage());
         }
 
-    }
-
-    @Async
-    public CompletableFuture<String> getNouns(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters) {
-        return openAiService.defaultAsyncCall(getPromptForSubtopic1LevelNouns(promptParameters));
-    }
-
-    @Async
-    public CompletableFuture<String> getVerbs(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters) {
-        return openAiService.defaultAsyncCall(getPromptForSubtopic1LevelVerbs(promptParameters));
-    }
-
-    @Async
-    public CompletableFuture<String> getAdjectives(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters) {
-        return openAiService.defaultAsyncCall(getPromptForSubtopic1LevelAdjectives(promptParameters));
-    }
-
-    @Async
-    public CompletableFuture<String> getIdioms(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters) {
-        return openAiService.defaultAsyncCall(getPromptForSubtopic1LevelIdioms(promptParameters));
-    }
-
-    @Async
-    public CompletableFuture<String> getCollocations(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters) {
-        return openAiService.defaultAsyncCall(getPromptForSubtopic1LevelCollocations(promptParameters));
-    }
-
-    @Async
-    public CompletableFuture<String> getPrepositionalVerbs(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters) {
-        return openAiService.defaultAsyncCall(getPromptForSubtopic1LevelPrepositionalVerbs(promptParameters));
-    }
-
-    @Async
-    public CompletableFuture<String> getPhrasalVerbs(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters) {
-        return openAiService.defaultAsyncCall(getPromptForSubtopic1LevelPhrasalVerbs(promptParameters));
     }
 }
