@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import static com.example.languagelearning.common.LanguageUtil.equalLanguages;
+
 @Service
 public class VocabularyKeywordManager {
 
@@ -26,7 +28,7 @@ public class VocabularyKeywordManager {
     public List<? extends VocabularyTopic> getSeveralVocabularyByKeyword(String keyword, Locale targetLanguage, Locale translationLanguage) {
         try {
             for (VocabularyKeywordService vocabularyKeywordService : vocabularyServices.values()) {
-                if (targetLanguage.equals(vocabularyKeywordService.getLanguage()))
+                if (equalLanguages(vocabularyKeywordService.getLanguage(), targetLanguage))
                     return vocabularyKeywordService.processByKeyword(keyword, openAiService, translationLanguage);
             }
         } catch (Exception e) {
@@ -34,4 +36,6 @@ public class VocabularyKeywordManager {
         }
         throw new ClientException("The service for the language: '" + targetLanguage + "'  wasn't found");
     }
+
+
 }
