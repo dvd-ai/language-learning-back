@@ -11,7 +11,7 @@ import java.util.Locale;
 
 @Profile({"prod", "dev-back"})
 @RestController
-public class VocabularyKeywordControllerProdDevBack implements VocabularyKeywordController{
+public class VocabularyKeywordControllerProdDevBack implements VocabularyKeywordController {
 
     private final VocabularyKeywordManager vocabularyManager;
 

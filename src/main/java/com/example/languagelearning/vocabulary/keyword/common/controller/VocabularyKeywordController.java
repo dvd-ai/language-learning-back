@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 import java.util.List;
 import java.util.Locale;
+
 @Tag(name = "Vocabulary Keyword API")
 @RequestMapping("vocabulary/keyword")
 public interface VocabularyKeywordController {
@@ -36,5 +36,5 @@ public interface VocabularyKeywordController {
                     }))
     @GetMapping
     List<? extends VocabularyTopic> getVocabularyByKeyword(@RequestParam String keyword, @RequestParam Locale targetLanguage,
-                                                                  @RequestParam Locale translationLanguage);
+                                                           @RequestParam Locale translationLanguage);
 }

@@ -5,7 +5,8 @@ import com.example.languagelearning.vocabulary.keyword.english.entity.EnglishVoc
 
 public class EnglishVocabularyMapper {
 
-    public EnglishVocabularyMapper() {}
+    public EnglishVocabularyMapper() {
+    }
 
     public EnglishVocabularyTopic mapToDto(EnglishVocabularyTopicEntity entity) {
         EnglishVocabularyTopic vocabularyTopic = entity.getEnglishVocabularyTopic();

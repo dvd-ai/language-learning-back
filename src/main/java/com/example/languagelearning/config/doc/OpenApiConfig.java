@@ -1,16 +1,17 @@
 package com.example.languagelearning.config.doc;
 
+import io.swagger.v3.oas.models.Components;
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.examples.Example;
+import io.swagger.v3.oas.models.info.Info;
 import org.apache.commons.io.IOUtils;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.Components;
-import io.swagger.v3.oas.models.examples.Example;
 
 @Configuration
 public class OpenApiConfig {

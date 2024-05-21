@@ -20,6 +20,6 @@ public class VocabularySubtopic1LevelPromptProcessorProd implements VocabularySu
 
                          Note, that the size of entries array is up to 6, the size of subtopic1LevelNames is up to 4,
                           that contains strings. The values must be in the language: 
-                                             """  + targetLanguage;
+                                             """ + targetLanguage;
     }
 }

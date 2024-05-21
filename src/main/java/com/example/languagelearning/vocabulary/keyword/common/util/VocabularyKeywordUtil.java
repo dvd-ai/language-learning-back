@@ -9,11 +9,12 @@ import java.util.function.Function;
 
 public class VocabularyKeywordUtil {
 
-    private VocabularyKeywordUtil() {}
+    private VocabularyKeywordUtil() {
+    }
 
     @Async
     public static CompletableFuture<String> getSpeechPartJson(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters,
-                                                                    Function<VocabularyKeywordPromptParameters, String>speechPartDefinition) {
+                                                              Function<VocabularyKeywordPromptParameters, String> speechPartDefinition) {
         return openAiService.defaultAsyncCall(speechPartDefinition.apply(promptParameters));
     }
 }

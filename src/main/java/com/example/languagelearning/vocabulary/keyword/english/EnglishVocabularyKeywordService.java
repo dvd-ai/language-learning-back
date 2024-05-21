@@ -5,11 +5,11 @@ import com.example.languagelearning.openai.OpenAiService;
 import com.example.languagelearning.vocabulary.keyword.common.VocabularyKeywordService;
 import com.example.languagelearning.vocabulary.keyword.common.dto.Subtopic1NestingLevelBlockContainer;
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopic;
+import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularySubtopic1LevelPromptProcessor;
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopic;
 import com.example.languagelearning.vocabulary.keyword.english.dto.container.*;
 import com.example.languagelearning.vocabulary.keyword.english.entity.EnglishVocabularyTopicEntity;
-import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.english.prompt.EnglishVocabularyPromptProcessor;
 import com.example.languagelearning.vocabulary.keyword.english.repo.EnglishVocabularyTopicEntityService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -35,6 +35,7 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
     private final EnglishVocabularyTopicEntityService vocabularyTopicEntityService;
 
     private final VocabularySubtopic1LevelPromptProcessor subtopic1LevelPromptProcessor;
+
     public EnglishVocabularyKeywordService(ObjectMapper objectMapper, EnglishVocabularyTopicEntityService vocabularyTopicEntityService, VocabularySubtopic1LevelPromptProcessor subtopic1LevelPromptProcessor) {
         this.objectMapper = objectMapper;
         this.vocabularyTopicEntityService = vocabularyTopicEntityService;

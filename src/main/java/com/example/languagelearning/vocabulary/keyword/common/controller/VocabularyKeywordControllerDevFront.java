@@ -11,7 +11,7 @@ import java.util.Locale;
 
 @Profile("dev-front")
 @RestController
-public class VocabularyKeywordControllerDevFront implements VocabularyKeywordController{
+public class VocabularyKeywordControllerDevFront implements VocabularyKeywordController {
 
     private final VocabularyKeywordManager vocabularyManager;
 

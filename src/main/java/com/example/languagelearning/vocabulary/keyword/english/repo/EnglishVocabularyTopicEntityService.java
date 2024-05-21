@@ -21,11 +21,11 @@ public class EnglishVocabularyTopicEntityService {
         return englishVocabularyTopicEntityRepo.save(englishVocabularyTopicEntity);
     }
 
-    public List<EnglishVocabularyTopicEntity> findTopicsByKeywordAndTranslationLanguage( String keyword, Locale translationLanguage) {
+    public List<EnglishVocabularyTopicEntity> findTopicsByKeywordAndTranslationLanguage(String keyword, Locale translationLanguage) {
         try {
             return englishVocabularyTopicEntityRepo.findTopicsByKeywordAndTranslationLanguage(keyword, translationLanguage);
         } catch (Exception e) {
-            throw new ApplicationException(e.getCause() +"\n"+ e.getMessage());
+            throw new ApplicationException(e.getCause() + "\n" + e.getMessage());
         }
     }
 

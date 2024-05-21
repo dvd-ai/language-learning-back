@@ -7,7 +7,7 @@ import java.util.Locale;
 
 @Profile("!prod")
 @Service
-public class VocabularySubtopic1LevelPromptProcessorNotProd implements VocabularySubtopic1LevelPromptProcessor{
+public class VocabularySubtopic1LevelPromptProcessorNotProd implements VocabularySubtopic1LevelPromptProcessor {
 
     @Override
     public String getSubtopic1LevelNames(String keyword, Locale targetLanguage) {
@@ -20,6 +20,6 @@ public class VocabularySubtopic1LevelPromptProcessorNotProd implements Vocabular
 
                          Note, that the size of entries array is up to 1, the size of subtopic1LevelNames is up to 1,
                           that contains strings. The values must be in the language: 
-                                             """  + targetLanguage;
+                                             """ + targetLanguage;
     }
 }
