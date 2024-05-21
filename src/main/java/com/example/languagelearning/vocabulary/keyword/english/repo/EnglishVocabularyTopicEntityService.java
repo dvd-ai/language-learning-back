@@ -23,8 +23,7 @@ public class EnglishVocabularyTopicEntityService {
 
     public List<EnglishVocabularyTopicEntity> findTopicsByKeywordAndTranslationLanguage( String keyword, Locale translationLanguage) {
         try {
-            var topicsOptional = englishVocabularyTopicEntityRepo.findTopicsByKeywordAndTranslationLanguage(keyword, translationLanguage);
-            return topicsOptional;
+            return englishVocabularyTopicEntityRepo.findTopicsByKeywordAndTranslationLanguage(keyword, translationLanguage);
         } catch (Exception e) {
             throw new ApplicationException(e.getCause() +"\n"+ e.getMessage());
         }
