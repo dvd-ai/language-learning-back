@@ -14,15 +14,17 @@ import java.util.Locale;
 public class VocabularyKeywordControllerDevFront implements VocabularyKeywordController {
 
     private final VocabularyKeywordManager vocabularyManager;
+    private final VocabularyKeywordValidator vocabularyKeywordValidator;
 
-    public VocabularyKeywordControllerDevFront(VocabularyKeywordManager vocabularyManager) {
-
+    public VocabularyKeywordControllerDevFront(VocabularyKeywordManager vocabularyManager, VocabularyKeywordValidator vocabularyKeywordValidator) {
         this.vocabularyManager = vocabularyManager;
+        this.vocabularyKeywordValidator = vocabularyKeywordValidator;
     }
 
     @Override
     public List<? extends VocabularyTopic> getVocabularyByKeyword(@RequestParam String keyword, @RequestParam Locale targetLanguage,
                                                                   @RequestParam Locale translationLanguage) {
+        vocabularyKeywordValidator.validate(translationLanguage);
         return vocabularyManager.getSeveralVocabularyByKeyword(keyword, targetLanguage, translationLanguage);
     }
 }
