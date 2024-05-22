@@ -70,7 +70,7 @@ public enum GptSupportedLanguages {
     ;
 
     GptSupportedLanguages(String languageCode) {
-        this.englishLanguageName = Locale.of(languageCode).getDisplayLanguage(Locale.ENGLISH).toLowerCase();
+        this.englishLanguageName = new Locale(languageCode).getDisplayLanguage(Locale.ENGLISH).toLowerCase();
     }
 
     private final String englishLanguageName;
