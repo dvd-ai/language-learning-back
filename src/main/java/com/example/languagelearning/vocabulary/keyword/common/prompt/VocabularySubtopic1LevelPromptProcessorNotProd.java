@@ -3,8 +3,6 @@ package com.example.languagelearning.vocabulary.keyword.common.prompt;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import java.util.Locale;
-
 @Profile("!prod")
 @Service
 public class VocabularySubtopic1LevelPromptProcessorNotProd implements VocabularySubtopic1LevelPromptProcessor {

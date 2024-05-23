@@ -1,6 +1,5 @@
 package com.example.languagelearning.openai.gpt;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -66,17 +65,12 @@ public enum GptSupportedLanguages {
     TURKISH("tr"),
     UKRAINIAN("uk"),
     URDU("ur"),
-    VIETNAMESE("vi")
-    ;
-
-    GptSupportedLanguages(String languageCode) {
-        this.englishLanguageName = new Locale(languageCode).getDisplayLanguage(Locale.ENGLISH).toLowerCase();
-    }
+    VIETNAMESE("vi");
 
     private final String englishLanguageName;
 
-    public String getLanguage() {
-        return englishLanguageName;
+    GptSupportedLanguages(String languageCode) {
+        this.englishLanguageName = new Locale(languageCode).getDisplayLanguage(Locale.ENGLISH).toLowerCase();
     }
 
     public static boolean isLanguageSupported(Locale languageLocale) {
@@ -86,5 +80,9 @@ public enum GptSupportedLanguages {
         return gptSupportedLanguages.stream()
                 .map(GptSupportedLanguages::getLanguage)
                 .anyMatch(e -> e.equals(language));
+    }
+
+    public String getLanguage() {
+        return englishLanguageName;
     }
 }
