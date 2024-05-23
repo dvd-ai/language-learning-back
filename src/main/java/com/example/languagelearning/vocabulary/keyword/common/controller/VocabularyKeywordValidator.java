@@ -4,7 +4,6 @@ import com.example.languagelearning.error.ClientException;
 import org.springframework.stereotype.Component;
 
 import java.util.Locale;
-import java.util.Map;
 
 import static com.example.languagelearning.openai.gpt.GptSupportedLanguages.isLanguageSupported;
 

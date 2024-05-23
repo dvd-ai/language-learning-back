@@ -3,14 +3,12 @@ package com.example.languagelearning.vocabulary.keyword.common.prompt;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import java.util.Locale;
-
 @Profile("!prod")
 @Service
 public class VocabularySubtopic1LevelPromptProcessorNotProd implements VocabularySubtopic1LevelPromptProcessor {
 
     @Override
-    public String getSubtopic1LevelNames(String keyword, Locale targetLanguage) {
+    public String getSubtopic1LevelNames(String keyword, String targetLanguage) {
         return "Break the word " + keyword + " into vocabulary subtopics with one level of nesting in  only JSON format. " +
                 """
                           The output follows this json structure:

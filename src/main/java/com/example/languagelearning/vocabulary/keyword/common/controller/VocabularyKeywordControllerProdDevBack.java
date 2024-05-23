@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Locale;
 
+import static com.example.languagelearning.common.LanguageUtil.normalizeLocale;
+
 @Profile({"prod", "dev-back"})
 @RestController
 public class VocabularyKeywordControllerProdDevBack implements VocabularyKeywordController {
@@ -26,6 +28,10 @@ public class VocabularyKeywordControllerProdDevBack implements VocabularyKeyword
     public List<? extends VocabularyTopic> getVocabularyByKeyword(@RequestParam String keyword, @RequestParam Locale targetLanguage,
                                                                   @RequestParam Locale translationLanguage) {
         vocabularyKeywordValidator.validate(translationLanguage);
-        return vocabularyManager.getSeveralVocabularyByKeyword(keyword, targetLanguage, translationLanguage);
+        return vocabularyManager.getSeveralVocabularyByKeyword(
+                keyword,
+                normalizeLocale(targetLanguage),
+                normalizeLocale(translationLanguage)
+        );
     }
 }

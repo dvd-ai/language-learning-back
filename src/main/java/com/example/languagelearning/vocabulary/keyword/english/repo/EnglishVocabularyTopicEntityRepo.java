@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
-import java.util.Locale;
 
 public interface EnglishVocabularyTopicEntityRepo extends JpaRepository<EnglishVocabularyTopicEntity, Long> {
     @Query(value = """
@@ -16,6 +15,6 @@ public interface EnglishVocabularyTopicEntityRepo extends JpaRepository<EnglishV
                    COALESCE(split_part(english_vocabulary_topic ->> 'vocabularyName', '.', 1), NULL) = :keyword
             """, nativeQuery = true)
     List<EnglishVocabularyTopicEntity> findTopicsByKeywordAndTranslationLanguage(@Param("keyword") String keyword,
-                                                                                 @Param("translationLanguage") Locale translationLanguage
+                                                                                 @Param("translationLanguage") String translationLanguage
     );
 }

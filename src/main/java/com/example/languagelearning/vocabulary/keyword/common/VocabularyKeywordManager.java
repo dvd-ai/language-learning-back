@@ -8,10 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
-
-import static com.example.languagelearning.common.LanguageUtil.equalLanguages;
 
 @Service
 public class VocabularyKeywordManager {
@@ -25,10 +22,10 @@ public class VocabularyKeywordManager {
         this.vocabularyServices = applicationContext.getBeansOfType(VocabularyKeywordService.class);
     }
 
-    public List<? extends VocabularyTopic> getSeveralVocabularyByKeyword(String keyword, Locale targetLanguage, Locale translationLanguage) {
+    public List<? extends VocabularyTopic> getSeveralVocabularyByKeyword(String keyword, String targetLanguage, String translationLanguage) {
         try {
             for (VocabularyKeywordService vocabularyKeywordService : vocabularyServices.values()) {
-                if (equalLanguages(vocabularyKeywordService.getLanguage(), targetLanguage))
+                if (vocabularyKeywordService.getLanguage().equals(targetLanguage))
                     return vocabularyKeywordService.processByKeyword(keyword, openAiService, translationLanguage);
             }
         } catch (Exception e) {

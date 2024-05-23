@@ -17,7 +17,7 @@ public final class EnglishVocabularyPromptProcessor {
                         verbsContainer has array of objects that have these fields:
                         -englishWord
                         """ +
-                "\n-wordTranslation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
+                "\n-wordTranslation (the value of the field is in " + promptParameters.translationLanguage() + ")" +
                 """
                         -presentPerfectForm
                         -pastSimpleForm
@@ -42,7 +42,7 @@ public final class EnglishVocabularyPromptProcessor {
                         the nounsContainer has array of objects that have these fields:
                         -englishWord
                         """ +
-                "\n-wordTranslation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
+                "\n-wordTranslation (the value of the field is in " + promptParameters.translationLanguage() + ")" +
                 """
                         -englishDefinition
                         -preposition (if it usually comes after the noun usually (or used together), if not then place "")
@@ -65,7 +65,7 @@ public final class EnglishVocabularyPromptProcessor {
                         the adjectivesContainer has array of objects that have these fields:
                         -englishWord
                         """ +
-                "\n-wordTranslation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
+                "\n-wordTranslation (the value of the field is in " + promptParameters.translationLanguage() + ")" +
                 """
                         -englishDefinition
                         -preposition (if it usually comes after the adjective (or used together), if not then place "")
@@ -88,7 +88,7 @@ public final class EnglishVocabularyPromptProcessor {
                         the idiomsContainer has array of objects that have these fields:
                         -englishIdiom
                         """ +
-                "\n-idiomTranslation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
+                "\n-idiomTranslation (the value of the field is in " + promptParameters.translationLanguage() + ")" +
                 """
                         -englishDefinition
                         -englishExampleSentence
@@ -109,7 +109,7 @@ public final class EnglishVocabularyPromptProcessor {
                         the collocationsContainer has array of objects that have these fields:
                         -englishCollocation
                         """ +
-                "\n-collocationTranslation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
+                "\n-collocationTranslation (the value of the field is in " + promptParameters.translationLanguage() + ")" +
                 """
                         -englishDefinition
                         -englishExampleSentence
@@ -130,7 +130,7 @@ public final class EnglishVocabularyPromptProcessor {
                         the prepositionalVerbsContainer has array of objects that have these fields:
                         -englishPrepositionalVerb
                         """ +
-                "\n-translation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
+                "\n-translation (the value of the field is in " + promptParameters.translationLanguage() + ")" +
                 """
                         -englishDefinition
                         -englishExampleSentence
@@ -152,7 +152,7 @@ public final class EnglishVocabularyPromptProcessor {
                         the phrasalVerbsContainer has array of objects that have these fields:
                         -englishPhrasalVerb
                         """ +
-                "\n-translation (the value of the field is in " + promptParameters.translationLanguage().getDisplayLanguage() + ")" +
+                "\n-translation (the value of the field is in " + promptParameters.translationLanguage() + ")" +
                 """
                         -englishDefinition
                         -preposition (if it usually comes after the verb (or used together,

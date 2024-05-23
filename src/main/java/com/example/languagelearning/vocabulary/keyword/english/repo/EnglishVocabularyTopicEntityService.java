@@ -5,7 +5,6 @@ import com.example.languagelearning.vocabulary.keyword.english.entity.EnglishVoc
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Locale;
 
 
 @Service
@@ -21,7 +20,7 @@ public class EnglishVocabularyTopicEntityService {
         return englishVocabularyTopicEntityRepo.save(englishVocabularyTopicEntity);
     }
 
-    public List<EnglishVocabularyTopicEntity> findTopicsByKeywordAndTranslationLanguage(String keyword, Locale translationLanguage) {
+    public List<EnglishVocabularyTopicEntity> findTopicsByKeywordAndTranslationLanguage(String keyword, String translationLanguage) {
         try {
             return englishVocabularyTopicEntityRepo.findTopicsByKeywordAndTranslationLanguage(keyword, translationLanguage);
         } catch (Exception e) {
