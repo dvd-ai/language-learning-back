@@ -24,6 +24,7 @@ import java.util.Locale;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
+import static com.example.languagelearning.common.LanguageUtil.normalizeLocale;
 import static com.example.languagelearning.util.CompletableFutureUtil.extractValuesFromCompletableFutures;
 import static com.example.languagelearning.util.CompletableFutureUtil.tryToExtractSingleCompletedFutureElement;
 import static com.example.languagelearning.vocabulary.keyword.common.util.VocabularyKeywordUtil.getSpeechPartJson;
@@ -43,12 +44,12 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
     }
 
     @Override
-    public Locale getLanguage() {
-        return Locale.ENGLISH;
+    public String getLanguage() {
+        return normalizeLocale(Locale.ENGLISH);
     }
 
     @Override
-    public List<? extends VocabularyTopic> processByKeyword(String keyword, OpenAiService openAiService, Locale translationLanguage) throws JsonProcessingException {
+    public List<? extends VocabularyTopic> processByKeyword(String keyword, OpenAiService openAiService, String translationLanguage) throws JsonProcessingException {
         Optional<List<EnglishVocabularyTopic>> vocabularyTopicsOptional = getExistingVocabularyTopics(keyword, translationLanguage);
         if (vocabularyTopicsOptional.isPresent())
             return vocabularyTopicsOptional.get();
@@ -67,7 +68,7 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
         return extractValuesFromCompletableFutures(topicsCompletableFutures);
     }
 
-    private Subtopic1NestingLevelBlockContainer getSubtopic1NestingLevelBlockContainer(String keyword, Locale targetLanguage, OpenAiService openAiService) throws JsonProcessingException {
+    private Subtopic1NestingLevelBlockContainer getSubtopic1NestingLevelBlockContainer(String keyword, String targetLanguage, OpenAiService openAiService) throws JsonProcessingException {
         return objectMapper.readValue(
                 openAiService.customCall(subtopic1LevelPromptProcessor.getSubtopic1LevelNames(keyword, targetLanguage),
                         OpenAiChatOptions.builder()
@@ -78,7 +79,7 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
         );
     }
 
-    private Optional<List<EnglishVocabularyTopic>> getExistingVocabularyTopics(String keyword, Locale translationLanguage) {
+    private Optional<List<EnglishVocabularyTopic>> getExistingVocabularyTopics(String keyword, String translationLanguage) {
 
         List<EnglishVocabularyTopicEntity> entityTopics = vocabularyTopicEntityService.findTopicsByKeywordAndTranslationLanguage(keyword, translationLanguage);
 

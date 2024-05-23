@@ -6,8 +6,7 @@ import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopi
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;
-import java.util.Locale;
 
 public interface VocabularyKeywordService extends Language {
-    List<? extends VocabularyTopic> processByKeyword(String keyword, OpenAiService openAiService, Locale translationLanguage) throws JsonProcessingException;
+    List<? extends VocabularyTopic> processByKeyword(String keyword, OpenAiService openAiService, String translationLanguage) throws JsonProcessingException;
 }

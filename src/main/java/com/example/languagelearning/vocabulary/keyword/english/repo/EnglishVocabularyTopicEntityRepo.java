@@ -16,6 +16,6 @@ public interface EnglishVocabularyTopicEntityRepo extends JpaRepository<EnglishV
                    COALESCE(split_part(english_vocabulary_topic ->> 'vocabularyName', '.', 1), NULL) = :keyword
             """, nativeQuery = true)
     List<EnglishVocabularyTopicEntity> findTopicsByKeywordAndTranslationLanguage(@Param("keyword") String keyword,
-                                                                                 @Param("translationLanguage") Locale translationLanguage
+                                                                                 @Param("translationLanguage") String translationLanguage
     );
 }
