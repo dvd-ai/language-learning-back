@@ -24,15 +24,18 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation ("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.ai:spring-ai-openai-spring-boot-starter")
+
 	implementation("org.flywaydb:flyway-core:9.0.1")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
 	implementation("io.hypersistence:hypersistence-utils-hibernate-60:3.7.2")
 	implementation ("commons-io:commons-io:2.11.0")
 	implementation("org.modelmapper:modelmapper:3.1.0")
 
-
-	runtimeOnly("org.postgresql:postgresql")
+	runtimeOnly("org.postgresql:postgresql:13.1-alpine")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.springframework.boot:spring-boot-testcontainers")
+	testImplementation ("org.testcontainers:junit-jupiter")
+	testImplementation ("org.testcontainers:postgresql")
 }
 
 dependencyManagement {
