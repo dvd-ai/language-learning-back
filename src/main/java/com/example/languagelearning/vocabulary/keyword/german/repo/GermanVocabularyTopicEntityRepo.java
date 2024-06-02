@@ -15,6 +15,6 @@ public interface GermanVocabularyTopicEntityRepo extends JpaRepository<GermanVoc
                    COALESCE(split_part(german_vocabulary_topic ->> 'vocabularyName', '.', 1), NULL) = :keyword
             """, nativeQuery = true)
     List<GermanVocabularyTopicEntity> findTopicsByKeywordAndTranslationLanguage(@Param("keyword") String keyword,
-                                                                                 @Param("translationLanguage") String translationLanguage
+                                                                                @Param("translationLanguage") String translationLanguage
     );
 }

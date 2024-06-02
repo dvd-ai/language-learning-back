@@ -112,8 +112,8 @@ public class GermanVocabularyKeywordService implements VocabularyKeywordService 
     }
 
     private GermanVocabularyTopic createAndSaveTopicFromParts(CompletableFuture<String> verbs, CompletableFuture<String> nouns, CompletableFuture<String> adjectives,
-                                                               CompletableFuture<String> collocations, CompletableFuture<String> idioms,
-                                                               CompletableFuture<String> prepositionalVerbs, VocabularyKeywordPromptParameters topicParameters) {
+                                                              CompletableFuture<String> collocations, CompletableFuture<String> idioms,
+                                                              CompletableFuture<String> prepositionalVerbs, VocabularyKeywordPromptParameters topicParameters) {
 
         String extractedVerbs = tryToExtractSingleCompletedFutureElement(verbs);
         String extractedNouns = tryToExtractSingleCompletedFutureElement(nouns);
