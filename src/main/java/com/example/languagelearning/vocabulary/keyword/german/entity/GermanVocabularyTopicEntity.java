@@ -13,21 +13,21 @@ public class GermanVocabularyTopicEntity {
     private Long id;
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(columnDefinition = "jsonb")
-    private GermanVocabularyTopic englishVocabularyTopic;
+    private GermanVocabularyTopic germanVocabularyTopic;
 
     private String translationLanguage;
 
     public GermanVocabularyTopicEntity() {
     }
 
-    public GermanVocabularyTopicEntity(GermanVocabularyTopic englishVocabularyTopic, String translationLanguage) {
-        this.englishVocabularyTopic = englishVocabularyTopic;
+    public GermanVocabularyTopicEntity(GermanVocabularyTopic germanVocabularyTopic, String translationLanguage) {
+        this.germanVocabularyTopic = germanVocabularyTopic;
         this.translationLanguage = translationLanguage;
     }
 
-    public GermanVocabularyTopicEntity(Long id, GermanVocabularyTopic englishVocabularyTopic, String translationLanguage) {
+    public GermanVocabularyTopicEntity(Long id, GermanVocabularyTopic germanVocabularyTopic, String translationLanguage) {
         this.id = id;
-        this.englishVocabularyTopic = englishVocabularyTopic;
+        this.germanVocabularyTopic = germanVocabularyTopic;
         this.translationLanguage = translationLanguage;
     }
 
@@ -40,11 +40,11 @@ public class GermanVocabularyTopicEntity {
     }
 
     public GermanVocabularyTopic getGermanVocabularyTopic() {
-        return englishVocabularyTopic;
+        return germanVocabularyTopic;
     }
 
     public void setGermanVocabularyTopic(GermanVocabularyTopic englishVocabularyTopic) {
-        this.englishVocabularyTopic = englishVocabularyTopic;
+        this.germanVocabularyTopic = englishVocabularyTopic;
     }
 
     public String getTranslationLanguage() {
