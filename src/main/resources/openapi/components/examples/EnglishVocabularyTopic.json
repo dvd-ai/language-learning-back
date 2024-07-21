@@ -1,0 +1,489 @@
+[
+  {
+    "vocabularyName": "Crime.Types of Crime.Violent Crime",
+    "verbs": [
+      {
+        "englishWord": "assault",
+        "wordTranslation": "нападать",
+        "presentPerfectForm": "has/have assaulted",
+        "pastSimpleForm": "assaulted",
+        "englishDefinition": "make a physical attack on",
+        "preposition": "on",
+        "englishExampleSentence": "He was charged with assaulting a police officer.",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "attack",
+        "wordTranslation": "атаковать",
+        "presentPerfectForm": "has/have attacked",
+        "pastSimpleForm": "attacked",
+        "englishDefinition": "take aggressive action against (a place or enemy forces) with weapons or armed force",
+        "preposition": "on",
+        "englishExampleSentence": "The gang attacked him with sticks.",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "murder",
+        "wordTranslation": "убивать",
+        "presentPerfectForm": "has/have murdered",
+        "pastSimpleForm": "murdered",
+        "englishDefinition": "kill (someone) unlawfully and with premeditation",
+        "preposition": "",
+        "englishExampleSentence": "He was found guilty of murdering his wife.",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "rape",
+        "wordTranslation": "насиловать",
+        "presentPerfectForm": "has/have raped",
+        "pastSimpleForm": "raped",
+        "englishDefinition": "force (someone) to have sexual intercourse against their will",
+        "preposition": "",
+        "englishExampleSentence": "She was brutally raped by a stranger.",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "rob",
+        "wordTranslation": "грабить",
+        "presentPerfectForm": "has/have robbed",
+        "pastSimpleForm": "robbed",
+        "englishDefinition": "take property unlawfully from (a person or place) by force or threat of force",
+        "preposition": "",
+        "englishExampleSentence": "The bank was robbed by masked gunmen.",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "shoot",
+        "wordTranslation": "стрелять",
+        "presentPerfectForm": "has/have shot",
+        "pastSimpleForm": "shot",
+        "englishDefinition": "fire a bullet or other projectile from a gun or other weapon",
+        "preposition": "at",
+        "englishExampleSentence": "He shot his rival in a fit of rage.",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "stab",
+        "wordTranslation": "ударять ножом",
+        "presentPerfectForm": "has/have stabbed",
+        "pastSimpleForm": "stabbed",
+        "englishDefinition": "thrust a knife or other pointed weapon into (someone) so as to wound or kill",
+        "preposition": "",
+        "englishExampleSentence": "He was arrested for stabbing his neighbor.",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "strangle",
+        "wordTranslation": "удушать",
+        "presentPerfectForm": "has/have strangled",
+        "pastSimpleForm": "strangled",
+        "englishDefinition": "squeeze or constrict the neck of (a person or animal), especially so as to cause death",
+        "preposition": "",
+        "englishExampleSentence": "The killer strangled his victim with a rope.",
+        "isColloquial": false
+      }
+    ],
+    "nouns": [
+      {
+        "englishWord": "assault",
+        "wordTranslation": "нападение",
+        "preposition": "on",
+        "englishExampleSentence": "He was charged with assault on a police officer.",
+        "englishDefinition": "a physical attack",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "battery",
+        "wordTranslation": "побои",
+        "preposition": "on",
+        "englishExampleSentence": "He was arrested for battery after a bar fight.",
+        "englishDefinition": "the crime of physically attacking someone",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "homicide",
+        "wordTranslation": "убийство",
+        "preposition": "",
+        "englishExampleSentence": "The suspect was charged with multiple counts of homicide.",
+        "englishDefinition": "the deliberate and unlawful killing of one person by another",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "kidnapping",
+        "wordTranslation": "похищение",
+        "preposition": "",
+        "englishExampleSentence": "The ransom for the kidnapping victim was set at $1 million.",
+        "englishDefinition": "the action of abducting someone and holding them captive",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "manslaughter",
+        "wordTranslation": "непреднамеренное убийство",
+        "preposition": "",
+        "englishExampleSentence": "The defendant pleaded guilty to manslaughter charges.",
+        "englishDefinition": "the crime of killing a person without intent",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "murder",
+        "wordTranslation": "убийство",
+        "preposition": "",
+        "englishExampleSentence": "The murder investigation lasted for several months.",
+        "englishDefinition": "the unlawful premeditated killing of one person by another",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "rape",
+        "wordTranslation": "насилие",
+        "preposition": "",
+        "englishExampleSentence": "She reported the rape to the authorities immediately.",
+        "englishDefinition": "the crime of forcing another person to have sexual intercourse",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "robbery",
+        "wordTranslation": "ограбление",
+        "preposition": "",
+        "englishExampleSentence": "The bank robbery was thwarted by the police.",
+        "englishDefinition": "the action of stealing from someone using force or threat of force",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "stalking",
+        "wordTranslation": "преследование",
+        "preposition": "",
+        "englishExampleSentence": "She obtained a restraining order against her stalker.",
+        "englishDefinition": "the act of pursuing or harassing someone repeatedly",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "terrorism",
+        "wordTranslation": "терроризм",
+        "preposition": "",
+        "englishExampleSentence": "The government declared a state of emergency due to the terrorism threat.",
+        "englishDefinition": "the unlawful use of violence and intimidation, especially against civilians, in the pursuit of political aims",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "threat",
+        "wordTranslation": "угроза",
+        "preposition": "",
+        "englishExampleSentence": "The suspect was arrested for making a bomb threat.",
+        "englishDefinition": "a statement of an intention to inflict pain, injury, damage, or other hostile action on someone",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "violence",
+        "wordTranslation": "насилие",
+        "preposition": "",
+        "englishExampleSentence": "The organization is dedicated to ending domestic violence.",
+        "englishDefinition": "behavior involving physical force intended to hurt, damage, or kill someone or something",
+        "isColloquial": false
+      }
+    ],
+    "adjectives": [
+      {
+        "englishWord": "brutal",
+        "wordTranslation": "жестокий",
+        "preposition": "",
+        "englishExampleSentence": "The brutal murder shocked the community.",
+        "englishDefinition": "savagely violent",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "deadly",
+        "wordTranslation": "смертельный",
+        "preposition": "",
+        "englishExampleSentence": "The deadly attack left several people injured.",
+        "englishDefinition": "likely to cause death",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "gruesome",
+        "wordTranslation": "отвратительный",
+        "preposition": "",
+        "englishExampleSentence": "The gruesome crime scene was difficult to process.",
+        "englishDefinition": "causing repulsion or horror",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "horrific",
+        "wordTranslation": "ужасный",
+        "preposition": "",
+        "englishExampleSentence": "The horrific crime left a lasting impact on the victims.",
+        "englishDefinition": "causing extreme horror or disgust",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "murderous",
+        "wordTranslation": "убийственный",
+        "preposition": "",
+        "englishExampleSentence": "The murderous rampage resulted in multiple casualties.",
+        "englishDefinition": "involving or characterized by murder",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "shocking",
+        "wordTranslation": "шокирующий",
+        "preposition": "",
+        "englishExampleSentence": "The shocking revelation about the crime changed the course of the investigation.",
+        "englishDefinition": "causing surprise or disbelief",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "terrifying",
+        "wordTranslation": "ужасающий",
+        "preposition": "",
+        "englishExampleSentence": "The terrifying experience of being a victim of violent crime is traumatic.",
+        "englishDefinition": "causing extreme fear",
+        "isColloquial": false
+      },
+      {
+        "englishWord": "violent",
+        "wordTranslation": "насильственный",
+        "preposition": "",
+        "englishExampleSentence": "The violent assault resulted in serious injuries.",
+        "englishDefinition": "using or involving physical force intended to hurt, damage, or kill someone or something",
+        "isColloquial": false
+      }
+    ],
+    "collocations": [
+      {
+        "englishCollocation": "commit a crime",
+        "collocationTranslation": "совершить преступление",
+        "englishDefinition": "to do something illegal or morally wrong",
+        "englishExampleSentence": "He was arrested for committing a crime."
+      },
+      {
+        "englishCollocation": "violent crime",
+        "collocationTranslation": "насильственное преступление",
+        "englishDefinition": "a crime that involves the use of force or violence",
+        "englishExampleSentence": "Robbery is considered a violent crime."
+      },
+      {
+        "englishCollocation": "criminal behavior",
+        "collocationTranslation": "преступное поведение",
+        "englishDefinition": "actions that are against the law",
+        "englishExampleSentence": "His criminal behavior landed him in jail."
+      },
+      {
+        "englishCollocation": "domestic violence",
+        "collocationTranslation": "семейное насилие",
+        "englishDefinition": "violence or abuse within a household or relationship",
+        "englishExampleSentence": "She finally left him after years of domestic violence."
+      },
+      {
+        "englishCollocation": "assault and battery",
+        "collocationTranslation": "нападение и избиение",
+        "englishDefinition": "the crime of physically attacking someone",
+        "englishExampleSentence": "He was charged with assault and battery after the fight."
+      },
+      {
+        "englishCollocation": "gang violence",
+        "collocationTranslation": "бандитское насилие",
+        "englishDefinition": "violence carried out by organized groups of criminals",
+        "englishExampleSentence": "The city has been plagued by gang violence."
+      },
+      {
+        "englishCollocation": "homicide rate",
+        "collocationTranslation": "уровень убийств",
+        "englishDefinition": "the number of murders per population in a given area",
+        "englishExampleSentence": "The city saw a rise in its homicide rate last year."
+      },
+      {
+        "englishCollocation": "violent offender",
+        "collocationTranslation": "насильственный преступник",
+        "englishDefinition": "a person who commits violent crimes",
+        "englishExampleSentence": "He was labeled a violent offender after his third conviction."
+      },
+      {
+        "englishCollocation": "aggravated assault",
+        "collocationTranslation": "тяжкое нападение",
+        "englishDefinition": "a serious physical attack that causes severe harm",
+        "englishExampleSentence": "The suspect was charged with aggravated assault."
+      },
+      {
+        "englishCollocation": "armed robbery",
+        "collocationTranslation": "вооруженное ограбление",
+        "englishDefinition": "a robbery that involves the use of weapons",
+        "englishExampleSentence": "The bank was targeted in an armed robbery."
+      }
+    ],
+    "idioms": [
+      {
+        "englishIdiom": "Caught red-handed",
+        "englishDefinition": "To be caught in the act of doing something wrong or illegal",
+        "englishExampleSentence": "The thief was caught red-handed stealing from the store.",
+        "idiomTranslation": "Поймать за руку"
+      },
+      {
+        "englishIdiom": "In cold blood",
+        "englishDefinition": "To do something in a deliberate and unemotional manner, especially a violent crime",
+        "englishExampleSentence": "The murderer killed his victim in cold blood.",
+        "idiomTranslation": "Хладнокровно"
+      },
+      {
+        "englishIdiom": "On the lam",
+        "englishDefinition": "Fleeing or in hiding from the authorities, typically to avoid punishment for a crime",
+        "englishExampleSentence": "The bank robber was on the lam for weeks before being captured by the police.",
+        "idiomTranslation": "В бегах"
+      },
+      {
+        "englishIdiom": "A slap on the wrist",
+        "englishDefinition": "A very mild punishment or warning for a crime or wrongdoing",
+        "englishExampleSentence": "The CEO received just a slap on the wrist for the embezzlement scandal.",
+        "idiomTranslation": "Пощечина по запястью"
+      },
+      {
+        "englishIdiom": "Behind bars",
+        "englishDefinition": "In prison or jail, serving a sentence for a crime",
+        "englishExampleSentence": "The notorious criminal is behind bars after being convicted of multiple murders.",
+        "idiomTranslation": "За решеткой"
+      }
+    ],
+    "prepositionalVerbs": [
+      {
+        "englishPrepositionalVerb": "break into",
+        "translation": "врываться",
+        "englishDefinition": "to enter a building illegally using force, especially in order to steal something",
+        "englishExampleSentence": "The burglars broke into the house while the family was away.",
+        "isColloquial": false
+      },
+      {
+        "englishPrepositionalVerb": "come across",
+        "translation": "натолкнуться",
+        "englishDefinition": "to find something or meet someone by chance",
+        "englishExampleSentence": "I came across some old photos while cleaning out the attic.",
+        "isColloquial": false
+      },
+      {
+        "englishPrepositionalVerb": "get away with",
+        "translation": "избежать наказания",
+        "englishDefinition": "to escape punishment for a crime or bad action",
+        "englishExampleSentence": "The thief got away with stealing the jewelry.",
+        "isColloquial": false
+      },
+      {
+        "englishPrepositionalVerb": "give in to",
+        "translation": "уступить",
+        "englishDefinition": "to finally agree to something that you have been resisting",
+        "englishExampleSentence": "The suspect gave in to the police interrogation and confessed to the crime.",
+        "isColloquial": false
+      },
+      {
+        "englishPrepositionalVerb": "go around",
+        "translation": "обойти",
+        "englishDefinition": "to move from place to place",
+        "englishExampleSentence": "The criminal went around the neighborhood looking for a target.",
+        "isColloquial": false
+      },
+      {
+        "englishPrepositionalVerb": "go through",
+        "translation": "проходить через",
+        "englishDefinition": "to experience a difficult or unpleasant situation",
+        "englishExampleSentence": "The victim had to go through a traumatic experience after the robbery.",
+        "isColloquial": false
+      },
+      {
+        "englishPrepositionalVerb": "look for",
+        "translation": "искать",
+        "englishDefinition": "to try to find someone or something",
+        "englishExampleSentence": "The police are looking for the suspect in connection with the assault case.",
+        "isColloquial": false
+      },
+      {
+        "englishPrepositionalVerb": "put up with",
+        "translation": "терпеть",
+        "englishDefinition": "to tolerate or endure a difficult situation or person without complaining",
+        "englishExampleSentence": "The victim couldn't put up with the abuse any longer and reported it to the authorities.",
+        "isColloquial": false
+      },
+      {
+        "englishPrepositionalVerb": "stand up to",
+        "translation": "противостоять",
+        "englishDefinition": "to resist or confront a person or situation",
+        "englishExampleSentence": "The victim decided to stand up to the bully and fight back.",
+        "isColloquial": false
+      },
+      {
+        "englishPrepositionalVerb": "turn to",
+        "translation": "обратиться",
+        "englishDefinition": "to seek help or advice from someone",
+        "englishExampleSentence": "The victim turned to the police for protection from the stalker.",
+        "isColloquial": false
+      }
+    ],
+    "phrasalVerbs": [
+      {
+        "englishPhrasalVerb": "break in",
+        "translation": "вламываться",
+        "englishDefinition": "to enter a building illegally, especially by force",
+        "preposition": "",
+        "englishExampleSentence": "The burglars broke in through the back window."
+      },
+      {
+        "englishPhrasalVerb": "carry out",
+        "translation": "осуществлять",
+        "englishDefinition": "to do something that has been planned or decided",
+        "preposition": "",
+        "englishExampleSentence": "The criminals carried out the robbery with precision."
+      },
+      {
+        "englishPhrasalVerb": "get away with",
+        "translation": "избежать наказания",
+        "englishDefinition": "to do something wrong without being caught or punished",
+        "preposition": "",
+        "englishExampleSentence": "The thieves got away with stealing the valuable artwork."
+      },
+      {
+        "englishPhrasalVerb": "hold up",
+        "translation": "ограбить",
+        "englishDefinition": "to rob someone or a place, especially using a weapon",
+        "preposition": "",
+        "englishExampleSentence": "The bank was held up by two armed men."
+      },
+      {
+        "englishPhrasalVerb": "knock off",
+        "translation": "сколотить",
+        "englishDefinition": "to kill someone",
+        "preposition": "",
+        "englishExampleSentence": "The gangsters knocked off the rival mob boss."
+      },
+      {
+        "englishPhrasalVerb": "pull off",
+        "translation": "совершить успешно",
+        "englishDefinition": "to succeed in doing something difficult or unexpected",
+        "preposition": "",
+        "englishExampleSentence": "The criminals managed to pull off a daring heist."
+      },
+      {
+        "englishPhrasalVerb": "run away",
+        "translation": "убежать",
+        "englishDefinition": "to leave a place quickly in order to escape from danger or a difficult situation",
+        "preposition": "",
+        "englishExampleSentence": "The suspect ran away from the scene of the crime."
+      },
+      {
+        "englishPhrasalVerb": "shoot down",
+        "translation": "сбить (самолет, вертолет)",
+        "englishDefinition": "to make a flying aircraft fall to the ground by shooting it",
+        "preposition": "",
+        "englishExampleSentence": "The criminals shot down the police helicopter."
+      },
+      {
+        "englishPhrasalVerb": "take hostage",
+        "translation": "взять в заложники",
+        "englishDefinition": "to seize and hold a person as security for the fulfillment of a demand",
+        "preposition": "",
+        "englishExampleSentence": "The terrorists took hostages during the siege."
+      },
+      {
+        "englishPhrasalVerb": "turn in",
+        "translation": "сдать в полицию",
+        "englishDefinition": "to give someone to the police because they are believed to have committed a crime",
+        "preposition": "",
+        "englishExampleSentence": "The informant turned in the wanted criminal to the authorities."
+      }
+    ]
+  }
+]

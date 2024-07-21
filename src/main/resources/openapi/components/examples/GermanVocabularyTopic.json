@@ -1,0 +1,503 @@
+[
+  {
+    "vocabularyName": "Kriminelle Welt.Kriminelle.Verbrechen",
+    "verbs": [
+      {
+        "germanWord": "bestrafen",
+        "wordTranslation": "to punish",
+        "case_": "",
+        "germanExampleSentence": "Der Richter wird den Täter bestrafen.",
+        "pastTenseForm": "bestrafte",
+        "perfectTenseForm": "bestraft",
+        "germanDefinition": "jemandem eine Strafe auferlegen",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanWord": "entführen",
+        "wordTranslation": "to kidnap",
+        "case_": "",
+        "germanExampleSentence": "Die Gangster haben das Kind entführt.",
+        "pastTenseForm": "entführte",
+        "perfectTenseForm": "entführt",
+        "germanDefinition": "gewaltsam eine Person verschleppen",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanWord": "erpressen",
+        "wordTranslation": "to blackmail",
+        "case_": "",
+        "germanExampleSentence": "Der Erpresser verlangt Geld für das Geheimnis.",
+        "pastTenseForm": "erpresste",
+        "perfectTenseForm": "erpresst",
+        "germanDefinition": "jemanden durch Drohungen zu etwas zwingen",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanWord": "fälschen",
+        "wordTranslation": "to forge",
+        "case_": "",
+        "germanExampleSentence": "Der Kriminelle hat die Unterschrift gefälscht.",
+        "pastTenseForm": "fälschte",
+        "perfectTenseForm": "gefälscht",
+        "germanDefinition": "etwas nachahmen oder verändern, um es echt aussehen zu lassen",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanWord": "klauen",
+        "wordTranslation": "to steal",
+        "case_": "",
+        "germanExampleSentence": "Der Dieb hat das Fahrrad geklaut.",
+        "pastTenseForm": "klauten",
+        "perfectTenseForm": "geklaut",
+        "germanDefinition": "etwas stehlen",
+        "isSeparable": false,
+        "isColloquial": true
+      },
+      {
+        "germanWord": "morden",
+        "wordTranslation": "to murder",
+        "case_": "",
+        "germanExampleSentence": "Der Serienmörder hat mehrere Menschen gemordet.",
+        "pastTenseForm": "mordete",
+        "perfectTenseForm": "gemordet",
+        "germanDefinition": "jemanden vorsätzlich töten",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanWord": "rauben",
+        "wordTranslation": "to rob",
+        "case_": "",
+        "germanExampleSentence": "Die Banditen haben die Bank ausgeraubt.",
+        "pastTenseForm": "raubte",
+        "perfectTenseForm": "geraubt",
+        "germanDefinition": "etwas unter Gewaltanwendung stehlen",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanWord": "schmuggeln",
+        "wordTranslation": "to smuggle",
+        "case_": "",
+        "germanExampleSentence": "Die Schmuggler haben Drogen geschmuggelt.",
+        "pastTenseForm": "schmuggelte",
+        "perfectTenseForm": "geschmuggelt",
+        "germanDefinition": "etwas illegal über die Grenze bringen",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanWord": "stehlen",
+        "wordTranslation": "to steal",
+        "case_": "Akkusativ",
+        "germanExampleSentence": "Der Dieb hat das Geld gestohlen.",
+        "pastTenseForm": "stahl",
+        "perfectTenseForm": "gestohlen",
+        "germanDefinition": "etwas unrechtmäßig an sich nehmen",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanWord": "töten",
+        "wordTranslation": "to kill",
+        "case_": "",
+        "germanExampleSentence": "Der Attentäter hat den Politiker getötet.",
+        "pastTenseForm": "tötete",
+        "perfectTenseForm": "getötet",
+        "germanDefinition": "jemandem das Leben nehmen",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanWord": "überfallen",
+        "wordTranslation": "to attack/rob",
+        "case_": "",
+        "germanExampleSentence": "Die Räuber haben die Bank überfallen.",
+        "pastTenseForm": "überfiel",
+        "perfectTenseForm": "überfallen",
+        "germanDefinition": "jemanden plötzlich angreifen, um zu rauben",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanWord": "vergewaltigen",
+        "wordTranslation": "to rape",
+        "case_": "",
+        "germanExampleSentence": "Der Täter hat die Frau vergewaltigt.",
+        "pastTenseForm": "vergewaltigte",
+        "perfectTenseForm": "vergewaltigt",
+        "germanDefinition": "jemanden gegen den eigenen Willen zum Geschlechtsverkehr zwingen",
+        "isSeparable": false,
+        "isColloquial": false
+      }
+    ],
+    "nouns": [
+      {
+        "germanWord": "der Dieb",
+        "wordTranslation": "thief",
+        "germanExampleSentence": "Der Dieb wurde von der Polizei festgenommen.",
+        "pluralForm": "die Diebe",
+        "germanDefinition": "jemand, der etwas stiehlt",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "der Einbrecher",
+        "wordTranslation": "burglar",
+        "germanExampleSentence": "Der Einbrecher wurde auf frischer Tat ertappt.",
+        "pluralForm": "die Einbrecher",
+        "germanDefinition": "jemand, der in ein Gebäude einbricht, um etwas zu stehlen",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "der Mörder",
+        "wordTranslation": "murderer",
+        "germanExampleSentence": "Der Mörder wurde zu lebenslanger Haft verurteilt.",
+        "pluralForm": "die Mörder",
+        "germanDefinition": "jemand, der einen Menschen tötet",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "der Raubüberfall",
+        "wordTranslation": "robbery",
+        "germanExampleSentence": "Der Raubüberfall wurde von der Überwachungskamera aufgezeichnet.",
+        "pluralForm": "",
+        "germanDefinition": "ein bewaffneter oder gewaltsamer Diebstahl",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "der Räuber",
+        "wordTranslation": "robber",
+        "germanExampleSentence": "Der Räuber bedrohte die Kassiererin mit einer Waffe.",
+        "pluralForm": "die Räuber",
+        "germanDefinition": "jemand, der etwas mit Gewalt oder Drohung stiehlt",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "die Bestechung",
+        "wordTranslation": "bribery",
+        "germanExampleSentence": "Der Politiker wurde wegen Bestechung angeklagt.",
+        "pluralForm": "",
+        "germanDefinition": "das Bestechen von Personen, um einen Vorteil zu erlangen",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "die Entführung",
+        "wordTranslation": "kidnapping",
+        "germanExampleSentence": "Die Entführung des Kindes löste eine landesweite Suche aus.",
+        "pluralForm": "",
+        "germanDefinition": "das gewaltsame Wegbringen einer Person gegen deren Willen",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "die Erpressung",
+        "wordTranslation": "blackmail",
+        "germanExampleSentence": "Die Erpressung des Unternehmers führte zu einem Polizeieinsatz.",
+        "pluralForm": "",
+        "germanDefinition": "das Erzwingen von etwas durch Drohungen oder Gewalt",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "die Fälschung",
+        "wordTranslation": "counterfeiting",
+        "germanExampleSentence": "Die Fälschung von Geldscheinen ist strafbar.",
+        "pluralForm": "",
+        "germanDefinition": "das Herstellen von gefälschten Dokumenten oder Waren",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "die Korruption",
+        "wordTranslation": "corruption",
+        "germanExampleSentence": "Die Korruption in der Regierung sorgte für Skandale.",
+        "pluralForm": "",
+        "germanDefinition": "die Ausnutzung von Macht oder Positionen für persönliche Vorteile",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "die Kriminalität",
+        "wordTranslation": "crime",
+        "germanExampleSentence": "Die Kriminalität in der Stadt stieg in den letzten Jahren an.",
+        "pluralForm": "",
+        "germanDefinition": "die Gesamtheit aller Straftaten in einer Gesellschaft",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "das Verbrechen",
+        "wordTranslation": "crime",
+        "germanExampleSentence": "Das Verbrechen wurde von der Polizei aufgeklärt.",
+        "pluralForm": "die Verbrechen",
+        "germanDefinition": "eine strafbare Handlung, die gesetzlich verfolgt wird",
+        "isColloquial": false
+      }
+    ],
+    "adjectives": [
+      {
+        "germanWord": "gefährlich",
+        "wordTranslation": "dangerous",
+        "preposition": "",
+        "case_": "",
+        "germanExampleSentence": "Der Mann ist gefährlich.",
+        "germanDefinition": "potentially causing harm or injury",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "kriminell",
+        "wordTranslation": "criminal",
+        "preposition": "",
+        "case_": "",
+        "germanExampleSentence": "Die Bande ist kriminell.",
+        "germanDefinition": "related to crime or criminals",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "skrupellos",
+        "wordTranslation": "unscrupulous",
+        "preposition": "",
+        "case_": "",
+        "germanExampleSentence": "Der skrupellose Dieb hat das Geld gestohlen.",
+        "germanDefinition": "having or showing no moral principles",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "verbrecherisch",
+        "wordTranslation": "criminal",
+        "preposition": "",
+        "case_": "",
+        "germanExampleSentence": "Seine verbrecherischen Handlungen haben ihn ins Gefängnis gebracht.",
+        "germanDefinition": "related to being a criminal or committing crimes",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "verdächtig",
+        "wordTranslation": "suspicious",
+        "preposition": "",
+        "case_": "",
+        "germanExampleSentence": "Sein Verhalten ist sehr verdächtig.",
+        "germanDefinition": "arousing suspicion or mistrust",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "verurteilt",
+        "wordTranslation": "convicted",
+        "preposition": "",
+        "case_": "",
+        "germanExampleSentence": "Der verurteilte Mörder sitzt im Gefängnis.",
+        "germanDefinition": "declared guilty of a crime by a court",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "vorsätzlich",
+        "wordTranslation": "intentional",
+        "preposition": "",
+        "case_": "",
+        "germanExampleSentence": "Die Tat war vorsätzlich und geplant.",
+        "germanDefinition": "done on purpose; deliberate",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "zweifelhaft",
+        "wordTranslation": "doubtful",
+        "preposition": "",
+        "case_": "",
+        "germanExampleSentence": "Seine Aussagen sind zweifelhaft.",
+        "germanDefinition": "causing doubt or uncertainty",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "überführt",
+        "wordTranslation": "convicted",
+        "preposition": "",
+        "case_": "",
+        "germanExampleSentence": "Der Dieb wurde überführt und verhaftet.",
+        "germanDefinition": "proven to have committed a crime",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "illegale",
+        "wordTranslation": "illegal",
+        "preposition": "",
+        "case_": "",
+        "germanExampleSentence": "Der Handel mit illegalen Drogen ist strafbar.",
+        "germanDefinition": "contrary to or forbidden by law",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "kriminell",
+        "wordTranslation": "criminal",
+        "preposition": "",
+        "case_": "",
+        "germanExampleSentence": "Die kriminelle Organisation wurde zerschlagen.",
+        "germanDefinition": "related to crime or criminals",
+        "isColloquial": false
+      },
+      {
+        "germanWord": "unberechenbar",
+        "wordTranslation": "unpredictable",
+        "preposition": "",
+        "case_": "",
+        "germanExampleSentence": "Sein Verhalten ist unberechenbar.",
+        "germanDefinition": "not able to be predicted or foreseen",
+        "isColloquial": false
+      }
+    ],
+    "collocations": [
+      {
+        "germanCollocation": "kriminelle Machenschaften",
+        "collocationTranslation": "criminal activities",
+        "germanDefinition": "Illegale und betrügerische Handlungen, die von Personen oder Gruppen begangen werden.",
+        "germanExampleSentence": "Die Polizei ermittelt gegen die kriminellen Machenschaften der Bande."
+      },
+      {
+        "germanCollocation": "Verbrechen begehen",
+        "collocationTranslation": "to commit a crime",
+        "germanDefinition": "Ein Gesetz verletzen und eine illegale Handlung ausführen.",
+        "germanExampleSentence": "Er wurde verhaftet, weil er ein schweres Verbrechen begangen hatte."
+      },
+      {
+        "germanCollocation": "kriminelle Energie",
+        "collocationTranslation": "criminal energy",
+        "germanDefinition": "Die Entschlossenheit und Bereitschaft, kriminelle Handlungen auszuführen.",
+        "germanExampleSentence": "Die Diebe zeigten eine enorme kriminelle Energie bei dem Raubüberfall."
+      },
+      {
+        "germanCollocation": "Gefängnisstrafe verbüßen",
+        "collocationTranslation": "to serve a prison sentence",
+        "germanDefinition": "Eine festgelegte Zeit im Gefängnis verbringen als Strafe für begangene Verbrechen.",
+        "germanExampleSentence": "Er musste drei Jahre im Gefängnis verbringen, um seine Gefängnisstrafe zu verbüßen."
+      },
+      {
+        "germanCollocation": "kriminelle Vereinigung",
+        "collocationTranslation": "criminal organization",
+        "germanDefinition": "Eine Gruppe von Personen, die zusammenarbeiten, um kriminelle Aktivitäten auszuführen.",
+        "germanExampleSentence": "Die Polizei zerschlug eine kriminelle Vereinigung, die mit Drogenhandel in Verbindung stand."
+      }
+    ],
+    "idioms": [
+      {
+        "germanIdiom": "Jemandem auf die Schliche kommen",
+        "germanDefinition": "Herausfinden, was jemand im Schilde führt oder was er vorhat.",
+        "germanExampleSentence": "Die Polizei ist dem Täter endlich auf die Schliche gekommen.",
+        "idiomTranslation": "To get onto someone's track"
+      },
+      {
+        "germanIdiom": "Ein Auge zudrücken",
+        "germanDefinition": "Durch ein bewusstes Nichtbeachten von Regeln oder Gesetzen eine Strafe vermeiden.",
+        "germanExampleSentence": "Der Chef drückt bei kleinen Vergehen oft ein Auge zu.",
+        "idiomTranslation": "To turn a blind eye"
+      },
+      {
+        "germanIdiom": "Blut ist dicker als Wasser",
+        "germanDefinition": "Die Familie ist wichtiger als Freunde oder andere Beziehungen.",
+        "germanExampleSentence": "Er half seinem Bruder, obwohl er wusste, dass es illegal war. Blut ist dicker als Wasser.",
+        "idiomTranslation": "Blood is thicker than water"
+      },
+      {
+        "germanIdiom": "Seine Schäfchen ins Trockene bringen",
+        "germanDefinition": "Sicherstellen, dass man vorgesorgt hat und keine finanziellen Sorgen hat.",
+        "germanExampleSentence": "Nach dem erfolgreichen Bankraub hat er seine Schäfchen ins Trockene gebracht.",
+        "idiomTranslation": "To secure one's future"
+      },
+      {
+        "germanIdiom": "Über Leichen gehen",
+        "germanDefinition": "Um ans Ziel zu gelangen, skrupellos handeln und keine Rücksicht auf andere nehmen.",
+        "germanExampleSentence": "Für sein eigenes Wohl ist er bereit, über Leichen zu gehen.",
+        "idiomTranslation": "To walk over dead bodies"
+      }
+    ],
+    "prepositionalVerbs": [
+      {
+        "germanPrepositionalVerb": "sich einigen auf",
+        "translation": "to agree on",
+        "germanDefinition": "sich in einer Sache auf eine gemeinsame Lösung verständigen",
+        "germanExampleSentence": "Die beiden Parteien konnten sich auf einen Kompromiss einigen.",
+        "caseAfterThePreposition": "Akkusativ",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanPrepositionalVerb": "sich freuen über",
+        "translation": "to be happy about",
+        "germanDefinition": "über etwas Positives froh sein",
+        "germanExampleSentence": "Ich freue mich über das Geschenk.",
+        "caseAfterThePreposition": "Akkusativ",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanPrepositionalVerb": "sich rächen an",
+        "translation": "to take revenge on",
+        "germanDefinition": "eine Tat als Vergeltung begehen",
+        "germanExampleSentence": "Er rächte sich an seinem Feind.",
+        "caseAfterThePreposition": "Dativ",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanPrepositionalVerb": "sich verlassen auf",
+        "translation": "to rely on",
+        "germanDefinition": "sich auf jemanden oder etwas verlassen",
+        "germanExampleSentence": "Man kann sich auf ihn verlassen.",
+        "caseAfterThePreposition": "Akkusativ",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanPrepositionalVerb": "ankommen auf",
+        "translation": "to depend on",
+        "germanDefinition": "von etwas abhängen",
+        "germanExampleSentence": "Es kommt darauf an, wie man es betrachtet.",
+        "caseAfterThePreposition": "Akkusativ",
+        "isSeparable": true,
+        "isColloquial": false
+      },
+      {
+        "germanPrepositionalVerb": "sich kümmern um",
+        "translation": "to take care of",
+        "germanDefinition": "sich um jemanden oder etwas sorgen",
+        "germanExampleSentence": "Sie kümmert sich liebevoll um ihre Kinder.",
+        "caseAfterThePreposition": "Akkusativ",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanPrepositionalVerb": "sich verabreden mit",
+        "translation": "to arrange to meet with",
+        "germanDefinition": "sich mit jemandem zu einem Treffen verabreden",
+        "germanExampleSentence": "Ich habe mich mit ihr zum Kaffee verabredet.",
+        "caseAfterThePreposition": "Dativ",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanPrepositionalVerb": "sich verstecken vor",
+        "translation": "to hide from",
+        "germanDefinition": "sich vor jemandem oder etwas verstecken",
+        "germanExampleSentence": "Er versteckte sich vor seinen Verfolgern.",
+        "caseAfterThePreposition": "Dativ",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanPrepositionalVerb": "sich vorbereiten auf",
+        "translation": "to prepare for",
+        "germanDefinition": "sich auf eine bevorstehende Situation vorbereiten",
+        "germanExampleSentence": "Er bereitet sich intensiv auf die Prüfung vor.",
+        "caseAfterThePreposition": "Akkusativ",
+        "isSeparable": false,
+        "isColloquial": false
+      },
+      {
+        "germanPrepositionalVerb": "sich wenden an",
+        "translation": "to turn to",
+        "germanDefinition": "sich an jemanden mit einem Anliegen oder Problem wenden",
+        "germanExampleSentence": "Wenn du Hilfe brauchst, kannst du dich an mich wenden.",
+        "caseAfterThePreposition": "Akkusativ",
+        "isSeparable": false,
+        "isColloquial": false
+      }
+    ]
+  }
+]
