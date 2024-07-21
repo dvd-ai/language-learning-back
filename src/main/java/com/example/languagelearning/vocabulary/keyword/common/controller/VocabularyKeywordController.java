@@ -35,7 +35,7 @@ public interface VocabularyKeywordController {
                             uniqueItems = true),
                     examples = {
                             @ExampleObject(name = "keyword = Crime, targetLanguage = en, translationLanguage = ru", ref = "#/components/examples/EnglishVocabularyTopicExample"),
-                            @ExampleObject(name = "keyword = Kriminelle Welt, targetLanguage = de, translationLanguage = ru", ref = "#/components/examples/GermanVocabularyTopicExample"),
+                            @ExampleObject(name = "keyword = Kriminelle Welt, targetLanguage = de, translationLanguage = en", ref = "#/components/examples/GermanVocabularyTopicExample"),
                     }))
     @GetMapping
     List<? extends VocabularyTopic> getVocabularyByKeyword(@RequestParam String keyword, @RequestParam Locale targetLanguage,
