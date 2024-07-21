@@ -2,6 +2,7 @@ package com.example.languagelearning.vocabulary.keyword.common.controller;
 
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopic;
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopic;
+import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -28,11 +29,13 @@ public interface VocabularyKeywordController {
                             schema = @Schema(
                                     oneOf = {
                                             EnglishVocabularyTopic.class,
+                                            GermanVocabularyTopic.class
                                     },
                                     type = "object"),
                             uniqueItems = true),
                     examples = {
-                            @ExampleObject(name = "targetLanguage = en", ref = "#/components/examples/EnglishVocabularyTopicExample"),
+                            @ExampleObject(name = "keyword = Crime, targetLanguage = en, translationLanguage = ru", ref = "#/components/examples/EnglishVocabularyTopicExample"),
+                            @ExampleObject(name = "keyword = Kriminelle Welt, targetLanguage = de, translationLanguage = en", ref = "#/components/examples/GermanVocabularyTopicExample"),
                     }))
     @GetMapping
     List<? extends VocabularyTopic> getVocabularyByKeyword(@RequestParam String keyword, @RequestParam Locale targetLanguage,

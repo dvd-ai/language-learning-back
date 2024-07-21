@@ -21,6 +21,7 @@ public class OpenApiConfig {
         return new OpenAPI()
                 .components(new Components()
                         .addExamples("EnglishVocabularyTopicExample", new Example().value(readFile("openapi/components/examples/EnglishVocabularyTopic.json")))
+                        .addExamples("GermanVocabularyTopicExample", new Example().value(readFile("openapi/components/examples/GermanVocabularyTopic.json")))
                 )
                 .info(new Info().title("Learning Language API Documentation").version("v1"));
     }
