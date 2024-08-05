@@ -1,10 +1,8 @@
 package com.example.languagelearning.vocabulary.keyword.german.dto;
 
-import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopic;
-
 import java.util.List;
 
-public class GermanVocabularyTopic extends VocabularyTopic {
+public class GermanVocabularyTopic {
 
     private String vocabularyName;
     private List<GermanVerb> verbs;
