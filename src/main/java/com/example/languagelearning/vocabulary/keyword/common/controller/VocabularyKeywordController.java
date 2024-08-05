@@ -1,8 +1,8 @@
 package com.example.languagelearning.vocabulary.keyword.common.controller;
 
-import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopic;
-import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopic;
-import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
+import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
+import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopicDto;
+import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopicDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -10,9 +10,7 @@ import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
@@ -28,8 +26,8 @@ public interface VocabularyKeywordController {
                     array = @ArraySchema(
                             schema = @Schema(
                                     oneOf = {
-                                            EnglishVocabularyTopic.class,
-                                            GermanVocabularyTopic.class
+                                            EnglishVocabularyTopicDto.class,
+                                            GermanVocabularyTopicDto.class
                                     },
                                     type = "object"),
                             uniqueItems = true),
@@ -38,6 +36,8 @@ public interface VocabularyKeywordController {
                             @ExampleObject(name = "keyword = Kriminelle Welt, targetLanguage = de, translationLanguage = en", ref = "#/components/examples/GermanVocabularyTopicExample"),
                     }))
     @GetMapping
-    List<? extends VocabularyTopic> getVocabularyByKeyword(@RequestParam String keyword, @RequestParam Locale targetLanguage,
-                                                           @RequestParam Locale translationLanguage);
+    List<? extends VocabularyTopicDto> getVocabularyByKeyword(@RequestParam String keyword, @RequestParam Locale targetLanguage,
+                                                              @RequestParam Locale translationLanguage);
+    @PutMapping
+    void updateTopics(@RequestBody List<? extends VocabularyTopicDto> topics);
 }
