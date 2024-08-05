@@ -21,22 +21,6 @@ public class EnglishVocabularyTopicDto extends VocabularyTopicDto {
         this.englishVocabularyTopic = englishVocabularyTopic;
     }
 
-
-
-    @Override
-    public void setTargetLanguage(Locale targetLanguage) {
-        this.targetLanguage = targetLanguage;
-    }
-
-    @Override
-    public void setTranslationLanguage(Locale translationLanguage) {
-        this.translationLanguage = translationLanguage;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public EnglishVocabularyTopic getEnglishVocabularyTopic() {
         return englishVocabularyTopic;
     }
@@ -51,12 +35,26 @@ public class EnglishVocabularyTopicDto extends VocabularyTopicDto {
     }
 
     @Override
+    public void setTargetLanguage(Locale targetLanguage) {
+        this.targetLanguage = targetLanguage;
+    }
+
+    @Override
     public Locale getTranslationLanguage() {
         return this.translationLanguage;
     }
 
     @Override
+    public void setTranslationLanguage(Locale translationLanguage) {
+        this.translationLanguage = translationLanguage;
+    }
+
+    @Override
     public Long getId() {
         return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

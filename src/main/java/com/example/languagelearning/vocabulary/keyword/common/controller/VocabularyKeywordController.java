@@ -38,6 +38,7 @@ public interface VocabularyKeywordController {
     @GetMapping
     List<? extends VocabularyTopicDto> getVocabularyByKeyword(@RequestParam String keyword, @RequestParam Locale targetLanguage,
                                                               @RequestParam Locale translationLanguage);
+
     @PutMapping
     void updateTopics(@RequestBody List<? extends VocabularyTopicDto> topics);
 }

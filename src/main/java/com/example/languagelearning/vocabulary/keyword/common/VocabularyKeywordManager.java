@@ -41,7 +41,7 @@ public class VocabularyKeywordManager {
     public void updateTopics(List<? extends VocabularyTopicDto> vocabularyTopics) {
 
         try {
-            for (VocabularyTopicDto vocabularyTopicDto: vocabularyTopics) {
+            for (VocabularyTopicDto vocabularyTopicDto : vocabularyTopics) {
                 String currentLanguage = normalizeLocale(vocabularyTopicDto.getTargetLanguage());
                 VocabularyKeywordService service = getVocabularyKeywordService(currentLanguage);
                 if (service != null) {

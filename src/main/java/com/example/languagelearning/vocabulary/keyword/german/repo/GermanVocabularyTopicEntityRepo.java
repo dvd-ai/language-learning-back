@@ -18,6 +18,7 @@ public interface GermanVocabularyTopicEntityRepo extends JpaRepository<GermanVoc
     List<GermanVocabularyTopicEntity> findTopicsByKeywordAndTranslationLanguage(@Param("keyword") String keyword,
                                                                                 @Param("translationLanguage") String translationLanguage
     );
+
     @Modifying
     @Query(value = """
             UPDATE german_vocabulary_topic_entity

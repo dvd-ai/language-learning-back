@@ -29,10 +29,11 @@ public abstract class VocabularyTopicDto {
 
     public abstract Locale getTargetLanguage();
 
-    public abstract Locale getTranslationLanguage();
-    public abstract void setTranslationLanguage(Locale translationLanguage);
-
     public abstract void setTargetLanguage(Locale targetLanguage);
+
+    public abstract Locale getTranslationLanguage();
+
+    public abstract void setTranslationLanguage(Locale translationLanguage);
 
     public abstract Long getId();
 }

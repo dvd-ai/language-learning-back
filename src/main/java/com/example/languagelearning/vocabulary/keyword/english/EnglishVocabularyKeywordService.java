@@ -4,7 +4,6 @@ import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.openai.OpenAiService;
 import com.example.languagelearning.vocabulary.keyword.common.VocabularyKeywordService;
 import com.example.languagelearning.vocabulary.keyword.common.dto.Subtopic1NestingLevelBlockContainer;
-
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularySubtopic1LevelPromptProcessor;
