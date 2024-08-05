@@ -4,10 +4,12 @@ import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.openai.OpenAiService;
 import com.example.languagelearning.vocabulary.keyword.common.VocabularyKeywordService;
 import com.example.languagelearning.vocabulary.keyword.common.dto.Subtopic1NestingLevelBlockContainer;
-import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopic;
+
+import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularySubtopic1LevelPromptProcessor;
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopic;
+import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.english.dto.container.*;
 import com.example.languagelearning.vocabulary.keyword.english.entity.EnglishVocabularyTopicEntity;
 import com.example.languagelearning.vocabulary.keyword.english.prompt.EnglishVocabularyPromptProcessor;
@@ -21,7 +23,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 import static com.example.languagelearning.common.LanguageUtil.normalizeLocale;
@@ -49,10 +50,10 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
     }
 
     @Override
-    public List<? extends VocabularyTopic> processByKeyword(String keyword, OpenAiService openAiService, String translationLanguage) throws JsonProcessingException {
-        Optional<List<EnglishVocabularyTopic>> vocabularyTopicsOptional = getExistingVocabularyTopics(keyword, translationLanguage);
-        if (vocabularyTopicsOptional.isPresent())
-            return vocabularyTopicsOptional.get();
+    public List<? extends VocabularyTopicDto> processByKeyword(String keyword, OpenAiService openAiService, String translationLanguage) throws JsonProcessingException {
+        List<EnglishVocabularyTopicDto> vocabularyTopics = getExistingVocabularyTopics(keyword, translationLanguage);
+        if (!vocabularyTopics.isEmpty())
+            return vocabularyTopics;
 
         var subtopicBlockEntries = getSubtopic1NestingLevelBlockContainer(keyword, getLanguage(), openAiService);
 
@@ -65,34 +66,42 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
             }
         }
 
-        return extractValuesFromCompletableFutures(topicsCompletableFutures);
+        extractValuesFromCompletableFutures(topicsCompletableFutures);
+        return getExistingVocabularyTopics(keyword, translationLanguage);
+    }
+
+    @Override
+    public void updateVocabularyTopic(VocabularyTopicDto vocabularyTopicDto) {
+        var englishVocabularyTopicDto = (EnglishVocabularyTopicDto) vocabularyTopicDto;
+        EnglishVocabularyMapper vocabularyMapper = new EnglishVocabularyMapper();
+        var englishVocabularyTopicEntity = vocabularyMapper.mapToEntity(englishVocabularyTopicDto);
+        vocabularyTopicEntityService.updateVocabularyTopicEntity(englishVocabularyTopicEntity);
     }
 
     private Subtopic1NestingLevelBlockContainer getSubtopic1NestingLevelBlockContainer(String keyword, String targetLanguage, OpenAiService openAiService) throws JsonProcessingException {
         return objectMapper.readValue(
                 openAiService.customCall(subtopic1LevelPromptProcessor.getSubtopic1LevelNames(keyword, targetLanguage),
                         OpenAiChatOptions.builder()
-                                .withModel("gpt-4o")
+                                .withModel("gpt-4-turbo")
                                 .build()
                 ),
                 Subtopic1NestingLevelBlockContainer.class
         );
     }
 
-    private Optional<List<EnglishVocabularyTopic>> getExistingVocabularyTopics(String keyword, String translationLanguage) {
+    private List<EnglishVocabularyTopicDto> getExistingVocabularyTopics(String keyword, String translationLanguage) {
 
         List<EnglishVocabularyTopicEntity> entityTopics = vocabularyTopicEntityService.findTopicsByKeywordAndTranslationLanguage(keyword, translationLanguage);
 
         if (entityTopics.isEmpty())
-            return Optional.empty();
+            return List.of();
 
         EnglishVocabularyMapper vocabularyMapper = new EnglishVocabularyMapper();
-        List<EnglishVocabularyTopic> topics = entityTopics
+
+        return entityTopics
                 .stream()
                 .map(vocabularyMapper::mapToDto)
                 .toList();
-
-        return Optional.of(topics);
     }
 
     @Async
@@ -127,6 +136,7 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
 
         try {
             EnglishVocabularyTopic englishVocabularyTopic = new EnglishVocabularyTopic(
+
                     objectMapper.readValue(extractedVerbs, EnglishVerbsContainer.class).englishVerbsContainer(),
                     objectMapper.readValue(extractedNouns, EnglishNounsContainer.class).englishNounsContainer(),
                     objectMapper.readValue(extractedAdjectives, EnglishAdjectivesContainer.class).englishAdjectivesContainer(),
