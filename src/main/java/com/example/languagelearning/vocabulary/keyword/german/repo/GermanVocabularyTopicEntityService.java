@@ -2,6 +2,7 @@ package com.example.languagelearning.vocabulary.keyword.german.repo;
 
 import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.vocabulary.keyword.german.entity.GermanVocabularyTopicEntity;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,9 +11,11 @@ import java.util.List;
 public class GermanVocabularyTopicEntityService {
 
     private final GermanVocabularyTopicEntityRepo germanVocabularyTopicEntityRepo;
+    private final ObjectMapper objectMapper;
 
-    public GermanVocabularyTopicEntityService(GermanVocabularyTopicEntityRepo germanVocabularyTopicEntityRepo) {
+    public GermanVocabularyTopicEntityService(GermanVocabularyTopicEntityRepo germanVocabularyTopicEntityRepo, ObjectMapper objectMapper) {
         this.germanVocabularyTopicEntityRepo = germanVocabularyTopicEntityRepo;
+        this.objectMapper = objectMapper;
     }
 
     public GermanVocabularyTopicEntity addTopicEntity(GermanVocabularyTopicEntity germanVocabularyTopicEntity) {
@@ -27,4 +30,12 @@ public class GermanVocabularyTopicEntityService {
         }
     }
 
+    public void updateVocabularyTopicEntity(GermanVocabularyTopicEntity topicEntity) {
+        try {
+            String entityJson = objectMapper.writeValueAsString(topicEntity.getGermanVocabularyTopic());
+            germanVocabularyTopicEntityRepo.updateTopic(topicEntity.getId(), entityJson);
+        } catch (Exception e) {
+            throw new ApplicationException(e.getCause() + "\n" + e.getMessage());
+        }
+    }
 }
