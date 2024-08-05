@@ -22,7 +22,7 @@ public class GermanVocabularyPromptProcessor {
                         """ +
                 "\n-wordTranslation (the value of the field is in " + promptParameters.translationLanguage() + ")" +
                 """
-                        -perfectTenseForm (Partizip II form)
+                        -perfectTenseForm (Partizip II form with 'hat' or 'ist')
                         -pastTenseForm (Präteritumform)
                         -germanDefinition
                         -case_ (The value of the field is one of the cases that goes after the verb like 'Dativ', 'Akkusativ', 'Genitiv' or ''. Examples: Example1: 'Er gehört mir.' Here goes Dativ.

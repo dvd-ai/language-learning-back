@@ -4,10 +4,11 @@ import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.openai.OpenAiService;
 import com.example.languagelearning.vocabulary.keyword.common.VocabularyKeywordService;
 import com.example.languagelearning.vocabulary.keyword.common.dto.Subtopic1NestingLevelBlockContainer;
-import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopic;
+import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularySubtopic1LevelPromptProcessor;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
+import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.german.dto.container.*;
 import com.example.languagelearning.vocabulary.keyword.german.entity.GermanVocabularyTopicEntity;
 import com.example.languagelearning.vocabulary.keyword.german.prompt.GermanVocabularyPromptProcessor;
@@ -21,7 +22,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 import static com.example.languagelearning.common.LanguageUtil.normalizeLocale;
@@ -49,10 +49,10 @@ public class GermanVocabularyKeywordService implements VocabularyKeywordService 
     }
 
     @Override
-    public List<? extends VocabularyTopic> processByKeyword(String keyword, OpenAiService openAiService, String translationLanguage) throws JsonProcessingException {
-        Optional<List<GermanVocabularyTopic>> vocabularyTopicsOptional = getExistingVocabularyTopics(keyword, translationLanguage);
-        if (vocabularyTopicsOptional.isPresent())
-            return vocabularyTopicsOptional.get();
+    public List<? extends VocabularyTopicDto> processByKeyword(String keyword, OpenAiService openAiService, String translationLanguage) throws JsonProcessingException {
+        List<GermanVocabularyTopicDto> vocabularyTopics = getExistingVocabularyTopics(keyword, translationLanguage);
+        if (!vocabularyTopics.isEmpty())
+            return vocabularyTopics;
 
         var subtopicBlockEntries = getSubtopic1NestingLevelBlockContainer(keyword, getLanguage(), openAiService);
 
@@ -65,7 +65,17 @@ public class GermanVocabularyKeywordService implements VocabularyKeywordService 
             }
         }
 
-        return extractValuesFromCompletableFutures(topicsCompletableFutures);
+        extractValuesFromCompletableFutures(topicsCompletableFutures);
+        return getExistingVocabularyTopics(keyword, translationLanguage);
+    }
+
+    @Override
+    public void updateVocabularyTopic(VocabularyTopicDto vocabularyTopicDto) {
+        var germanVocabularyTopicDto = (GermanVocabularyTopicDto) vocabularyTopicDto;
+        GermanVocabularyMapper vocabularyMapper = new GermanVocabularyMapper();
+        var germanVocabularyTopicEntity = vocabularyMapper.mapToEntity(germanVocabularyTopicDto);
+
+        vocabularyTopicEntityService.updateVocabularyTopicEntity(germanVocabularyTopicEntity);
     }
 
     private Subtopic1NestingLevelBlockContainer getSubtopic1NestingLevelBlockContainer(String keyword, String targetLanguage, OpenAiService openAiService) throws JsonProcessingException {
@@ -79,20 +89,18 @@ public class GermanVocabularyKeywordService implements VocabularyKeywordService 
         );
     }
 
-    private Optional<List<GermanVocabularyTopic>> getExistingVocabularyTopics(String keyword, String translationLanguage) {
+    private List<GermanVocabularyTopicDto> getExistingVocabularyTopics(String keyword, String translationLanguage) {
 
         List<GermanVocabularyTopicEntity> entityTopics = vocabularyTopicEntityService.findTopicsByKeywordAndTranslationLanguage(keyword, translationLanguage);
 
         if (entityTopics.isEmpty())
-            return Optional.empty();
+            return List.of();
 
         GermanVocabularyMapper vocabularyMapper = new GermanVocabularyMapper();
-        List<GermanVocabularyTopic> topics = entityTopics
+        return entityTopics
                 .stream()
                 .map(vocabularyMapper::mapToDto)
                 .toList();
-
-        return Optional.of(topics);
     }
 
     @Async
