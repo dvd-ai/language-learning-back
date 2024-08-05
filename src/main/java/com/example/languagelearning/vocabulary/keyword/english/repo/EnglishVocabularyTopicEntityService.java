@@ -2,6 +2,7 @@ package com.example.languagelearning.vocabulary.keyword.english.repo;
 
 import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.vocabulary.keyword.english.entity.EnglishVocabularyTopicEntity;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +12,11 @@ import java.util.List;
 public class EnglishVocabularyTopicEntityService {
 
     private final EnglishVocabularyTopicEntityRepo englishVocabularyTopicEntityRepo;
+    private final ObjectMapper objectMapper;
 
-    public EnglishVocabularyTopicEntityService(EnglishVocabularyTopicEntityRepo englishVocabularyTopicEntityRepo) {
+    public EnglishVocabularyTopicEntityService(EnglishVocabularyTopicEntityRepo englishVocabularyTopicEntityRepo, ObjectMapper objectMapper) {
         this.englishVocabularyTopicEntityRepo = englishVocabularyTopicEntityRepo;
+        this.objectMapper = objectMapper;
     }
 
     public EnglishVocabularyTopicEntity addTopicEntity(EnglishVocabularyTopicEntity englishVocabularyTopicEntity) {
@@ -28,4 +31,12 @@ public class EnglishVocabularyTopicEntityService {
         }
     }
 
+    public void updateVocabularyTopicEntity(EnglishVocabularyTopicEntity englishVocabularyTopicEntity) {
+        try {
+            String topicJson = objectMapper.writeValueAsString(englishVocabularyTopicEntity.getEnglishVocabularyTopic());
+            englishVocabularyTopicEntityRepo.updateTopic(englishVocabularyTopicEntity.getId(), topicJson);
+        } catch (Exception e) {
+            throw new ApplicationException(e.getCause() + "\n" + e.getMessage());
+        }
+    }
 }
