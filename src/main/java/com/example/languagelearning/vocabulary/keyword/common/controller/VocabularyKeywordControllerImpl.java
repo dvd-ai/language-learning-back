@@ -1,6 +1,8 @@
 package com.example.languagelearning.vocabulary.keyword.common.controller;
 
 import com.example.languagelearning.vocabulary.keyword.common.VocabularyKeywordManager;
+import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyByTextRequestDto;
+import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyByTextResponseDto;
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -41,4 +43,11 @@ public class VocabularyKeywordControllerImpl implements VocabularyKeywordControl
         vocabularyKeywordValidator.checkAllTranslationLanguages(topics);
         vocabularyManager.updateTopics(topics);
     }
+
+    @Override
+    public VocabularyByTextResponseDto getVocabularyByText(VocabularyByTextRequestDto requestDto) {
+        return null;
+    }
+
+
 }

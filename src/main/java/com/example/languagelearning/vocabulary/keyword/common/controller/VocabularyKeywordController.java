@@ -1,5 +1,7 @@
 package com.example.languagelearning.vocabulary.keyword.common.controller;
 
+import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyByTextRequestDto;
+import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyByTextResponseDto;
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopicDto;
@@ -41,4 +43,7 @@ public interface VocabularyKeywordController {
 
     @PutMapping
     void updateTopics(@RequestBody List<? extends VocabularyTopicDto> topics);
+
+    @GetMapping("/text")
+    VocabularyByTextResponseDto getVocabularyByText(@RequestBody VocabularyByTextRequestDto requestDto);
 }
