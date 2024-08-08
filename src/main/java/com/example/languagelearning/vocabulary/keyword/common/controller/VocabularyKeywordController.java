@@ -45,5 +45,5 @@ public interface VocabularyKeywordController {
     void updateTopics(@RequestBody List<? extends VocabularyTopicDto> topics);
 
     @GetMapping("/text")
-    VocabularyByTextResponseDto getVocabularyByText(@RequestBody VocabularyByTextRequestDto requestDto);
+    List<? extends VocabularyTopicDto> getVocabularyByText(@RequestBody VocabularyByTextRequestDto requestDto);
 }

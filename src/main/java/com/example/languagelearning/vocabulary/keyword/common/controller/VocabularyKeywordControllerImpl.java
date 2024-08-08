@@ -45,7 +45,7 @@ public class VocabularyKeywordControllerImpl implements VocabularyKeywordControl
     }
 
     @Override
-    public VocabularyByTextResponseDto getVocabularyByText(VocabularyByTextRequestDto requestDto) {
+    public List<? extends VocabularyTopicDto> getVocabularyByText(VocabularyByTextRequestDto requestDto) {
         return null;
     }
 
