@@ -4,13 +4,15 @@ import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.openai.OpenAiService;
 import com.example.languagelearning.vocabulary.keyword.common.VocabularyKeywordService;
 import com.example.languagelearning.vocabulary.keyword.common.dto.Subtopic1NestingLevelBlockContainer;
+import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyByTextRequestDto;
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
+import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularySubtopic1LevelPromptProcessor;
-import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopic;
-import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopicDto;
+import com.example.languagelearning.vocabulary.keyword.english.dto.*;
 import com.example.languagelearning.vocabulary.keyword.english.dto.container.*;
 import com.example.languagelearning.vocabulary.keyword.english.entity.EnglishVocabularyTopicEntity;
+import com.example.languagelearning.vocabulary.keyword.english.prompt.EnglishVocabularyByTextPromptProcessor;
 import com.example.languagelearning.vocabulary.keyword.english.prompt.EnglishVocabularyPromptProcessor;
 import com.example.languagelearning.vocabulary.keyword.english.repo.EnglishVocabularyTopicEntityService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,15 +21,16 @@ import org.springframework.ai.openai.OpenAiChatOptions;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 import static com.example.languagelearning.common.LanguageUtil.normalizeLocale;
 import static com.example.languagelearning.util.CompletableFutureUtil.extractValuesFromCompletableFutures;
 import static com.example.languagelearning.util.CompletableFutureUtil.tryToExtractSingleCompletedFutureElement;
+import static com.example.languagelearning.util.TextUtil.breakTextIntoSentencesParts;
+import static com.example.languagelearning.util.TextUtil.breakTextIntoSortedParagraphs;
 import static com.example.languagelearning.vocabulary.keyword.common.util.VocabularyKeywordUtil.getSpeechPartJson;
+import static com.example.languagelearning.vocabulary.keyword.english.EnglishVocabularyTopicPostProcessor.performCleanup;
 
 @Service
 public class EnglishVocabularyKeywordService implements VocabularyKeywordService {
@@ -78,6 +81,73 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
         vocabularyTopicEntityService.updateVocabularyTopicEntity(englishVocabularyTopicEntity);
     }
 
+    @Override
+    public List<? extends VocabularyTopicDto> getVocabularyByText(VocabularyByTextRequestDto requestDto, OpenAiService openAiService) {
+        Map<Integer, String>sortedParagraphs = breakTextIntoSortedParagraphs(requestDto.textContent());
+        List<CompletableFuture<EnglishVocabularyTopic>> topicsCompletableFutures = new ArrayList<>();
+
+        for (Map.Entry<Integer, String>mapEntry : sortedParagraphs.entrySet()) {
+            VocabularyByTextPromptParameters promptParameters = new VocabularyByTextPromptParameters(requestDto, mapEntry.getValue(), mapEntry.getKey());
+            if (mapEntry.getValue().length() < 900) {
+                topicsCompletableFutures.add(getCompleteTopicByTextCompletableFuture(openAiService, promptParameters));
+            } else {
+                topicsCompletableFutures.add(getCollectedCfVocabularyTopic(openAiService, promptParameters));
+            }
+        }
+
+        List<EnglishVocabularyTopic> vocabularyTopics = new ArrayList<>(extractValuesFromCompletableFutures(topicsCompletableFutures));
+        performCleanup(vocabularyTopics);
+        List<EnglishVocabularyTopicEntity>entities = vocabularyTopicEntityService.addTopicEntities(vocabularyMapper.mapToEntities(vocabularyTopics, requestDto.translationLanguage()));
+        return vocabularyMapper.mapToDtos(entities);
+    }
+
+    @Async
+    private CompletableFuture<EnglishVocabularyTopic> getCollectedCfVocabularyTopic(OpenAiService openAiService, VocabularyByTextPromptParameters promptParameters) {
+
+        List<String>sentencesParts = breakTextIntoSentencesParts(promptParameters.text());
+        List<CompletableFuture<EnglishVocabularyTopic>> topicPartsCompletableFutures = new ArrayList<>();
+
+        for (String sentencesPart : sentencesParts) {
+            topicPartsCompletableFutures.add(
+                    getCompleteTopicByTextCompletableFuture(
+                            openAiService,
+                            new VocabularyByTextPromptParameters(
+                                    promptParameters.requestDto(), sentencesPart, promptParameters.textNumber()
+                            )
+                    )
+            );
+        }
+
+        List<EnglishVocabularyTopic> vocabularyTopicParts = extractValuesFromCompletableFutures(topicPartsCompletableFutures);
+        var resultTopic =  getAccumulatedVocabularyTopic(vocabularyTopicParts, promptParameters);
+        return CompletableFuture.completedFuture(resultTopic);
+    }
+
+    private EnglishVocabularyTopic getAccumulatedVocabularyTopic(List<EnglishVocabularyTopic> vocabularyTopicParts, VocabularyByTextPromptParameters promptParameters) {
+        EnglishVocabularyTopic resultTopic = new EnglishVocabularyTopic(
+                new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(),
+                new ArrayList<>(), new ArrayList<>(), new ArrayList<>(),
+                promptParameters.requestDto().textTopicLabel()
+                        .concat(".P")
+                        .concat(promptParameters.textNumber().toString())
+        );
+
+        for (EnglishVocabularyTopic vt : vocabularyTopicParts) {
+            resultTopic.getVerbs().addAll(vt.getVerbs());
+            resultTopic.getNouns().addAll(vt.getNouns());
+            resultTopic.getAdjectives().addAll(vt.getAdjectives());
+            resultTopic.getCollocations().addAll(vt.getCollocations());
+            resultTopic.getIdioms().addAll(vt.getIdioms());
+            resultTopic.getPrepositionalVerbs().addAll(vt.getPrepositionalVerbs());
+            resultTopic.getPhrasalVerbs().addAll(vt.getPhrasalVerbs());
+        }
+
+        return resultTopic;
+    }
+
+
+
+
     private Subtopic1NestingLevelBlockContainer getSubtopic1NestingLevelBlockContainer(String keyword, String targetLanguage, OpenAiService openAiService) throws JsonProcessingException {
         return objectMapper.readValue(
                 openAiService.customCall(subtopic1LevelPromptProcessor.getSubtopic1LevelNames(keyword, targetLanguage),
@@ -96,12 +166,60 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
         if (entityTopics.isEmpty())
             return List.of();
 
-        EnglishVocabularyMapper vocabularyMapper = new EnglishVocabularyMapper();
-
         return entityTopics
                 .stream()
                 .map(vocabularyMapper::mapToDto)
                 .toList();
+    }
+
+    @Async
+    private CompletableFuture<EnglishVocabularyTopic> getCompleteTopicByTextCompletableFuture(OpenAiService openAiService, VocabularyByTextPromptParameters promptParameters) {
+        CompletableFuture<String> verbs = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyByTextPromptProcessor::getPromptForVerbs);
+        CompletableFuture<String> nouns = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyByTextPromptProcessor::getPromptForNouns);
+        CompletableFuture<String> adjectives = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyByTextPromptProcessor::getPromptForAdjectives);
+        CompletableFuture<String> collocations = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyByTextPromptProcessor::getPromptForCollocations);
+        CompletableFuture<String> idioms = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyByTextPromptProcessor::getPromptForIdioms);
+        CompletableFuture<String> prepositionalVerbs = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyByTextPromptProcessor::getPromptForPrepositionalVerbs);
+        CompletableFuture<String> phrasalVerbs = getSpeechPartJson(openAiService, promptParameters, EnglishVocabularyByTextPromptProcessor::getPromptForPhrasalVerbs);
+
+        return CompletableFuture.allOf(verbs, nouns, adjectives, collocations, idioms, prepositionalVerbs, phrasalVerbs)
+                .thenApply(parts -> createTopicFromPartsByText(
+                        verbs, nouns, adjectives, collocations, idioms,
+                        prepositionalVerbs, phrasalVerbs, promptParameters)
+                );
+    }
+
+    private EnglishVocabularyTopic createTopicFromPartsByText(CompletableFuture<String> verbs, CompletableFuture<String> nouns, CompletableFuture<String> adjectives,
+                                                               CompletableFuture<String> collocations, CompletableFuture<String> idioms,
+                                                               CompletableFuture<String> prepositionalVerbs, CompletableFuture<String> phrasalVerbs,
+                                                               VocabularyByTextPromptParameters topicParameters) {
+
+        String extractedVerbs = tryToExtractSingleCompletedFutureElement(verbs);
+        String extractedNouns = tryToExtractSingleCompletedFutureElement(nouns);
+        String extractedAdjectives = tryToExtractSingleCompletedFutureElement(adjectives);
+        String extractedCollocations = tryToExtractSingleCompletedFutureElement(collocations);
+        String extractedIdioms = tryToExtractSingleCompletedFutureElement(idioms);
+        String extractedPrepositionalVerbs = tryToExtractSingleCompletedFutureElement(prepositionalVerbs);
+        String extractedPhrasalVerbs = tryToExtractSingleCompletedFutureElement(phrasalVerbs);
+
+        try {
+            return new EnglishVocabularyTopic(
+
+                    objectMapper.readValue(extractedVerbs, EnglishVerbsContainer.class).englishVerbsContainer(),
+                    objectMapper.readValue(extractedNouns, EnglishNounsContainer.class).englishNounsContainer(),
+                    objectMapper.readValue(extractedAdjectives, EnglishAdjectivesContainer.class).englishAdjectivesContainer(),
+                    objectMapper.readValue(extractedCollocations, EnglishCollocationsContainer.class).englishCollocationsContainer(),
+                    objectMapper.readValue(extractedIdioms, EnglishIdiomsContainer.class).englishIdiomsContainer(),
+                    objectMapper.readValue(extractedPrepositionalVerbs, EnglishPrepositionalVerbsContainer.class).englishPrepositionalVerbsContainer(),
+                    objectMapper.readValue(extractedPhrasalVerbs, EnglishPhrasalVerbsContainer.class).englishPhrasalVerbsContainer(),
+                    topicParameters.requestDto().textTopicLabel()
+                            .concat(".P")
+                            .concat(topicParameters.textNumber().toString())
+            );
+        } catch (JsonProcessingException e) {
+            throw new ApplicationException(e.getMessage());
+        }
+
     }
 
     @Async
