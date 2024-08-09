@@ -24,4 +24,14 @@ public class DuplicationUtil {
         }
     }
 
+    public static <T> void removeDuplicatesBetweenLists(List<T> uniqueItems, List<T> duplicatedItems) {
+        Iterator<T> iterator = duplicatedItems.iterator();
+        while (iterator.hasNext()) {
+            T item = iterator.next();
+            if (uniqueItems.contains(item)) {
+                iterator.remove();
+            }
+        }
+    }
+
 }
