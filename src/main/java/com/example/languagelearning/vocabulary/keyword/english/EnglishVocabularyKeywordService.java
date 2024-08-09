@@ -35,11 +35,13 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
     private final ObjectMapper objectMapper;
     private final EnglishVocabularyTopicEntityService vocabularyTopicEntityService;
 
+    private final EnglishVocabularyMapper vocabularyMapper;
     private final VocabularySubtopic1LevelPromptProcessor subtopic1LevelPromptProcessor;
 
-    public EnglishVocabularyKeywordService(ObjectMapper objectMapper, EnglishVocabularyTopicEntityService vocabularyTopicEntityService, VocabularySubtopic1LevelPromptProcessor subtopic1LevelPromptProcessor) {
+    public EnglishVocabularyKeywordService(ObjectMapper objectMapper, EnglishVocabularyTopicEntityService vocabularyTopicEntityService, EnglishVocabularyMapper vocabularyMapper, VocabularySubtopic1LevelPromptProcessor subtopic1LevelPromptProcessor) {
         this.objectMapper = objectMapper;
         this.vocabularyTopicEntityService = vocabularyTopicEntityService;
+        this.vocabularyMapper = vocabularyMapper;
         this.subtopic1LevelPromptProcessor = subtopic1LevelPromptProcessor;
     }
 
@@ -72,7 +74,6 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
     @Override
     public void updateVocabularyTopic(VocabularyTopicDto vocabularyTopicDto) {
         var englishVocabularyTopicDto = (EnglishVocabularyTopicDto) vocabularyTopicDto;
-        EnglishVocabularyMapper vocabularyMapper = new EnglishVocabularyMapper();
         var englishVocabularyTopicEntity = vocabularyMapper.mapToEntity(englishVocabularyTopicDto);
         vocabularyTopicEntityService.updateVocabularyTopicEntity(englishVocabularyTopicEntity);
     }
