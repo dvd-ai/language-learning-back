@@ -6,6 +6,9 @@ import static com.example.languagelearning.vocabulary.keyword.english.prompt.Eng
 
 public class EnglishVocabularyByTextPromptProcessor {
 
+    private EnglishVocabularyByTextPromptProcessor() {
+    }
+
     public static String getPromptForVerbs(VocabularyByTextPromptParameters promptParameters) {
 
         return "Give me only the verbs for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
