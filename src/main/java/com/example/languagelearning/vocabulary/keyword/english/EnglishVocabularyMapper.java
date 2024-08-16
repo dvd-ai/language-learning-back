@@ -1,5 +1,6 @@
 package com.example.languagelearning.vocabulary.keyword.english;
 
+import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicComparator;
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopic;
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.english.entity.EnglishVocabularyTopicEntity;
@@ -78,7 +79,7 @@ public class EnglishVocabularyMapper {
     public List<EnglishVocabularyTopicDto>mapToDtos(List<EnglishVocabularyTopicEntity> entities) {
         return entities.stream()
                 .map(this::mapToDto)
-                .sorted(Comparator.comparing(dto -> dto.getEnglishVocabularyTopic().getVocabularyName()))
+                .sorted(new VocabularyTopicComparator())
                 .toList();
     }
 }
