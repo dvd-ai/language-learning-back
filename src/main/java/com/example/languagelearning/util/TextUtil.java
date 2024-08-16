@@ -20,8 +20,8 @@ public class TextUtil {
     }
 
     public static List<String> breakTextIntoSentencesParts(String text) {
-        List<String>sentences = Arrays.stream(text.split("\\.")).toList();
-        List<String>parts = new ArrayList<>();
+        List<String> sentences = Arrays.stream(text.split("\\.")).toList();
+        List<String> parts = new ArrayList<>();
         StringBuilder part = new StringBuilder();
 
         for (String sentence : sentences) {

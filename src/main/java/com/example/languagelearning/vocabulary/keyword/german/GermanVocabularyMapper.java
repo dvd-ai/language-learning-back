@@ -1,15 +1,11 @@
 package com.example.languagelearning.vocabulary.keyword.german;
 
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicComparator;
-import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopic;
-import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopicDto;
-import com.example.languagelearning.vocabulary.keyword.english.entity.EnglishVocabularyTopicEntity;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.german.entity.GermanVocabularyTopicEntity;
 import org.springframework.stereotype.Component;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -79,7 +75,7 @@ public class GermanVocabularyMapper {
                 .toList();
     }
 
-    public List<GermanVocabularyTopicDto>mapToDtos(List<GermanVocabularyTopicEntity> entities) {
+    public List<GermanVocabularyTopicDto> mapToDtos(List<GermanVocabularyTopicEntity> entities) {
         return entities.stream()
                 .map(this::mapToDto)
                 .sorted(new VocabularyTopicComparator())

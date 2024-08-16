@@ -10,7 +10,7 @@ public class GermanVocabularyByTextPromptProcessor {
 
     public static String getPromptForVerbs(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the verbs for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " german learners based on a text." +
+        return "Give me only the verbs for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " german learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +
@@ -24,7 +24,7 @@ public class GermanVocabularyByTextPromptProcessor {
 
     public static String getPromptForNouns(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the nouns for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " german learners based on a text." +
+        return "Give me only the nouns for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " german learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +
@@ -37,7 +37,7 @@ public class GermanVocabularyByTextPromptProcessor {
 
     public static String getPromptForAdjectives(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the adjectives for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " german learners based on a text." +
+        return "Give me only the adjectives for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " german learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +
@@ -50,7 +50,7 @@ public class GermanVocabularyByTextPromptProcessor {
 
     public static String getPromptForIdioms(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the idioms for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " german learners based on a text." +
+        return "Give me only the idioms for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " german learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +
@@ -63,7 +63,7 @@ public class GermanVocabularyByTextPromptProcessor {
 
     public static String getPromptForCollocations(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the collocations for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " german learners based on a text." +
+        return "Give me only the collocations for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " german learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +
@@ -76,7 +76,7 @@ public class GermanVocabularyByTextPromptProcessor {
 
     public static String getPromptForPrepositionalVerbs(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the prepositional verbs for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " german learners based on a text." +
+        return "Give me only the prepositional verbs for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " german learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +

@@ -6,7 +6,6 @@ import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabu
 import com.example.languagelearning.vocabulary.keyword.english.entity.EnglishVocabularyTopicEntity;
 import org.springframework.stereotype.Component;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
@@ -70,13 +69,13 @@ public class EnglishVocabularyMapper {
         );
     }
 
-    public List<EnglishVocabularyTopicEntity>mapToEntities(List<EnglishVocabularyTopic> vocabularyTopics, Locale translationLanguage) {
+    public List<EnglishVocabularyTopicEntity> mapToEntities(List<EnglishVocabularyTopic> vocabularyTopics, Locale translationLanguage) {
         return vocabularyTopics.stream()
                 .map(topic -> mapToEntity(topic, translationLanguage))
                 .toList();
     }
 
-    public List<EnglishVocabularyTopicDto>mapToDtos(List<EnglishVocabularyTopicEntity> entities) {
+    public List<EnglishVocabularyTopicDto> mapToDtos(List<EnglishVocabularyTopicEntity> entities) {
         return entities.stream()
                 .map(this::mapToDto)
                 .sorted(new VocabularyTopicComparator())

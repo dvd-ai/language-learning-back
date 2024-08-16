@@ -11,7 +11,7 @@ public class EnglishVocabularyByTextPromptProcessor {
 
     public static String getPromptForVerbs(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the verbs for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
+        return "Give me only the verbs for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +
@@ -25,7 +25,7 @@ public class EnglishVocabularyByTextPromptProcessor {
 
     public static String getPromptForNouns(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the nouns for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
+        return "Give me only the nouns for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +
@@ -38,7 +38,7 @@ public class EnglishVocabularyByTextPromptProcessor {
 
     public static String getPromptForAdjectives(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the adjectives for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
+        return "Give me only the adjectives for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +
@@ -51,7 +51,7 @@ public class EnglishVocabularyByTextPromptProcessor {
 
     public static String getPromptForIdioms(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the idioms for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
+        return "Give me only the idioms for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +
@@ -64,7 +64,7 @@ public class EnglishVocabularyByTextPromptProcessor {
 
     public static String getPromptForCollocations(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the collocations for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
+        return "Give me only the collocations for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +
@@ -77,7 +77,7 @@ public class EnglishVocabularyByTextPromptProcessor {
 
     public static String getPromptForPrepositionalVerbs(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the prepositional verbs for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
+        return "Give me only the prepositional verbs for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +
@@ -90,7 +90,7 @@ public class EnglishVocabularyByTextPromptProcessor {
 
     public static String getPromptForPhrasalVerbs(VocabularyByTextPromptParameters promptParameters) {
 
-        return "Give me only the phrasal verbs for " + promptParameters.requestDto().minLanguageLevel() + "-" +  promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
+        return "Give me only the phrasal verbs for " + promptParameters.requestDto().minLanguageLevel() + "-" + promptParameters.requestDto().maxLanguageLevel() + " english learners based on a text." +
                 "The text: [" +
                 promptParameters.text() +
                 "]" +

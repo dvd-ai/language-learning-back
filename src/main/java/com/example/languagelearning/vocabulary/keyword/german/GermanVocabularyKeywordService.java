@@ -10,12 +10,11 @@ import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopi
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularySubtopic1LevelPromptProcessor;
-
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
+import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.german.dto.container.*;
 import com.example.languagelearning.vocabulary.keyword.german.entity.GermanVocabularyTopicEntity;
 import com.example.languagelearning.vocabulary.keyword.german.prompt.GermanVocabularyByTextPromptProcessor;
-import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.german.prompt.GermanVocabularyPromptProcessor;
 import com.example.languagelearning.vocabulary.keyword.german.repo.GermanVocabularyTopicEntityService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -24,7 +23,10 @@ import org.springframework.ai.openai.OpenAiChatOptions;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 import static com.example.languagelearning.common.LanguageUtil.normalizeLocale;
@@ -92,7 +94,7 @@ public class GermanVocabularyKeywordService implements VocabularyKeywordService 
         Map<Integer, String> sortedParagraphs = breakTextIntoSortedParagraphs(requestDto.textContent());
         List<CompletableFuture<GermanVocabularyTopic>> topicsCompletableFutures = new ArrayList<>();
 
-        for (Map.Entry<Integer, String>mapEntry : sortedParagraphs.entrySet()) {
+        for (Map.Entry<Integer, String> mapEntry : sortedParagraphs.entrySet()) {
             VocabularyByTextPromptParameters promptParameters = new VocabularyByTextPromptParameters(requestDto, mapEntry.getValue(), mapEntry.getKey());
             if (mapEntry.getValue().length() < 900) {
                 topicsCompletableFutures.add(getCompleteTopicByTextCompletableFuture(openAiService, promptParameters));
@@ -103,7 +105,7 @@ public class GermanVocabularyKeywordService implements VocabularyKeywordService 
 
         List<GermanVocabularyTopic> vocabularyTopics = new ArrayList<>(extractValuesFromCompletableFutures(topicsCompletableFutures));
         performCleanup(vocabularyTopics);
-        List<GermanVocabularyTopicEntity>entities = vocabularyTopicEntityService.addTopicEntities(vocabularyMapper.mapToEntities(vocabularyTopics, requestDto.translationLanguage()));
+        List<GermanVocabularyTopicEntity> entities = vocabularyTopicEntityService.addTopicEntities(vocabularyMapper.mapToEntities(vocabularyTopics, requestDto.translationLanguage()));
         return vocabularyMapper.mapToDtos(entities);
     }
 
@@ -126,7 +128,7 @@ public class GermanVocabularyKeywordService implements VocabularyKeywordService 
     @Async
     private CompletableFuture<GermanVocabularyTopic> getCollectedCfVocabularyTopic(OpenAiService openAiService, VocabularyByTextPromptParameters promptParameters) {
 
-        List<String>sentencesParts = breakTextIntoSentencesParts(promptParameters.text());
+        List<String> sentencesParts = breakTextIntoSentencesParts(promptParameters.text());
         List<CompletableFuture<GermanVocabularyTopic>> topicPartsCompletableFutures = new ArrayList<>();
 
         for (String sentencesPart : sentencesParts) {
@@ -141,7 +143,7 @@ public class GermanVocabularyKeywordService implements VocabularyKeywordService 
         }
 
         List<GermanVocabularyTopic> vocabularyTopicParts = extractValuesFromCompletableFutures(topicPartsCompletableFutures);
-        var resultTopic =  getAccumulatedVocabularyTopic(vocabularyTopicParts, promptParameters);
+        var resultTopic = getAccumulatedVocabularyTopic(vocabularyTopicParts, promptParameters);
         return CompletableFuture.completedFuture(resultTopic);
     }
 
@@ -168,9 +170,9 @@ public class GermanVocabularyKeywordService implements VocabularyKeywordService 
 
 
     private GermanVocabularyTopic createTopicFromPartsByText(CompletableFuture<String> verbs, CompletableFuture<String> nouns, CompletableFuture<String> adjectives,
-                                                              CompletableFuture<String> collocations, CompletableFuture<String> idioms,
-                                                              CompletableFuture<String> prepositionalVerbs,
-                                                              VocabularyByTextPromptParameters topicParameters) {
+                                                             CompletableFuture<String> collocations, CompletableFuture<String> idioms,
+                                                             CompletableFuture<String> prepositionalVerbs,
+                                                             VocabularyByTextPromptParameters topicParameters) {
 
         String extractedVerbs = tryToExtractSingleCompletedFutureElement(verbs);
         String extractedNouns = tryToExtractSingleCompletedFutureElement(nouns);

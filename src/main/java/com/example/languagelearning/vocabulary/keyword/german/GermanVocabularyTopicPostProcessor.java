@@ -2,7 +2,6 @@ package com.example.languagelearning.vocabulary.keyword.german;
 
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
 
-
 import java.util.Iterator;
 import java.util.List;
 
