@@ -54,6 +54,11 @@ public class EnglishVocabularyTopicDto extends VocabularyTopicDto {
         return this.id;
     }
 
+    @Override
+    public String getVocabularyName() {
+        return this.englishVocabularyTopic.getVocabularyName();
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
