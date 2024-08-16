@@ -36,4 +36,5 @@ public abstract class VocabularyTopicDto {
     public abstract void setTranslationLanguage(Locale translationLanguage);
 
     public abstract Long getId();
+    public abstract String getVocabularyName();
 }
