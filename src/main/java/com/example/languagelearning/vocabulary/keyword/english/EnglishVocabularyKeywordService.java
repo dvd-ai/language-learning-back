@@ -5,6 +5,7 @@ import com.example.languagelearning.openai.OpenAiService;
 import com.example.languagelearning.vocabulary.keyword.common.VocabularyKeywordService;
 import com.example.languagelearning.vocabulary.keyword.common.dto.Subtopic1NestingLevelBlockContainer;
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyByTextRequestDto;
+import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicComparator;
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
@@ -23,6 +24,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 import static com.example.languagelearning.common.LanguageUtil.normalizeLocale;
 import static com.example.languagelearning.util.CompletableFutureUtil.extractValuesFromCompletableFutures;
@@ -31,6 +33,7 @@ import static com.example.languagelearning.util.TextUtil.breakTextIntoSentencesP
 import static com.example.languagelearning.util.TextUtil.breakTextIntoSortedParagraphs;
 import static com.example.languagelearning.vocabulary.keyword.common.util.VocabularyKeywordUtil.getSpeechPartJson;
 import static com.example.languagelearning.vocabulary.keyword.english.EnglishVocabularyTopicPostProcessor.performCleanup;
+import static java.util.Comparator.comparing;
 
 @Service
 public class EnglishVocabularyKeywordService implements VocabularyKeywordService {
@@ -56,8 +59,10 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
     @Override
     public List<? extends VocabularyTopicDto> processByKeyword(String keyword, OpenAiService openAiService, String translationLanguage) throws JsonProcessingException {
         List<EnglishVocabularyTopicDto> vocabularyTopics = getExistingVocabularyTopics(keyword, translationLanguage);
-        if (!vocabularyTopics.isEmpty())
-            return vocabularyTopics;
+        if (!vocabularyTopics.isEmpty()) {
+            return vocabularyTopics.stream().sorted(new VocabularyTopicComparator()).toList();
+        }
+
 
         var subtopicBlockEntries = getSubtopic1NestingLevelBlockContainer(keyword, getLanguage(), openAiService);
 
@@ -71,7 +76,9 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
         }
 
         extractValuesFromCompletableFutures(topicsCompletableFutures);
-        return getExistingVocabularyTopics(keyword, translationLanguage);
+
+        List<EnglishVocabularyTopicDto> existingVocabularyTopics = getExistingVocabularyTopics(keyword, translationLanguage);
+        return existingVocabularyTopics.stream().sorted(new VocabularyTopicComparator()).toList();
     }
 
     @Override
