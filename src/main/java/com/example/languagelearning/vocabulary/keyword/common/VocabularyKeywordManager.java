@@ -3,6 +3,7 @@ package com.example.languagelearning.vocabulary.keyword.common;
 import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.error.ClientException;
 import com.example.languagelearning.openai.OpenAiService;
+import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyByTextRequestDto;
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
@@ -60,5 +61,17 @@ public class VocabularyKeywordManager {
             }
         }
         return null;
+    }
+
+    public List<? extends VocabularyTopicDto> getVocabularyByText(VocabularyByTextRequestDto requestDto) {
+        try {
+            for (VocabularyKeywordService vocabularyKeywordService : vocabularyServices.values()) {
+                if (vocabularyKeywordService.getLanguage().equals(normalizeLocale(requestDto.targetLanguage())))
+                    return vocabularyKeywordService.getVocabularyByText(requestDto, openAiService);
+            }
+        } catch (Exception e) {
+            throw new ApplicationException(e.getMessage());
+        }
+        throw new ClientException("The service for the language: '" + requestDto.targetLanguage() + "'  wasn't found");
     }
 }

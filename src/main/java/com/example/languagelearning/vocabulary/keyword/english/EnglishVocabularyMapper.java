@@ -1,17 +1,18 @@
 package com.example.languagelearning.vocabulary.keyword.english;
 
+import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicComparator;
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopic;
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.english.entity.EnglishVocabularyTopicEntity;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Locale;
 
 import static com.example.languagelearning.common.LanguageUtil.normalizeLocale;
 
+@Component
 public class EnglishVocabularyMapper {
-
-    public EnglishVocabularyMapper() {
-    }
 
     public EnglishVocabularyTopicDto mapToDto(EnglishVocabularyTopicEntity entity) {
         EnglishVocabularyTopic vocabularyTopic = entity.getEnglishVocabularyTopic();
@@ -50,5 +51,34 @@ public class EnglishVocabularyMapper {
                 ),
                 normalizeLocale(dto.getTranslationLanguage())
         );
+    }
+
+    public EnglishVocabularyTopicEntity mapToEntity(EnglishVocabularyTopic vocabularyTopic, Locale translationLanguage) {
+        return new EnglishVocabularyTopicEntity(
+                new EnglishVocabularyTopic(
+                        vocabularyTopic.getVerbs(),
+                        vocabularyTopic.getNouns(),
+                        vocabularyTopic.getAdjectives(),
+                        vocabularyTopic.getCollocations(),
+                        vocabularyTopic.getIdioms(),
+                        vocabularyTopic.getPrepositionalVerbs(),
+                        vocabularyTopic.getPhrasalVerbs(),
+                        vocabularyTopic.getVocabularyName()
+                ),
+                normalizeLocale(translationLanguage)
+        );
+    }
+
+    public List<EnglishVocabularyTopicEntity> mapToEntities(List<EnglishVocabularyTopic> vocabularyTopics, Locale translationLanguage) {
+        return vocabularyTopics.stream()
+                .map(topic -> mapToEntity(topic, translationLanguage))
+                .toList();
+    }
+
+    public List<EnglishVocabularyTopicDto> mapToDtos(List<EnglishVocabularyTopicEntity> entities) {
+        return entities.stream()
+                .map(this::mapToDto)
+                .sorted(new VocabularyTopicComparator())
+                .toList();
     }
 }

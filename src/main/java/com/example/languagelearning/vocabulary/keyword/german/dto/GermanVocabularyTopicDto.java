@@ -56,4 +56,9 @@ public class GermanVocabularyTopicDto extends VocabularyTopicDto {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Override
+    public String getVocabularyName() {
+        return this.germanVocabularyTopic.getVocabularyName();
+    }
 }

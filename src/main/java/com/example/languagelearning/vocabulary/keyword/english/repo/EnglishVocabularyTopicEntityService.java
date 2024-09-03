@@ -23,6 +23,10 @@ public class EnglishVocabularyTopicEntityService {
         return englishVocabularyTopicEntityRepo.save(englishVocabularyTopicEntity);
     }
 
+    public List<EnglishVocabularyTopicEntity> addTopicEntities(List<EnglishVocabularyTopicEntity> englishVocabularyTopicEntities) {
+        return englishVocabularyTopicEntityRepo.saveAll(englishVocabularyTopicEntities);
+    }
+
     public List<EnglishVocabularyTopicEntity> findTopicsByKeywordAndTranslationLanguage(String keyword, String translationLanguage) {
         try {
             return englishVocabularyTopicEntityRepo.findTopicsByKeywordAndTranslationLanguage(keyword, translationLanguage);

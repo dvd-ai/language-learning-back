@@ -22,6 +22,10 @@ public class GermanVocabularyTopicEntityService {
         return germanVocabularyTopicEntityRepo.save(germanVocabularyTopicEntity);
     }
 
+    public List<GermanVocabularyTopicEntity> addTopicEntities(List<GermanVocabularyTopicEntity> germanVocabularyTopicEntities) {
+        return germanVocabularyTopicEntityRepo.saveAll(germanVocabularyTopicEntities);
+    }
+
     public List<GermanVocabularyTopicEntity> findTopicsByKeywordAndTranslationLanguage(String keyword, String translationLanguage) {
         try {
             return germanVocabularyTopicEntityRepo.findTopicsByKeywordAndTranslationLanguage(keyword, translationLanguage);
