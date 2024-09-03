@@ -4,23 +4,25 @@ import com.example.languagelearning.openai.OpenAiService;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Function;
 
-public class VocabularyKeywordUtil {
+@Service
+public class VocabularyJsonUtil {
 
-    private VocabularyKeywordUtil() {
+    private VocabularyJsonUtil() {
     }
 
     @Async
-    public static CompletableFuture<String> getSpeechPartJson(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters,
+    public CompletableFuture<String> getSpeechPartJson(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters,
                                                               Function<VocabularyKeywordPromptParameters, String> speechPartDefinition) {
         return openAiService.defaultAsyncCall(speechPartDefinition.apply(promptParameters));
     }
 
     @Async
-    public static CompletableFuture<String> getSpeechPartJson(OpenAiService openAiService, VocabularyByTextPromptParameters promptParameters,
+    public CompletableFuture<String> getSpeechPartJson(OpenAiService openAiService, VocabularyByTextPromptParameters promptParameters,
                                                               Function<VocabularyByTextPromptParameters, String> speechPartDefinition) {
         return openAiService.defaultAsyncCall(speechPartDefinition.apply(promptParameters));
     }
