@@ -1,4 +1,4 @@
-package com.example.languagelearning.vocabulary.keyword.german;
+package com.example.languagelearning.vocabulary.common.german;
 
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicComparator;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
@@ -69,7 +69,29 @@ public class GermanVocabularyMapper {
         );
     }
 
+    //temporal method
+    public GermanVocabularyTopicEntity mapToEntity(GermanVocabularyTopic vocabularyTopic, String translationLanguage) {
+        return new GermanVocabularyTopicEntity(
+                new GermanVocabularyTopic(
+                        vocabularyTopic.getVocabularyName(),
+                        vocabularyTopic.getVerbs(),
+                        vocabularyTopic.getNouns(),
+                        vocabularyTopic.getAdjectives(),
+                        vocabularyTopic.getCollocations(),
+                        vocabularyTopic.getIdioms(),
+                        vocabularyTopic.getPrepositionalVerbs()
+                ),
+                translationLanguage
+        );
+    }
+
     public List<GermanVocabularyTopicEntity> mapToEntities(List<GermanVocabularyTopic> vocabularyTopics, Locale translationLanguage) {
+        return vocabularyTopics.stream()
+                .map(topic -> mapToEntity(topic, translationLanguage))
+                .toList();
+    }
+
+    public List<GermanVocabularyTopicEntity> mapToEntities(List<GermanVocabularyTopic> vocabularyTopics, String translationLanguage) {
         return vocabularyTopics.stream()
                 .map(topic -> mapToEntity(topic, translationLanguage))
                 .toList();
