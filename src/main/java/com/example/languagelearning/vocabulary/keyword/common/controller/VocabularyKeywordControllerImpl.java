@@ -42,10 +42,4 @@ public class VocabularyKeywordControllerImpl implements VocabularyKeywordControl
         vocabularyKeywordValidator.checkAllTranslationLanguages(topics);
         vocabularyManager.updateTopics(topics);
     }
-
-    @Override
-    public List<? extends VocabularyTopicDto> getVocabularyByText(VocabularyByTextRequestDto requestDto) {
-        //validation
-        return vocabularyManager.getVocabularyByText(requestDto);
-    }
 }

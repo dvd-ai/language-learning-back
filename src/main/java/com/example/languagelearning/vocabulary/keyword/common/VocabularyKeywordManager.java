@@ -62,16 +62,4 @@ public class VocabularyKeywordManager {
         }
         return null;
     }
-
-    public List<? extends VocabularyTopicDto> getVocabularyByText(VocabularyByTextRequestDto requestDto) {
-        try {
-            for (VocabularyKeywordService vocabularyKeywordService : vocabularyServices.values()) {
-                if (vocabularyKeywordService.getLanguage().equals(normalizeLocale(requestDto.targetLanguage())))
-                    return vocabularyKeywordService.getVocabularyByText(requestDto, openAiService);
-            }
-        } catch (Exception e) {
-            throw new ApplicationException(e.getMessage());
-        }
-        throw new ClientException("The service for the language: '" + requestDto.targetLanguage() + "'  wasn't found");
-    }
 }

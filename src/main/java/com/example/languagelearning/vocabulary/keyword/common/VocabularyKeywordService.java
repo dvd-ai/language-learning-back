@@ -12,6 +12,4 @@ public interface VocabularyKeywordService extends Language {
     List<? extends VocabularyTopicDto> processByKeyword(String keyword, OpenAiService openAiService, String translationLanguage) throws JsonProcessingException;
 
     void updateVocabularyTopic(VocabularyTopicDto vocabularyTopicDto);
-
-    List<? extends VocabularyTopicDto> getVocabularyByText(VocabularyByTextRequestDto requestDto, OpenAiService openAiService);
 }
