@@ -1,7 +1,6 @@
 package com.example.languagelearning.vocabulary.keyword.common.controller;
 
 import com.example.languagelearning.vocabulary.keyword.common.VocabularyKeywordManager;
-import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyByTextRequestDto;
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;

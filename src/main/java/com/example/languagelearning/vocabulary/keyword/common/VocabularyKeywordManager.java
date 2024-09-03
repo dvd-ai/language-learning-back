@@ -3,7 +3,6 @@ package com.example.languagelearning.vocabulary.keyword.common;
 import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.error.ClientException;
 import com.example.languagelearning.openai.OpenAiService;
-import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyByTextRequestDto;
 import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
