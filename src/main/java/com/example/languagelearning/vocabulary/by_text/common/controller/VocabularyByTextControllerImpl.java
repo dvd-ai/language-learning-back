@@ -11,6 +11,11 @@ import java.util.List;
 public class VocabularyByTextControllerImpl implements VocabularyByTextController{
 
     private final VocabularyByTextManager vocabularyManager;
+
+    public VocabularyByTextControllerImpl(VocabularyByTextManager vocabularyManager) {
+        this.vocabularyManager = vocabularyManager;
+    }
+
     @Override
     public List<? extends VocabularyTopicDto> getVocabularyByText(VocabularyByTextRequestDto requestDto) {
         //validation
