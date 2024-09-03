@@ -1,6 +1,6 @@
 package com.example.languagelearning.vocabulary.keyword.common.controller;
 
-import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
+import com.example.languagelearning.vocabulary.common.VocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopicDto;
 import io.swagger.v3.oas.annotations.Operation;

@@ -1,7 +1,7 @@
 package com.example.languagelearning.vocabulary.keyword.common.controller;
 
 import com.example.languagelearning.error.ClientException;
-import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
+import com.example.languagelearning.vocabulary.common.VocabularyTopicDto;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

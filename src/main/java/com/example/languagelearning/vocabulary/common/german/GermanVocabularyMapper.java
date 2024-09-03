@@ -1,6 +1,6 @@
 package com.example.languagelearning.vocabulary.common.german;
 
-import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicComparator;
+import com.example.languagelearning.vocabulary.common.VocabularyTopicComparator;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.german.entity.GermanVocabularyTopicEntity;

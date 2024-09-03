@@ -1,4 +1,4 @@
-package com.example.languagelearning.vocabulary.keyword.common.dto;
+package com.example.languagelearning.vocabulary.common;
 
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopicDto;
