@@ -5,6 +5,7 @@ import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabula
 import java.util.Iterator;
 import java.util.List;
 
+import static com.example.languagelearning.vocabulary.common.WordUtils.removeEmptyWordsPhrases;
 import static com.example.languagelearning.vocabulary.keyword.common.util.DuplicationUtil.removeDuplicates;
 import static com.example.languagelearning.vocabulary.keyword.common.util.DuplicationUtil.removeDuplicatesBetweenLists;
 
@@ -15,8 +16,18 @@ public class GermanVocabularyTopicPostProcessor {
 
     public static void performCleanup(List<GermanVocabularyTopic> vocabularyTopics) {
         vocabularyTopics.forEach(GermanVocabularyTopicPostProcessor::removeDuplicatedWordsInsideTopic);
+        vocabularyTopics.forEach(GermanVocabularyTopicPostProcessor::removeEmptyWordsPhrasesInsideTopic);
         removeDuplicatesOutsideTheTopic(vocabularyTopics);
         removeEmptyTopics(vocabularyTopics);
+    }
+
+    private static void removeEmptyWordsPhrasesInsideTopic(GermanVocabularyTopic germanVocabularyTopic) {
+        removeEmptyWordsPhrases(germanVocabularyTopic.getVerbs());
+        removeEmptyWordsPhrases(germanVocabularyTopic.getNouns());
+        removeEmptyWordsPhrases(germanVocabularyTopic.getAdjectives());
+        removeEmptyWordsPhrases(germanVocabularyTopic.getCollocations());
+        removeEmptyWordsPhrases(germanVocabularyTopic.getPrepositionalVerbs());
+        removeEmptyWordsPhrases(germanVocabularyTopic.getIdioms());
     }
 
     private static void removeDuplicatesOutsideTheTopic(List<GermanVocabularyTopic> vocabularyTopics) {

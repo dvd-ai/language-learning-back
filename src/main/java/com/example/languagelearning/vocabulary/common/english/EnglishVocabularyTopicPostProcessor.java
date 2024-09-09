@@ -5,15 +5,30 @@ import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabu
 import java.util.Iterator;
 import java.util.List;
 
+import static com.example.languagelearning.vocabulary.common.WordUtils.removeEmptyWordsPhrases;
 import static com.example.languagelearning.vocabulary.keyword.common.util.DuplicationUtil.removeDuplicates;
 import static com.example.languagelearning.vocabulary.keyword.common.util.DuplicationUtil.removeDuplicatesBetweenLists;
 
 public class EnglishVocabularyTopicPostProcessor {
 
+    private EnglishVocabularyTopicPostProcessor() {
+    }
+
     public static void performCleanup(List<EnglishVocabularyTopic> vocabularyTopics) {
         vocabularyTopics.forEach(EnglishVocabularyTopicPostProcessor::removeDuplicatedWordsInsideTopic);
+        vocabularyTopics.forEach(EnglishVocabularyTopicPostProcessor::removeEmptyWordsPhrasesInsideTopic);
         removeDuplicatesOutsideTheTopic(vocabularyTopics);
         removeEmptyTopics(vocabularyTopics);
+    }
+
+    private static void removeEmptyWordsPhrasesInsideTopic(EnglishVocabularyTopic englishVocabularyTopic) {
+        removeEmptyWordsPhrases(englishVocabularyTopic.getVerbs());
+        removeEmptyWordsPhrases(englishVocabularyTopic.getNouns());
+        removeEmptyWordsPhrases(englishVocabularyTopic.getAdjectives());
+        removeEmptyWordsPhrases(englishVocabularyTopic.getCollocations());
+        removeEmptyWordsPhrases(englishVocabularyTopic.getPrepositionalVerbs());
+        removeEmptyWordsPhrases(englishVocabularyTopic.getPhrasalVerbs());
+        removeEmptyWordsPhrases(englishVocabularyTopic.getIdioms());
     }
 
     private static void removeDuplicatesOutsideTheTopic(List<EnglishVocabularyTopic> vocabularyTopics) {
