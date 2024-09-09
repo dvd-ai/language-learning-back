@@ -1,5 +1,7 @@
 package com.example.languagelearning.vocabulary.keyword.english.dto;
 
+import com.example.languagelearning.vocabulary.common.Word;
+
 import java.util.Objects;
 
 public record EnglishPhrasalVerb(
@@ -8,7 +10,7 @@ public record EnglishPhrasalVerb(
         String englishDefinition,
         String preposition,
         String englishExampleSentence
-) {
+) implements Word {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -22,5 +24,10 @@ public record EnglishPhrasalVerb(
     @Override
     public int hashCode() {
         return englishPhrasalVerb != null ? englishPhrasalVerb.hashCode() : 0;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return englishPhrasalVerb == null || englishPhrasalVerb.isEmpty();
     }
 }
