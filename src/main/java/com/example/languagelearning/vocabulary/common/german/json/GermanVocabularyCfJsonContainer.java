@@ -1,4 +1,4 @@
-package com.example.languagelearning.vocabulary.common.german;
+package com.example.languagelearning.vocabulary.common.german.json;
 
 import java.util.concurrent.CompletableFuture;
 

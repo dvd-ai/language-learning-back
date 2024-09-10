@@ -1,4 +1,4 @@
-package com.example.languagelearning.vocabulary.keyword.common.prompt;
+package com.example.languagelearning.vocabulary.by_text.common;
 
 import com.example.languagelearning.vocabulary.by_text.common.dto.VocabularyByTextRequestDto;
 

@@ -1,6 +1,6 @@
-package com.example.languagelearning.vocabulary.keyword.english.prompt;
+package com.example.languagelearning.vocabulary.by_text.english.prompt;
 
-import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyByTextPromptParameters;
+import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
 
 import static com.example.languagelearning.vocabulary.keyword.english.prompt.EnglishPromptConstants.*;
 

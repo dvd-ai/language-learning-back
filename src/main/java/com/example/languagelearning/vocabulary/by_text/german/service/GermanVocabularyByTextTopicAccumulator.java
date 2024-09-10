@@ -1,6 +1,6 @@
-package com.example.languagelearning.vocabulary.by_text.german;
+package com.example.languagelearning.vocabulary.by_text.german.service;
 
-import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyByTextPromptParameters;
+import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
 
 import java.util.ArrayList;
