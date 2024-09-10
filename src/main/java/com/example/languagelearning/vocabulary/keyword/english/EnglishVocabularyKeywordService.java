@@ -77,10 +77,11 @@ public class EnglishVocabularyKeywordService extends EnglishLanguage implements 
             }
         }
 
-        extractValuesFromCompletableFutures(topicsCompletableFutures);
-
-        List<EnglishVocabularyTopicDto> existingVocabularyTopics = getExistingVocabularyTopics(keyword, translationLanguage);
-        return existingVocabularyTopics.stream().sorted(new VocabularyTopicComparator()).toList();
+        List<EnglishVocabularyTopic> englishVocabularyTopics = extractValuesFromCompletableFutures(topicsCompletableFutures);
+        performCleanup(englishVocabularyTopics);
+        List<EnglishVocabularyTopicEntity> entitiesToSave = vocabularyMapper.mapToEntities(englishVocabularyTopics, translationLanguage);
+        List<EnglishVocabularyTopicEntity> resultEntities = vocabularyTopicEntityService.addTopicEntities(entitiesToSave);
+        return vocabularyMapper.mapToDtos(resultEntities);
     }
 
     @Override
