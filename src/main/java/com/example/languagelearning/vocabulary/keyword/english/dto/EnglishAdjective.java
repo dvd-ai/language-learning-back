@@ -2,9 +2,10 @@ package com.example.languagelearning.vocabulary.keyword.english.dto;
 
 
 import com.example.languagelearning.vocabulary.common.Word;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Objects;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public record EnglishAdjective(String englishWord, String wordTranslation,
                                String preposition, String englishExampleSentence,
                                String englishDefinition, boolean isColloquial) implements Word {

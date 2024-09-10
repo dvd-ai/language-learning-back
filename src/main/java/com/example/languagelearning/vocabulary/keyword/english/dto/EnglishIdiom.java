@@ -1,9 +1,10 @@
 package com.example.languagelearning.vocabulary.keyword.english.dto;
 
 import com.example.languagelearning.vocabulary.common.Word;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Objects;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public record EnglishIdiom(
         String englishIdiom, String englishDefinition,
         String englishExampleSentence, String idiomTranslation

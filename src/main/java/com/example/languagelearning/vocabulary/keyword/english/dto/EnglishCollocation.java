@@ -1,9 +1,10 @@
 package com.example.languagelearning.vocabulary.keyword.english.dto;
 
 import com.example.languagelearning.vocabulary.common.Word;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Objects;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public record EnglishCollocation(
         String englishCollocation, String collocationTranslation,
         String englishDefinition, String englishExampleSentence
