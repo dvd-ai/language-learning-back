@@ -159,7 +159,7 @@ public class EnglishVocabularyKeywordService implements VocabularyKeywordService
         return objectMapper.readValue(
                 openAiService.customCall(subtopic1LevelPromptProcessor.getSubtopic1LevelNames(keyword, targetLanguage),
                         OpenAiChatOptions.builder()
-                                .withModel("gpt-4-turbo")
+                                .withModel("gpt-4o")
                                 .build()
                 ),
                 Subtopic1NestingLevelBlockContainer.class
