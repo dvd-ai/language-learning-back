@@ -1,4 +1,6 @@
-package com.example.languagelearning.vocabulary.keyword.common.dto;
+package com.example.languagelearning.vocabulary.by_text.common.dto;
+
+import com.example.languagelearning.vocabulary.common.VocabularyTopicDto;
 
 import java.util.List;
 import java.util.Map;

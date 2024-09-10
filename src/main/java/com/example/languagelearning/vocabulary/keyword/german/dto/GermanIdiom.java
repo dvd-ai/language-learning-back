@@ -1,9 +1,13 @@
 package com.example.languagelearning.vocabulary.keyword.german.dto;
 
+import com.example.languagelearning.vocabulary.common.Word;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Objects;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public record GermanIdiom(String germanIdiom, String germanDefinition,
-                          String germanExampleSentence, String idiomTranslation) {
+                          String germanExampleSentence, String idiomTranslation) implements Word {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -17,5 +21,10 @@ public record GermanIdiom(String germanIdiom, String germanDefinition,
     @Override
     public int hashCode() {
         return germanIdiom != null ? germanIdiom.hashCode() : 0;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return germanIdiom == null || germanIdiom.isEmpty();
     }
 }

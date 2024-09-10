@@ -1,4 +1,4 @@
-package com.example.languagelearning.vocabulary.keyword.common.dto;
+package com.example.languagelearning.vocabulary.common;
 
 import java.util.Comparator;
 import java.util.regex.Matcher;

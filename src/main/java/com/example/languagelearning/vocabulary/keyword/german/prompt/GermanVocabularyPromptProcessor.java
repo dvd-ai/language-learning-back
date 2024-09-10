@@ -1,10 +1,11 @@
 package com.example.languagelearning.vocabulary.keyword.german.prompt;
 
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
-import org.springframework.stereotype.Service;
 
-@Service
 public class GermanVocabularyPromptProcessor {
+
+    private GermanVocabularyPromptProcessor() {
+    }
 
     public static String getPromptForSubtopic1LevelVerbs(VocabularyKeywordPromptParameters promptParameters) {
 
@@ -12,11 +13,11 @@ public class GermanVocabularyPromptProcessor {
                 """
                         Sort the verbs alphabetically. The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "germanVerbsContainer": [{}]
                         }
-                                                
+                        
                         germanVerbsContainer has array of objects that have these fields:
                         -germanWord (if the verb is reflexive, add "sich" before the verb. Example: "sich freuen" - is a reflexive verb )
                         """ +
@@ -39,11 +40,11 @@ public class GermanVocabularyPromptProcessor {
                 """
                         Sort the nouns alphabetically. The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "germanNounsContainer": [{}]
                         }
-                                                
+                        
                         the germanNounsContainer has array of objects that have these fields:
                         -germanWord (the singular form with the german gender article 'der', 'die' or 'das')
                         -pluralForm (the plural form of the german noun, or '' if the pluralForm doesn't exist in German)
@@ -62,11 +63,11 @@ public class GermanVocabularyPromptProcessor {
                 """
                         Sort the adjectives alphabetically. The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "germanAdjectivesContainer" : [{}]
                         }
-                                                
+                        
                         the germanAdjectivesContainer has array of objects that have these fields:
                         -germanWord
                         """ +
@@ -101,11 +102,11 @@ public class GermanVocabularyPromptProcessor {
                 """
                         The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "germanIdiomsContainer": [{}]
                         }
-                                                
+                        
                         the germanIdiomsContainer has array of objects that have these fields:
                         -germanIdiom
                         """ +
@@ -122,11 +123,11 @@ public class GermanVocabularyPromptProcessor {
                 """
                         The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "germanCollocationsContainer" : [{}]
                         }
-                                                
+                        
                         the collocationsContainer has array of objects that have these fields:
                         -germanCollocation (examples:
                             Example 1 (adjectives + nouns): große Sorge;
@@ -149,11 +150,11 @@ public class GermanVocabularyPromptProcessor {
                 """
                         Sort the verbs alphabetically. The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "germanPrepositionalVerbsContainer" : [{}]
                         }
-                                                
+                        
                         the prepositionalVerbsContainer has array of objects that have these fields:
                         -germanPrepositionalVerb (if the verb is reflexive, add "sich" before the verb. Example: "sich freuen über" - is a reflexive prepositional verb)
                         -caseAfterThePreposition (The value is 'Akkusativ', 'Dativ' or 'Genitiv')

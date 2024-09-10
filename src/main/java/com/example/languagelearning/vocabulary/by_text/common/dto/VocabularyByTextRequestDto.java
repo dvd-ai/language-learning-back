@@ -1,4 +1,4 @@
-package com.example.languagelearning.vocabulary.keyword.common.dto;
+package com.example.languagelearning.vocabulary.by_text.common.dto;
 
 
 import java.util.Locale;

@@ -1,6 +1,6 @@
 package com.example.languagelearning.vocabulary.keyword.english.dto;
 
-import com.example.languagelearning.vocabulary.keyword.common.dto.VocabularyTopicDto;
+import com.example.languagelearning.vocabulary.common.VocabularyTopicDto;
 
 import java.util.Locale;
 

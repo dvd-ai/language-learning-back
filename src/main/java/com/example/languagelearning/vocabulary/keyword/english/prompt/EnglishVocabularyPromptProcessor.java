@@ -3,17 +3,21 @@ package com.example.languagelearning.vocabulary.keyword.english.prompt;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 
 public final class EnglishVocabularyPromptProcessor {
+
+    private EnglishVocabularyPromptProcessor() {
+    }
+
     public static String getPromptForSubtopic1LevelVerbs(VocabularyKeywordPromptParameters promptParameters) {
 
         return "Give me up to 12 verbs from the topic '" + promptParameters.keyword() + "." + promptParameters.subtopic0Level() + "." + promptParameters.subtopic1Level() + "' that are commonly used in English." +
                 """
                         Sort the verbs alphabetically. The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "englishVerbsContainer": [{}]
                         }
-                                                
+                        
                         verbsContainer has array of objects that have these fields:
                         -englishWord
                         """ +
@@ -34,11 +38,11 @@ public final class EnglishVocabularyPromptProcessor {
                 """
                         Sort the nouns alphabetically. The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "englishNounsContainer": [{}]
                         }
-                                                
+                        
                         the nounsContainer has array of objects that have these fields:
                         -englishWord
                         """ +
@@ -57,11 +61,11 @@ public final class EnglishVocabularyPromptProcessor {
                 """
                         Sort the adjectives alphabetically. The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "englishAdjectivesContainer" : [{}]
                         }
-                                                
+                        
                         the adjectivesContainer has array of objects that have these fields:
                         -englishWord
                         """ +
@@ -80,11 +84,11 @@ public final class EnglishVocabularyPromptProcessor {
                 """
                         The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "englishIdiomsContainer": [{}]
                         }
-                                                
+                        
                         the idiomsContainer has array of objects that have these fields:
                         -englishIdiom
                         """ +
@@ -101,11 +105,11 @@ public final class EnglishVocabularyPromptProcessor {
                 """
                         The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "englishCollocationsContainer" : [{}]
                         }
-                                                
+                        
                         the collocationsContainer has array of objects that have these fields:
                         -englishCollocation
                         """ +
@@ -122,11 +126,11 @@ public final class EnglishVocabularyPromptProcessor {
                 """
                         Sort the verbs alphabetically. The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "englishPrepositionalVerbsContainer" : [{}]
                         }
-                                                
+                        
                         the prepositionalVerbsContainer has array of objects that have these fields:
                         -englishPrepositionalVerb
                         """ +
@@ -144,11 +148,11 @@ public final class EnglishVocabularyPromptProcessor {
                 """
                         Sort the verbs alphabetically. The output should be only in a json format.
                         Here is the detailed look at the output:
-                                                
+                        
                         {
                             "englishPhrasalVerbsContainer" : [{}]
                         }
-                                                
+                        
                         the phrasalVerbsContainer has array of objects that have these fields:
                         -englishPhrasalVerb
                         """ +
