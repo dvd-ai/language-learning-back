@@ -1,7 +1,7 @@
 package com.example.languagelearning.vocabulary.keyword.common.util;
 
 import com.example.languagelearning.openai.OpenAiService;
-import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyByTextPromptParameters;
+import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -11,9 +11,6 @@ import java.util.function.Function;
 
 @Service
 public class VocabularyJsonUtil {
-
-    private VocabularyJsonUtil() {
-    }
 
     @Async
     public CompletableFuture<String> getSpeechPartJson(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters,
