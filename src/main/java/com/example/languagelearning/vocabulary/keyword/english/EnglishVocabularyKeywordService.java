@@ -54,26 +54,20 @@ public class EnglishVocabularyKeywordService extends EnglishLanguage implements 
     }
 
     @Override
-    public String getLanguage() {
-        return normalizeLocale(Locale.ENGLISH);
-    }
-
-    @Override
     public List<? extends VocabularyTopicDto> processByKeyword(String keyword, OpenAiService openAiService, String translationLanguage) throws JsonProcessingException {
         List<EnglishVocabularyTopicDto> vocabularyTopics = getExistingVocabularyTopics(keyword, translationLanguage);
+
         if (!vocabularyTopics.isEmpty()) {
-            return vocabularyTopics.stream().sorted(new VocabularyTopicComparator()).toList();
+            return vocabularyTopics;
         }
 
-
         var subtopicBlockEntries = getSubtopic1NestingLevelBlockContainer(keyword, getLanguage(), openAiService);
-
         List<CompletableFuture<EnglishVocabularyTopic>> topicsCompletableFutures = new ArrayList<>();
 
         for (var subtopicBlock : subtopicBlockEntries.entries()) {
             for (var level1topicName : subtopicBlock.getSubtopic1LevelNames()) {
                 var promptParameters = new VocabularyKeywordPromptParameters(keyword, subtopicBlock.getSubtopic0LevelName(), level1topicName, translationLanguage);
-                topicsCompletableFutures.add(getCompleteTopicCompletableFuture(openAiService, promptParameters));
+                topicsCompletableFutures.add(cfUtil.getCompleteTopicCompletableFuture(openAiService, promptParameters));
             }
         }
 
