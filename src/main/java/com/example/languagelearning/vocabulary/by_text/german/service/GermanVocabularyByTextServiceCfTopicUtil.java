@@ -1,11 +1,10 @@
-package com.example.languagelearning.vocabulary.by_text.german;
+package com.example.languagelearning.vocabulary.by_text.german.service;
 
 import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.openai.OpenAiService;
-import com.example.languagelearning.vocabulary.common.german.GermanVocabularyCfJsonContainer;
-import com.example.languagelearning.vocabulary.common.german.GermanVocabularyCfJsonUtil;
-import com.example.languagelearning.vocabulary.common.german.GermanVocabularyJsonContainer;
-import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyByTextPromptParameters;
+import com.example.languagelearning.vocabulary.common.german.json.GermanVocabularyCfJsonContainer;
+import com.example.languagelearning.vocabulary.common.german.json.GermanVocabularyJsonContainer;
+import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
 import com.example.languagelearning.vocabulary.keyword.german.dto.container.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -16,14 +15,15 @@ import org.springframework.stereotype.Service;
 import java.util.concurrent.CompletableFuture;
 
 import static com.example.languagelearning.vocabulary.by_text.common.VocabularyNameFormatter.getParagraphedVocabularyName;
+import static com.example.languagelearning.vocabulary.common.german.json.GermanVocabularyJsonContainerExtractor.extract;
 
 @Service
-public class GermanVocabularyByTextServiceCfUtil {
+public class GermanVocabularyByTextServiceCfTopicUtil {
 
     private final ObjectMapper objectMapper;
-    private final GermanVocabularyCfJsonUtil cfJsonUtil;
+    private final GermanVocabularyByTextCfJsonUtil cfJsonUtil;
 
-    public GermanVocabularyByTextServiceCfUtil(ObjectMapper objectMapper, GermanVocabularyCfJsonUtil cfJsonUtil) {
+    public GermanVocabularyByTextServiceCfTopicUtil(ObjectMapper objectMapper, GermanVocabularyByTextCfJsonUtil cfJsonUtil) {
         this.objectMapper = objectMapper;
         this.cfJsonUtil = cfJsonUtil;
     }
@@ -40,7 +40,7 @@ public class GermanVocabularyByTextServiceCfUtil {
 
     private GermanVocabularyTopic createTopicFromPartsByText(CompletableFuture<GermanVocabularyCfJsonContainer> cfJsonContainer,
                                                              VocabularyByTextPromptParameters topicParameters) {
-        GermanVocabularyJsonContainer container = cfJsonUtil.tryToExtractGermanVocabularyJsonContainer(cfJsonContainer);
+        GermanVocabularyJsonContainer container = extract(cfJsonContainer);
         try {
             return new GermanVocabularyTopic(
                     getParagraphedVocabularyName(topicParameters),
