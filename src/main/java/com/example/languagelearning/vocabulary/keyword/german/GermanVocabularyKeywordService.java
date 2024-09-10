@@ -1,36 +1,27 @@
 package com.example.languagelearning.vocabulary.keyword.german;
 
 import com.example.languagelearning.common.GermanLanguage;
-import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.openai.OpenAiService;
+import com.example.languagelearning.vocabulary.common.VocabularyTopicDto;
 import com.example.languagelearning.vocabulary.common.german.GermanVocabularyMapper;
 import com.example.languagelearning.vocabulary.keyword.common.VocabularyKeywordService;
 import com.example.languagelearning.vocabulary.keyword.common.dto.Subtopic1NestingLevelBlockContainer;
-import com.example.languagelearning.vocabulary.common.VocabularyTopicComparator;
-import com.example.languagelearning.vocabulary.common.VocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularySubtopic1LevelPromptProcessor;
-
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopicDto;
-import com.example.languagelearning.vocabulary.keyword.german.dto.container.*;
 import com.example.languagelearning.vocabulary.keyword.german.entity.GermanVocabularyTopicEntity;
-import com.example.languagelearning.vocabulary.keyword.german.prompt.GermanVocabularyPromptProcessor;
 import com.example.languagelearning.vocabulary.keyword.german.repo.GermanVocabularyTopicEntityService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.ai.openai.OpenAiChatOptions;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.concurrent.CompletableFuture;
 
-import static com.example.languagelearning.common.LanguageUtil.normalizeLocale;
 import static com.example.languagelearning.util.CompletableFutureUtil.extractValuesFromCompletableFutures;
-
 import static com.example.languagelearning.vocabulary.common.german.GermanVocabularyTopicPostProcessor.performCleanup;
 
 

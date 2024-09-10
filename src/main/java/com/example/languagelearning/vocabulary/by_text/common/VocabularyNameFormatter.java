@@ -6,6 +6,7 @@ public class VocabularyNameFormatter {
 
     private VocabularyNameFormatter() {
     }
+
     public static String getParagraphedVocabularyName(VocabularyByTextPromptParameters topicParameters) {
         return topicParameters.requestDto().textTopicLabel()
                 .concat(".P")

@@ -2,17 +2,15 @@ package com.example.languagelearning.vocabulary.by_text.english.service;
 
 import com.example.languagelearning.common.EnglishLanguage;
 import com.example.languagelearning.openai.OpenAiService;
+import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextService;
 import com.example.languagelearning.vocabulary.by_text.common.VocabularyTopicByTextCollectorUtil;
 import com.example.languagelearning.vocabulary.by_text.common.dto.VocabularyByTextRequestDto;
-
 import com.example.languagelearning.vocabulary.common.VocabularyTopicDto;
-import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.common.english.EnglishVocabularyMapper;
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopic;
 import com.example.languagelearning.vocabulary.keyword.english.entity.EnglishVocabularyTopicEntity;
 import com.example.languagelearning.vocabulary.keyword.english.repo.EnglishVocabularyTopicEntityService;
-
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,13 +20,12 @@ import java.util.concurrent.CompletableFuture;
 
 import static com.example.languagelearning.util.CompletableFutureUtil.extractValuesFromCompletableFutures;
 import static com.example.languagelearning.util.TextUtil.breakTextIntoSortedParagraphs;
-
 import static com.example.languagelearning.vocabulary.by_text.common.UserTextConstants.APPROPRIATE_TEXT_LENGTH_FOR_AI;
 import static com.example.languagelearning.vocabulary.common.english.EnglishVocabularyTopicPostProcessor.performCleanup;
 
 @Service
 public class EnglishVocabularyByTextService extends EnglishLanguage implements VocabularyByTextService {
-    
+
     private final EnglishVocabularyMapper vocabularyMapper;
 
     private final EnglishVocabularyByTextCfTopicUtil englishCfUtil;
@@ -77,5 +74,5 @@ public class EnglishVocabularyByTextService extends EnglishLanguage implements V
                 englishCfUtil.getCompleteTopicByTextCompletableFuture(openAiService, promptParameters)
         );
     }
-    
+
 }

@@ -8,7 +8,8 @@ import java.util.Objects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record GermanPrepositionalVerb(String germanPrepositionalVerb, String translation,
                                       String germanDefinition, String germanExampleSentence,
-                                      String caseAfterThePreposition, boolean isSeparable, boolean isColloquial) implements Word {
+                                      String caseAfterThePreposition, boolean isSeparable,
+                                      boolean isColloquial) implements Word {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

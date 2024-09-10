@@ -11,7 +11,8 @@ import static com.example.languagelearning.vocabulary.by_text.common.VocabularyN
 
 public final class EnglishVocabularyByTextTopicAccumulator {
 
-    private EnglishVocabularyByTextTopicAccumulator(){}
+    private EnglishVocabularyByTextTopicAccumulator() {
+    }
 
     public static EnglishVocabularyTopic getAccumulatedVocabularyTopic(List<EnglishVocabularyTopic> vocabularyTopicParts, VocabularyByTextPromptParameters promptParameters) {
         EnglishVocabularyTopic resultTopic = new EnglishVocabularyTopic(

@@ -6,6 +6,7 @@ public class WordUtils {
 
     private WordUtils() {
     }
+
     public static void removeEmptyWordsPhrases(List<? extends Word> wordsPhrases) {
         wordsPhrases.removeIf(Word::isEmpty);
     }

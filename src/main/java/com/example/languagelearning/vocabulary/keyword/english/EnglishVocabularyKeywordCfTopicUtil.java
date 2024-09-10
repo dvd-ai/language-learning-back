@@ -2,7 +2,6 @@ package com.example.languagelearning.vocabulary.keyword.english;
 
 import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.openai.OpenAiService;
-
 import com.example.languagelearning.vocabulary.common.english.json.EnglishVocabularyCfJsonContainer;
 import com.example.languagelearning.vocabulary.common.english.json.EnglishVocabularyJsonContainer;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;

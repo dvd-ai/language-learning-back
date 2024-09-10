@@ -2,11 +2,10 @@ package com.example.languagelearning.vocabulary.keyword.english;
 
 import com.example.languagelearning.common.EnglishLanguage;
 import com.example.languagelearning.openai.OpenAiService;
+import com.example.languagelearning.vocabulary.common.VocabularyTopicDto;
 import com.example.languagelearning.vocabulary.common.english.EnglishVocabularyMapper;
 import com.example.languagelearning.vocabulary.keyword.common.VocabularyKeywordService;
 import com.example.languagelearning.vocabulary.keyword.common.dto.Subtopic1NestingLevelBlockContainer;
-
-import com.example.languagelearning.vocabulary.common.VocabularyTopicDto;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularySubtopic1LevelPromptProcessor;
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopic;
@@ -21,7 +20,6 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
-
 
 import static com.example.languagelearning.util.CompletableFutureUtil.extractValuesFromCompletableFutures;
 import static com.example.languagelearning.vocabulary.common.english.EnglishVocabularyTopicPostProcessor.performCleanup;

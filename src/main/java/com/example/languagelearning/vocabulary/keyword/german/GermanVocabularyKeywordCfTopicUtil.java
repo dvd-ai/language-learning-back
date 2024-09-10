@@ -5,9 +5,8 @@ import com.example.languagelearning.openai.OpenAiService;
 import com.example.languagelearning.vocabulary.common.german.json.GermanVocabularyCfJsonContainer;
 import com.example.languagelearning.vocabulary.common.german.json.GermanVocabularyJsonContainer;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
-import com.example.languagelearning.vocabulary.keyword.german.dto.container.*;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
-
+import com.example.languagelearning.vocabulary.keyword.german.dto.container.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.scheduling.annotation.Async;
@@ -41,7 +40,7 @@ public class GermanVocabularyKeywordCfTopicUtil {
 
 
     private GermanVocabularyTopic createTopicFromParts(CompletableFuture<GermanVocabularyCfJsonContainer> cfJsonContainer,
-                                                        VocabularyKeywordPromptParameters topicParameters) {
+                                                       VocabularyKeywordPromptParameters topicParameters) {
         GermanVocabularyJsonContainer container = extract(cfJsonContainer);
 
         try {

@@ -8,6 +8,7 @@ public class GermanVocabularyJsonContainerExtractor {
 
     private GermanVocabularyJsonContainerExtractor() {
     }
+
     public static GermanVocabularyJsonContainer extract(CompletableFuture<GermanVocabularyCfJsonContainer> cfJsonContainer) {
         GermanVocabularyCfJsonContainer container = cfJsonContainer.join();
         String extractedVerbs = tryToExtractSingleCompletedFutureElement(container.verbs());

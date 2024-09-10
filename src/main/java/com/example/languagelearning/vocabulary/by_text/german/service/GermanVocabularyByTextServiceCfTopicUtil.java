@@ -2,9 +2,9 @@ package com.example.languagelearning.vocabulary.by_text.german.service;
 
 import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.openai.OpenAiService;
+import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.common.german.json.GermanVocabularyCfJsonContainer;
 import com.example.languagelearning.vocabulary.common.german.json.GermanVocabularyJsonContainer;
-import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
 import com.example.languagelearning.vocabulary.keyword.german.dto.container.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -30,7 +30,7 @@ public class GermanVocabularyByTextServiceCfTopicUtil {
 
     @Async
     public CompletableFuture<GermanVocabularyTopic> getCompleteTopicByTextCompletableFuture(OpenAiService openAiService, VocabularyByTextPromptParameters promptParameters) {
-        CompletableFuture<GermanVocabularyCfJsonContainer>jsonContainer = cfJsonUtil.getJsonContainer(openAiService, promptParameters);
+        CompletableFuture<GermanVocabularyCfJsonContainer> jsonContainer = cfJsonUtil.getJsonContainer(openAiService, promptParameters);
 
         return CompletableFuture.allOf(jsonContainer)
                 .thenApply(parts -> createTopicFromPartsByText(

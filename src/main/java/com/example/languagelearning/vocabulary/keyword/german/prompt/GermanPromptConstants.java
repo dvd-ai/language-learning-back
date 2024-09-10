@@ -8,11 +8,11 @@ public final class GermanPromptConstants {
     public static final String DE_VERBS_JSON_OUTPUT_PART1 = """
             The output should be only in a json format.
             Here is the detailed look at the output:
-                                    
+            
             {
                 "germanVerbsContainer": [{}]
             }
-                                    
+            
             germanVerbsContainer has array of objects that have these fields:
             -germanWord (if the verb is reflexive, add "sich" before the verb. Example: "sich freuen" - is a reflexive verb )
             """;
@@ -30,11 +30,11 @@ public final class GermanPromptConstants {
     public static final String DE_NOUNS_JSON_OUTPUT_PART1 = """
             The output should be only in a json format.
             Here is the detailed look at the output:
-                                    
+            
             {
                 "germanNounsContainer": [{}]
             }
-                                    
+            
             the germanNounsContainer has array of objects that have these fields:
             -germanWord (the singular form with the german gender article 'der', 'die' or 'das')
             -pluralForm (the plural form of the german noun, or '' if the pluralForm doesn't exist in German)
@@ -43,16 +43,16 @@ public final class GermanPromptConstants {
             -germanDefinition
              -germanExampleSentence
              -isColloquial (whether the word is used in only a colloquial language in German. The value is boolean)
-             """;
+            """;
 
     public static final String DE_ADJECTIVES_JSON_OUTPUT_PART1 = """
             The output should be only in a json format.
             Here is the detailed look at the output:
-                                    
+            
             {
                 "germanAdjectivesContainer" : [{}]
             }
-                                    
+            
             the germanAdjectivesContainer has array of objects that have these fields:
             -germanWord
             """;
@@ -83,11 +83,11 @@ public final class GermanPromptConstants {
     public static final String DE_IDIOMS_JSON_OUTPUT_PART1 = """
             The output should be only in a json format.
             Here is the detailed look at the output:
-                                    
+            
             {
                 "germanIdiomsContainer": [{}]
             }
-                                    
+            
             the germanIdiomsContainer has array of objects that have these fields:
             -germanIdiom
             """;
@@ -100,11 +100,11 @@ public final class GermanPromptConstants {
     public static final String DE_COLLOCATIONS_JSON_OUTPUT_PART1 = """
             The output should be only in a json format.
             Here is the detailed look at the output:
-                                    
+            
             {
                 "germanCollocationsContainer" : [{}]
             }
-                                    
+            
             the collocationsContainer has array of objects that have these fields:
             -germanCollocation (examples:
                 Example 1 (adjectives + nouns): große Sorge;
@@ -123,20 +123,20 @@ public final class GermanPromptConstants {
     public static final String DE_PREPOSITIONAL_VERBS_JSON_OUTPUT_PART1 = """
             The output should be only in a json format.
                                 Here is the detailed look at the output:
-                                                        
+            
                                 {
                                     "germanPrepositionalVerbsContainer" : [{}]
                                 }
-                                                        
+            
                                 the prepositionalVerbsContainer has array of objects that have these fields:
                                 -germanPrepositionalVerb (if the verb is reflexive, add "sich" before the verb. Example: "sich freuen über" - is a reflexive prepositional verb)
                                 -caseAfterThePreposition (The value is 'Akkusativ', 'Dativ' or 'Genitiv')
                                 -isSeparable (whether the verb is separable in German. Example: 'ankommen auf' is a separable prepositional verb. The value is boolean)
-                                """;
+            """;
 
     public static final String DE_PREPOSITIONAL_VERBS_JSON_OUTPUT_PART2 = """
             -germanDefinition
              -germanExampleSentence
              -isColloquial (whether the word is used in only a colloquial language. The value is boolean
-             """;
+            """;
 }

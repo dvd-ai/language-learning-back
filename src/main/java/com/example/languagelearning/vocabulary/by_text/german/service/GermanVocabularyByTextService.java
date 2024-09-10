@@ -2,16 +2,15 @@ package com.example.languagelearning.vocabulary.by_text.german.service;
 
 import com.example.languagelearning.common.GermanLanguage;
 import com.example.languagelearning.openai.OpenAiService;
+import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextService;
 import com.example.languagelearning.vocabulary.by_text.common.VocabularyTopicByTextCollectorUtil;
 import com.example.languagelearning.vocabulary.by_text.common.dto.VocabularyByTextRequestDto;
-import com.example.languagelearning.vocabulary.common.german.GermanVocabularyMapper;
 import com.example.languagelearning.vocabulary.common.VocabularyTopicDto;
-import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
+import com.example.languagelearning.vocabulary.common.german.GermanVocabularyMapper;
 import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabularyTopic;
 import com.example.languagelearning.vocabulary.keyword.german.entity.GermanVocabularyTopicEntity;
 import com.example.languagelearning.vocabulary.keyword.german.repo.GermanVocabularyTopicEntityService;
-
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

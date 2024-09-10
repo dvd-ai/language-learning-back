@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiFunction;
 
-
 import static com.example.languagelearning.util.CompletableFutureUtil.extractValuesFromCompletableFutures;
 import static com.example.languagelearning.util.TextUtil.breakTextIntoSentencesParts;
 
@@ -18,8 +17,8 @@ public class VocabularyTopicByTextCollectorUtil {
 
     @Async
     public <T> CompletableFuture<T> getCollectedCfVocabularyTopic(OpenAiService openAiService, VocabularyByTextPromptParameters promptParameters,
-                                                                                        BiFunction<List<T>, VocabularyByTextPromptParameters, T> accumulator,
-                                                                  BiFunction<OpenAiService, VocabularyByTextPromptParameters, CompletableFuture<T>>vocabularyTopicCreator
+                                                                  BiFunction<List<T>, VocabularyByTextPromptParameters, T> accumulator,
+                                                                  BiFunction<OpenAiService, VocabularyByTextPromptParameters, CompletableFuture<T>> vocabularyTopicCreator
     ) {
 
         List<String> sentencesParts = breakTextIntoSentencesParts(promptParameters.text());

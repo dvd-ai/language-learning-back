@@ -2,11 +2,9 @@ package com.example.languagelearning.vocabulary.by_text.english.service;
 
 import com.example.languagelearning.error.ApplicationException;
 import com.example.languagelearning.openai.OpenAiService;
+import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.common.english.json.EnglishVocabularyCfJsonContainer;
 import com.example.languagelearning.vocabulary.common.english.json.EnglishVocabularyJsonContainer;
-import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
-
-import com.example.languagelearning.vocabulary.keyword.common.util.VocabularyJsonUtil;
 import com.example.languagelearning.vocabulary.keyword.english.dto.EnglishVocabularyTopic;
 import com.example.languagelearning.vocabulary.keyword.english.dto.container.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -25,14 +23,14 @@ public class EnglishVocabularyByTextCfTopicUtil {
     private final ObjectMapper objectMapper;
     private final EnglishVocabularyByTextCfJsonUtil cfJsonUtil;
 
-    public EnglishVocabularyByTextCfTopicUtil(ObjectMapper objectMapper, EnglishVocabularyByTextCfJsonUtil cfJsonUtil, VocabularyJsonUtil vocabularyJsonUtil) {
+    public EnglishVocabularyByTextCfTopicUtil(ObjectMapper objectMapper, EnglishVocabularyByTextCfJsonUtil cfJsonUtil) {
         this.objectMapper = objectMapper;
         this.cfJsonUtil = cfJsonUtil;
     }
-    
+
     @Async
     public CompletableFuture<EnglishVocabularyTopic> getCompleteTopicByTextCompletableFuture(OpenAiService openAiService, VocabularyByTextPromptParameters promptParameters) {
-        CompletableFuture<EnglishVocabularyCfJsonContainer>jsonContainer = cfJsonUtil.getJsonContainer(openAiService, promptParameters);
+        CompletableFuture<EnglishVocabularyCfJsonContainer> jsonContainer = cfJsonUtil.getJsonContainer(openAiService, promptParameters);
 
         return CompletableFuture.allOf(jsonContainer)
                 .thenApply(parts -> createTopicFromPartsByText(
@@ -41,7 +39,7 @@ public class EnglishVocabularyByTextCfTopicUtil {
     }
 
     private EnglishVocabularyTopic createTopicFromPartsByText(CompletableFuture<EnglishVocabularyCfJsonContainer> cfJsonContainer,
-                                                             VocabularyByTextPromptParameters topicParameters) {
+                                                              VocabularyByTextPromptParameters topicParameters) {
         EnglishVocabularyJsonContainer container = extract(cfJsonContainer);
         try {
             return new EnglishVocabularyTopic(

@@ -14,13 +14,13 @@ public class VocabularyJsonUtil {
 
     @Async
     public CompletableFuture<String> getSpeechPartJson(OpenAiService openAiService, VocabularyKeywordPromptParameters promptParameters,
-                                                              Function<VocabularyKeywordPromptParameters, String> speechPartDefinition) {
+                                                       Function<VocabularyKeywordPromptParameters, String> speechPartDefinition) {
         return openAiService.defaultAsyncCall(speechPartDefinition.apply(promptParameters));
     }
 
     @Async
     public CompletableFuture<String> getSpeechPartJson(OpenAiService openAiService, VocabularyByTextPromptParameters promptParameters,
-                                                              Function<VocabularyByTextPromptParameters, String> speechPartDefinition) {
+                                                       Function<VocabularyByTextPromptParameters, String> speechPartDefinition) {
         return openAiService.defaultAsyncCall(speechPartDefinition.apply(promptParameters));
     }
 }

@@ -1,9 +1,9 @@
 package com.example.languagelearning.vocabulary.by_text.german.service;
 
 import com.example.languagelearning.openai.OpenAiService;
+import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.by_text.german.GermanVocabularyByTextPromptProcessor;
 import com.example.languagelearning.vocabulary.common.german.json.GermanVocabularyCfJsonContainer;
-import com.example.languagelearning.vocabulary.by_text.common.VocabularyByTextPromptParameters;
 import com.example.languagelearning.vocabulary.keyword.common.util.VocabularyJsonUtil;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;

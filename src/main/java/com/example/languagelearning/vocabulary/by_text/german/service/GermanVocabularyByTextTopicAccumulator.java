@@ -5,12 +5,14 @@ import com.example.languagelearning.vocabulary.keyword.german.dto.GermanVocabula
 
 import java.util.ArrayList;
 import java.util.List;
+
 import static com.example.languagelearning.vocabulary.by_text.common.VocabularyNameFormatter.getParagraphedVocabularyName;
 
 public final class GermanVocabularyByTextTopicAccumulator {
 
     private GermanVocabularyByTextTopicAccumulator() {
     }
+
     public static GermanVocabularyTopic getAccumulatedVocabularyTopic(List<GermanVocabularyTopic> vocabularyTopicParts, VocabularyByTextPromptParameters promptParameters) {
         GermanVocabularyTopic resultTopic = new GermanVocabularyTopic(
                 getParagraphedVocabularyName(promptParameters),
