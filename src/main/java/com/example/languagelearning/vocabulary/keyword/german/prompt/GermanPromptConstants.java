@@ -2,6 +2,9 @@ package com.example.languagelearning.vocabulary.keyword.german.prompt;
 
 public final class GermanPromptConstants {
 
+    private GermanPromptConstants() {
+    }
+
     public static final String DE_VERBS_JSON_OUTPUT_PART1 = """
             The output should be only in a json format.
             Here is the detailed look at the output:
