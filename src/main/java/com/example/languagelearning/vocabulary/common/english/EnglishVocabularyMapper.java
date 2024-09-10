@@ -53,7 +53,7 @@ public class EnglishVocabularyMapper {
         );
     }
 
-    public EnglishVocabularyTopicEntity mapToEntity(EnglishVocabularyTopic vocabularyTopic, Locale translationLanguage) {
+    public EnglishVocabularyTopicEntity mapToEntity(EnglishVocabularyTopic vocabularyTopic, String translationLanguage) {
         return new EnglishVocabularyTopicEntity(
                 new EnglishVocabularyTopic(
                         vocabularyTopic.getVerbs(),
@@ -65,13 +65,19 @@ public class EnglishVocabularyMapper {
                         vocabularyTopic.getPhrasalVerbs(),
                         vocabularyTopic.getVocabularyName()
                 ),
-                normalizeLocale(translationLanguage)
+                translationLanguage
         );
+    }
+
+    public List<EnglishVocabularyTopicEntity> mapToEntities(List<EnglishVocabularyTopic> vocabularyTopics, String translationLanguage) {
+        return vocabularyTopics.stream()
+                .map(topic -> mapToEntity(topic, translationLanguage))
+                .toList();
     }
 
     public List<EnglishVocabularyTopicEntity> mapToEntities(List<EnglishVocabularyTopic> vocabularyTopics, Locale translationLanguage) {
         return vocabularyTopics.stream()
-                .map(topic -> mapToEntity(topic, translationLanguage))
+                .map(topic -> mapToEntity(topic, normalizeLocale(translationLanguage)))
                 .toList();
     }
 
