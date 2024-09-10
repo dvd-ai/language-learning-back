@@ -3,6 +3,10 @@ package com.example.languagelearning.vocabulary.keyword.english.prompt;
 import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyKeywordPromptParameters;
 
 public final class EnglishVocabularyPromptProcessor {
+
+    private EnglishVocabularyPromptProcessor() {
+    }
+
     public static String getPromptForSubtopic1LevelVerbs(VocabularyKeywordPromptParameters promptParameters) {
 
         return "Give me up to 12 verbs from the topic '" + promptParameters.keyword() + "." + promptParameters.subtopic0Level() + "." + promptParameters.subtopic1Level() + "' that are commonly used in English." +

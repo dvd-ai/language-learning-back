@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class GermanVocabularyPromptProcessor {
 
+    private GermanVocabularyPromptProcessor() {
+    }
+
     public static String getPromptForSubtopic1LevelVerbs(VocabularyKeywordPromptParameters promptParameters) {
 
         return "Give me up to 12 german verbs from the topic '" + promptParameters.keyword() + "." + promptParameters.subtopic0Level() + "." + promptParameters.subtopic1Level() + "' that are commonly used in German." +
