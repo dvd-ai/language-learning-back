@@ -38,7 +38,7 @@ import static com.example.languagelearning.vocabulary.keyword.common.util.Vocabu
 import static com.example.languagelearning.vocabulary.keyword.english.EnglishVocabularyTopicPostProcessor.performCleanup;
 
 @Service
-public class EnglishVocabularyKeywordService implements VocabularyKeywordService {
+public class EnglishVocabularyKeywordService extends EnglishLanguage implements VocabularyKeywordService {
 
     private final ObjectMapper objectMapper;
     private final EnglishVocabularyTopicEntityService vocabularyTopicEntityService;
