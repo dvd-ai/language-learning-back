@@ -1,9 +1,11 @@
 package com.example.languagelearning.vocabulary.keyword.german.dto;
 
 import com.example.languagelearning.vocabulary.common.Word;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Objects;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public record GermanIdiom(String germanIdiom, String germanDefinition,
                           String germanExampleSentence, String idiomTranslation) implements Word {
     @Override

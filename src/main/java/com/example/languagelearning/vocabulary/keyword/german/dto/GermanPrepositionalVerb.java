@@ -1,9 +1,11 @@
 package com.example.languagelearning.vocabulary.keyword.german.dto;
 
 import com.example.languagelearning.vocabulary.common.Word;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Objects;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public record GermanPrepositionalVerb(String germanPrepositionalVerb, String translation,
                                       String germanDefinition, String germanExampleSentence,
                                       String caseAfterThePreposition, boolean isSeparable, boolean isColloquial) implements Word {
