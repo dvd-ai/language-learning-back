@@ -1,7 +1,6 @@
 package com.example.languagelearning.vocabulary.by_text.common;
 
 import com.example.languagelearning.openai.OpenAiService;
-import com.example.languagelearning.vocabulary.keyword.common.prompt.VocabularyByTextPromptParameters;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,7 @@ import static com.example.languagelearning.util.CompletableFutureUtil.extractVal
 import static com.example.languagelearning.util.TextUtil.breakTextIntoSentencesParts;
 
 @Service
-public class VocabularyTopicCollectorUtil {
+public class VocabularyTopicByTextCollectorUtil {
 
     @Async
     public <T> CompletableFuture<T> getCollectedCfVocabularyTopic(OpenAiService openAiService, VocabularyByTextPromptParameters promptParameters,
