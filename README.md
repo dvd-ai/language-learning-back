@@ -33,7 +33,6 @@
 - clone the project
 - edit application properties: put your datasource configuration, the API key or use a docker compose to configure the file at start up. The app can be used with a front app (if you specify the url)
 - use "dev" profile to get the overview of how the app works (with saving money) or use "prod" to see the full functionality.
-- run the project with 
 - build the project with **gradle :bootJar** and launch the project with **docker-compose up** or **gradlew bootRun** if you don't use docker
 
 
