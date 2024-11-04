@@ -8,7 +8,7 @@
 - [How to use](#how-to-use)
 
 ## Description
-- REST API for generating a dictionary (words, phrases) on any topic entered by users. Currently maintains 2 target languages (EN, DE).
+- REST API for generating a dictionary (words, phrases) for any topic or based on a text entered by a user. Currently maintains 2 target languages (EN, DE).
 - The generation succeds using external OPENAI API (ChatGpt models)
 
 ### Tech Stack
